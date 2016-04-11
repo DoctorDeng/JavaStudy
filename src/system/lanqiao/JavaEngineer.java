@@ -204,13 +204,156 @@ public class JavaEngineer {
 		if(status ==false){
 			System.out.println("Java工程师资料未输入或已删除！");
 		}
+		else{
+			engNo = -1;
+			engName = "";
+			engSex = -1;
+			engEdu = -1;
+			basSalary = 3000;
+			comResult = 100;
+			workDay = 22;
+			insurance = 3000*0.105;
+			engSalary = 0.0;
+			status =false;                                               //表示Java工程师资料未输入或已删除
+		}
 	}
 	
 	//功能3:查询指定Java工程师资料
-	public static void searchEngInf(){}
+	public static void searchEngInf(){
+		
+		if(status == false){
+			System.out.println("Java工程师资料未输入或已删除！");
+		}
+		else{
+			System.out.println("Java工程师编号: "+engNo);
+			System.out.println("Java工程师姓名: "+engName);
+			System.out.println("Java工程师性别: "+(engSex == 1?"男":"女"));
+		    
+			switch(engEdu){
+			case 1:
+				System.out.println("Java工程师学历: 大专");
+				break;
+			case 2:
+				System.out.println("Java工程师学历: 本科");
+				break;
+			case 3:
+				System.out.println("Java工程师学历: 硕士");
+				break;
+			case 4:
+				System.out.println("Java工程师学历: 博士");
+				break;
+			case 5:
+				System.out.println("Java工程师学历: 其他");
+				break;
+			default:
+				System.out.println("Java工程师学历输入不正确!");
+				break;
+			}
+			System.out.println("Java工程师底薪: "+basSalary);
+			System.out.println("Java工程师月应扣保险数: "+insurance);
+		}
+	}
 		
 	//功能4:修改指定Java工程师资料
-	public static void modifyEngInf(){}
+	public static void modifyEngInf(){
+		
+		if(status == false){                                            //表示Java工程师资料未输入或已删除
+			System.out.println("Java工程师资料未输入或已删除，不能修改！");
+		}
+		else{
+			//如果修改是否完整
+			status =false;
+			while(!status){
+				
+				System.out.print("原来Java工程师编号是: "+engNo+",请输入修改后的编号: ");
+				engNo = input.nextInt();
+				if(engNo <= 0){
+					status = false;
+					System.out.print("Java工程师编号不能为负值! ");
+					continue;
+				}
+				else{
+					status = true;
+				}
+				
+				System.out.print("原来Java工程师的姓名是: "+engName+",请输入修改后的姓名: ");
+				engName = input.next();
+				if(engName.length() == 0){
+					status = false;
+					System.out.print("Java工程师姓名不能为空! ");
+					continue;
+				}
+				else{
+					status = true;
+				}
+				
+				System.out.print("原来Java工程师的性别是: "+(engSex == 1?"男":"女")+",请输入修改后的性别: (1 代表男，2 代表女)");
+				engSex = input.nextInt();
+				if(engSex != 1 && engSex !=2){
+					status = false;
+					System.out.print("Java工程师性别只能输入1或2！ ");
+					continue;
+				}
+				else{
+					status = true;
+				}
+				
+				switch(engEdu){
+				case 1:
+					System.out.println("原来Java工程师学历: 大专");
+					break;
+				case 2:
+					System.out.println("原来Java工程师学历: 本科");
+					break;
+				case 3:
+					System.out.println("原来Java工程师学历: 硕士");
+					break;
+				case 4:
+					System.out.println("原来Java工程师学历: 博士");
+					break;
+				case 5:
+					System.out.println("原来Java工程师学历: 其他");
+					break;
+				default:
+					System.out.println("原来Java工程师学历输入不正确!");
+					break;
+				}
+				
+				System.out.print("请输入修改后的学历:(1 代表大专,2 代表本科,3 代表硕士,4 代表博士,5 代表其他)");
+				engEdu =input.nextInt();
+				if(engEdu !=1 && engEdu !=2 && engEdu !=3 && engEdu !=4 && engEdu !=5){
+					status = false;
+					System.out.print("学历只能输入1、2、3、4、5---(1 代表大专,2 代表本科,3 代表硕士,4 代表博士,5 代表其他)!");
+					continue;
+				}
+				else{
+					status = true;
+				}
+				
+				System.out.print("原来Java工程师的底薪是: "+basSalary+",请输入修改后的底薪: ");
+				basSalary = input.nextInt();
+				if(basSalary <= 0){
+					status = false;
+					System.out.print("Java工程师底薪不能为负值! ");
+					continue;
+				}
+				else{
+					status = true;
+				}
+				
+				System.out.print("原来Java工程师的月应扣保险金额是: "+insurance+",请输入修改后的月应保险数: ");
+				insurance = input.nextDouble();
+				if(insurance <= 0){
+					status = false;
+					System.out.print("Java工程师月应扣保险数不能为负值！ ");
+					continue;
+				}
+				else{
+					status =true;
+				}
+			}
+		}
+	}
 	
 	//功能5:计算指定Java工程师资料
 	public static void calEngSalary(){
