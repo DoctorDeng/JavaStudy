@@ -11,7 +11,8 @@ package system.lanqiao;
  *               7、对Java工程师信息排序              (未完工)
  *               8、输出所有Java工程师信息          (未完工)
  *               9、清空所有Java工程师信息          (未完工)
- *               10、从文件导入Java工程师信息    (未完工)
+ *               10、打印Java工程师数据报表        (未完工)
+ *               11、从文件导入Java工程师信息    (未完工)
  *               
  *Version:       1.0beta(第一次修改)
  *Author:        Doctor邓
@@ -19,6 +20,10 @@ package system.lanqiao;
  */
 import java.util.Scanner;
 public class JavaEngineer {
+	
+	//密码
+	static final String  PASSWORD="denghuajie123";
+	static boolean block = true;            //用于验证是否
 	
 	//以下是Java工程师资料，在输入Java工程师资料时输入的内容
 	static int engNo=-1;                    //Java工程师编号
@@ -42,6 +47,18 @@ public class JavaEngineer {
 	static Scanner input=new Scanner(System.in);
 	
 	public static void main(String[] args) {
+		
+		while(block){
+			if(verifyPassword()){
+				start();
+			}
+			else{
+				block =false;
+			}
+		}
+	}
+	//程序开始方法,用于显示主界面和判断用户所选择的功能
+	public static void start(){
 		while(true){
 			userSel=showMenu();             //调用showMenu()方法获得用户输入
 			switch(userSel)
@@ -94,6 +111,7 @@ public class JavaEngineer {
 				break;
 			}
 		}
+		
 	}
 	
 	//主界面菜单
@@ -396,5 +414,27 @@ public class JavaEngineer {
 	//计算Java工程师月薪
 	public static double calEngSalaryValue(int basSalary,int comResult,double workDay,double insurance){
 		return basSalary+basSalary*025*comResult/100+15*workDay-insurance;
+	}
+	
+	//密码验证方法
+	public static boolean verifyPassword(){
+		
+		System.out.println("请输入密码!");
+		String password = input.next();
+		if(password.equals(PASSWORD)){
+			return true;
+		}
+		else{
+			System.out.println("密码输入错误！");
+			System.out.println("输入1继续,其他退出");
+			int passwordContinue=input.nextInt();
+			if(passwordContinue ==1){
+				return verifyPassword();
+			}
+			else{
+				return false;
+			}
+			
+		}
 	}
 }
