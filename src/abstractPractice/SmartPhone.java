@@ -1,6 +1,12 @@
 package abstractPractice;
 
-public class SmartPhone extends Telphone {
+public class SmartPhone extends Telphone implements IPlayGame{
+
+	@Override
+	public void playGame() {
+		// TODO 自动生成的方法存根
+		System.out.println("具有玩游戏的功能");
+	}
 
 	@Override
 	public void call() {
