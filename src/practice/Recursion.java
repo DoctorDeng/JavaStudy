@@ -35,6 +35,7 @@ public class Recursion {
 		//验证循环方法是否正确
 		int result=Recursion.returnSumLoop(n);
 		System.out.println("循环方法的结果: "+result);
+		input.close();
 	}
 
 }

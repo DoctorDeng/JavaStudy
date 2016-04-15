@@ -56,5 +56,6 @@ public class BinaryTranlation {
 		//验证递归方法进制转换的正确性
 		System.out.println("这是递归方法的结果: ");
 		BinaryTranlation.binaryTranlationRecursion(n);
+		input.close();
 	}
 }

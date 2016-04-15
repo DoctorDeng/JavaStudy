@@ -24,4 +24,8 @@ public class Car {
 	public void setCarID(int carID) {
 		this.carID = carID;
 	}
+	public String toString(){
+		return carID+"\t"+carName+
+			   "\t"+carMoney+" 元/天\t";
+	}
 }

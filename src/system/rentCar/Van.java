@@ -1,7 +1,15 @@
 package system.rentCar;
 
 public class Van extends Car implements ICarGo {
-    private double carGoNumber;
+
+	public Van(int carID,String carName,int carMoney,double carGo){
+		setCarID(carID);
+		setCarName(carName);
+		setCarMoney(carMoney);
+		setCarGo(carGo);
+	}
+	
+	private double carGoNumber;
     
 	@Override
 	public double getCarGo() {
@@ -12,8 +20,9 @@ public class Van extends Car implements ICarGo {
 		this.carGoNumber= carGoNumber;
 	}
 	
-	public void response(){
-	    System.out.printf("%-6d%-10s%-4d元/每天      载货: %-4.1f吨 \n",getCarID(),getCarName(),getCarMoney(),getCarGo());
+	@Override
+	public String toString() {
+		return super.toString()+"载货："+getCarGo();
 	}
 
 }

@@ -1,7 +1,13 @@
 package system.rentCar;
 
 public class Bus extends Car implements IManned {
-	
+	public Bus(int carID,String carName,int carMoney,int manned){
+		setCarID(carID);
+		setCarName(carName);
+		setCarMoney(carMoney);
+		setManned(manned);
+	}
+
 	private int mannedNumber;
 
 	@Override
@@ -13,9 +19,8 @@ public class Bus extends Car implements IManned {
 		this.mannedNumber=mannedNumber;
 	}
 	
-	public void response(){
-		System.out.printf("%-6d%-10s%-4d元/每天      载人:%2d\n",getCarID(),getCarName(),getCarMoney(),getManned());
+	public String toString(){
+		return super.toString()+"载人："+getManned();
 	}
-	
 
 }

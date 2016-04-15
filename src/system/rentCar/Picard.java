@@ -1,6 +1,15 @@
 package system.rentCar;
 
 public class Picard extends Car implements IManned, ICarGo {
+	
+	public Picard(int carID,String carName,int carMoney,int manned,double carGo){
+		setCarID(carID);
+		setCarName(carName);
+		setCarMoney(carMoney);
+		setManned(manned);
+		setCarGo(carGo);
+	}
+	
 	private double carGoNumber;
 	private int mannedNumber;
 	@Override
@@ -22,8 +31,8 @@ public class Picard extends Car implements IManned, ICarGo {
 		this.mannedNumber=mannedNumber;
 	}
 	
-	public void response(){
-		System.out.printf("%-6d%-10s%-4d元/每天     载人:%-2d 载货:%-4.1f吨 \n",getCarID(),getCarName(),getCarMoney(),getManned(),getCarGo());
+	public String toString(){
+		return super.toString()+"载人："+getManned()+"  载货："+getCarGo();
 	}
 
 }
