@@ -7,7 +7,7 @@ package classUse;
  *     注意：使用Class对象调用newInstance()方法实例化一个className类的对象时，className类必须有无参的构造方法
  */
 import java.lang.reflect.*;
-class Rect{   //矩形
+class Rect {   //矩形
 	private double width,height,area;
 	
 	Rect(){
@@ -28,7 +28,7 @@ class Rect{   //矩形
 	}
 }
 
-class Circle{  //圆形
+class Circle {  //圆形
 	private double radius,area;
 	
 	Circle(){

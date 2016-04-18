@@ -1,3 +1,6 @@
+/*
+ * Description:  练习import和package的使用
+ */
 import tom.jiafei.Trangle;
 import java.util.Date;
 
