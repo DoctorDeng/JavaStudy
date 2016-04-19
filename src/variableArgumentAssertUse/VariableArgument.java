@@ -1,4 +1,4 @@
-package variableArgument;
+package variableArgumentAssertUse;
 /*
  * Description:   可变参数的使用
  *         语法:   public void f(int...x)
