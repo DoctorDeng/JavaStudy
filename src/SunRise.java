@@ -16,4 +16,5 @@ public class SunRise {
         System.out.println(date);
 	}
 
+	
 }
