@@ -11,14 +11,17 @@ import java.awt.Image;
 
 import java.awt.Toolkit;
 
-public abstract class AGameView {
+import javax.swing.JFrame;
+
+public abstract class AGameView extends JFrame {
 	
-	final int SCREEN_HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
-	final int SCREEN_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
+	private static final long serialVersionUID = -3822476372124096241L;
+	final int SCREEN_HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;  //获取显示器高度
+	final int SCREEN_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;    //获取显示器宽度
 	
-	private int gameWidth;
-	private int gameHight;
-	private String titleName;
+	private int gameWidth;      //界面宽度
+	private int gameHight;      //界面高度
+	private String titleName;   //界面名字
 	
 	//初始化界面方法
 	public abstract void initialization();

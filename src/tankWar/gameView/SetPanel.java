@@ -16,6 +16,7 @@ public class SetPanel extends JPanel{
 	JButton stopGame;     //暂停游戏按钮
 	JButton rankGame;     //调整游戏等级(难度)按钮
 	JButton musicSwitch;  //游戏音乐开关按钮
+	private RankView rankView;   //游戏等级设置窗体
 	
     private final ImageIcon START_ICO = new ImageIcon("gameImage/gameStart1.png");  //开始游戏图标
     private final ImageIcon STOP_ICO = new ImageIcon("gameImage/gameStop1.png");    //暂停游戏图标
@@ -27,6 +28,7 @@ public class SetPanel extends JPanel{
     private final int PANEL_X = 0;          //setPanel在游戏界面中的X轴坐标
     private final int PANEL_Y = 0;          //setPanel在游戏界面中的Y轴坐标
     
+    private boolean rankBlock = true;       //控制是否弹出等级选择窗口,防止多次弹出等级选择窗口
 	SetPanel(){
 	        setBackground(Color.white);
 	        
@@ -59,7 +61,16 @@ public class SetPanel extends JPanel{
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					// TODO 自动生成的方法存根
-					new RankView();
+					if(rankBlock == true){
+						
+						rankView = new RankView();
+						rankView.setVisible(true);
+						rankBlock = false;
+					}
+					else{
+					    	rankView.setVisible(true);
+					}
+					
 				}	
 	        });
 	        

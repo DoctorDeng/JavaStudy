@@ -7,11 +7,16 @@ import java.awt.event.*;
 //----------游戏主界面---------------------//
 public class MainView extends AGameView{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JFrame mainView;      //游戏窗体
 	private SetPanel setPanel;    //游戏设置模块
 	private GamePanel gamePanel;  //游戏模块
 	private JPanel inforPanel;    //游戏信息模块
 	private JPanel helpPanel;     //游戏提示模块界面
+	
     
 	private final int GAME_WIDTH = 800;   //游戏主界面宽度
 	private final int GAME_HEIGHT = 600;  //游戏主界面高度
