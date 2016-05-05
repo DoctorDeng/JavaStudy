@@ -135,15 +135,46 @@ public class MapTest {
 		}
 	}
 	
+	/*
+	 * 测试Map中，是否包含某个Key值或者某个Value值
+	 */
+	public void testContainsKeyOrValue() {
+		
+		System.out.println("请输入要查询的学生的ID: ");
+		String id = input.next();
+		
+		//在Map中，用containsKey（）方法，来判断是否包含某个Key值
+		System.out.println("您输入的学生的ID为：" + id + "在学生映射表中是否存在："
+				           + students.containsKey(id));
+		
+		if (students.containsKey(id) ) {
+			System.out.println("对应的学生为: " + students.get(id).getName() );
+		}
+		
+		//在containsValue（）方法，来判断是否包含某个Value值。
+		System.out.println("请输入要查询的学生的姓名 :");
+		String name = input.next();
+		
+		if( students.containsValue( new Student(null, name) )) {
+			System.out.println("在学生映射表中，确实包含学生: " + name);
+		}
+		else {
+			System.out.println("在学生映射表中不存在该学生！");
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO 自动生成的方法存根
 		MapTest mt = new MapTest();
 		mt.testPut();
 		mt.testKeySet();
+		
 		//mt.testRemove();
 		//mt.testEntrySet();
-		mt.testModify();
-		mt.testEntrySet();
+		//mt.testModify();
+		//mt.testEntrySet();
+		
+		mt.testContainsKeyOrValue();
 	}
 
 }

@@ -5,6 +5,25 @@ import java.util.HashSet;
  */
 import java.util.Set;
 public class Student {
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Student))
+			return false;
+		Student other = (Student) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
 	private String id;
 	private String name;
 	private Set<Course> courses;
