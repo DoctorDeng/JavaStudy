@@ -2,6 +2,7 @@ package gatherFrame;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 /*
  * Description:   备选课程类
@@ -47,10 +48,23 @@ public class ListTest {
         + ";" + temp6.getId() + ":" + temp6.getName());
 	}
 	
+	//往List中添加一些奇怪的东西
+	public void testType() {
+		System.out.println("能否往List中添加一些奇怪的东西");
+		coursesToSelect.add("我不是课程,我只是一个无辜的字符！");
+	}
+	
 	public static void main(String[] args) {
 		ListTest lt = new ListTest();
 		lt.testAdd();
-		lt.testGet();
+//		lt.testType();
+		lt.testForEach();
+//		lt.testGet();
+//		lt.testIterator();
+//		lt.testForEach();
+//		lt.testModify();
+//		lt.testForEach();
+//		lt.testRemove();
 	}
 	
 	//取得List中的元素的方法
@@ -61,5 +75,41 @@ public class ListTest {
 			Course cr = (Course)coursesToSelect.get(i);
 			System.out.println("课程:" + cr.getId() + ";" + cr.getName());
 		}
+	}
+	
+	//通过迭代器来遍历List
+	public void testIterator() {
+		Iterator it = coursesToSelect.iterator();
+		System.out.println("有如下课程待选(通过迭代器访问):");
+		while (it.hasNext()) {
+			Course cr = (Course)it.next();
+			System.out.print("课程:" + cr.getId() + ";" + cr.getName()+"\n");
+		}
+	}
+	
+	//通过for each 方法访问集合元素
+	public void testForEach() {
+		System.out.println("有如下课程待选(通过for earch访问):");
+		for (Object obj:coursesToSelect) {
+			Course cr = (Course) obj;
+			System.out.print("课程:" + cr.getId() + ";" + cr.getName()+"\n");
+		}
+	}
+	
+	//修改List中的元素
+	public void testModify() {
+		coursesToSelect.set(4, new Course("388", "aaa"));
+	}
+	
+	//删除List中的元素
+	public void testRemove() {
+		//Course cr = (Course)coursesToSelect.get(1);
+		//System.out.print("我是课程:" + cr.getId() + ";" + cr.getName()+"   我即将被删除\n");
+		System.out.println("即将删除2位置和3位置上的课程！");
+		Course[] courses = {(Course)coursesToSelect.get(2), (Course)coursesToSelect.get(3)};
+		coursesToSelect.removeAll(Arrays.asList(courses));
+		//coursesToSelect.remove(1);
+		System.out.println("成功删除课程！");
+		testForEach();
 	}
 }
