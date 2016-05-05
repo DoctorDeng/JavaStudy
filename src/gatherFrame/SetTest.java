@@ -1,0 +1,95 @@
+package gatherFrame;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+/*
+ * Description:   练习Set接口
+ */
+public class SetTest {
+
+	public List<Course> coursesToSelect;
+	
+	public SetTest() {
+		coursesToSelect = new ArrayList<Course>();
+	}
+	
+	public void testAdd() {
+		//创建一个课程对象，并通过调用add方法，添加到备选课程List中
+		Course cr1 = new Course("1", "数据结构");
+		coursesToSelect.add(cr1);
+	    
+		Course cr2 = new Course("2", "C语言");
+		coursesToSelect.add(cr2);
+
+		
+		Course[] course = {new Course("3", "离散数学"), new Course("4", "高数")};
+		coursesToSelect.addAll(Arrays.asList(course));
+		
+		Course[] course2 = {new Course("5", "大学英语"), new Course("6", "语文")};
+		coursesToSelect.addAll(Arrays.asList(course2));
+
+	}
+	
+	public void testForEach() {
+		System.out.println("有如下课程待选(通过for earch访问):");
+		for (Course courses : coursesToSelect) {
+			Course cr = courses;
+			System.out.print("课程:" + cr.getId() + ";" + cr.getName()+"\n");
+		}
+	}
+	
+	public static void main(String[] args) {
+		// TODO 自动生成的方法存根
+		SetTest st = new SetTest();
+		st.testAdd();
+		st.testForEach();
+		
+		Student student = new Student("1", "小明");
+		System.out.println("欢迎学生：" + student.getName() + "选课");
+		
+		Scanner input = new Scanner(System.in);
+		for ( int i=0; i<6; i++) {
+			System.out.println("请输入课程ID");
+			if(input.hasNext()) {
+				String courseId = input.next();
+				
+				for(Course cr : st.coursesToSelect) {
+					if ( cr.getId().equals(courseId) ) {
+						student.getCourses().add(cr);
+						
+						//Set中,添加某个对象，无论添加多少次，最终只会保留一个该对象的（引用）
+						//并且保留的是第一次添加的那一个
+						//并且，保留的是第一次添加的那一个
+						//student.getCourses().add(cr);
+					}
+				}
+			}
+			else {
+				System.out.println("输入错误，请重新输入!");
+				i = i -1;
+				continue;
+			}
+			
+		}
+		st.testForEachForSet(student);
+		
+	}
+  
+	//打印输出,学生所选的课程!
+	public void testForEachForSet (Student student) {
+		System.out.println("共选择了:" + student.getCourses().size() + "门课程");
+//		for (Course cr : student.getCourses() ) {
+//			System.out.println("选择了课程:" + cr.getId() + ":" + cr.getName() );
+//		}
+		Iterator<Course> cr = student.getCourses().iterator();
+		while ( cr.hasNext() ) {
+			Course cour = cr.next();
+			System.out.println("选择了课程: " + cour.getId() + ":" + cour.getName() );
+		}
+	}
+}
