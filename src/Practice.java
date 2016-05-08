@@ -8,28 +8,28 @@ import java.util.Set;
  */
 public class Practice {
 	
-
-	public static void test4(){
-		Map map=new LinkedHashMap();
-		map.put("1", "aaa");
-		map.put("2", "bbb");
-		map.put("3", "ccc");
-		 
-		//传统方式2
-		Set set=map.entrySet();
-		Iterator it=set.iterator();
-		while(it.hasNext()){
-			Map.Entry entry = (Map.Entry) it.next();
-			String key=(String) entry.getKey();
-			String valu=(String) entry.getValue();
-			System.out.println(key + "=" + valu);
+	int[] test ={1,2,3,4,5,6,7,8};
+	
+	public void sortArray() {
+		for(int i=0; i<test.length; i++) {
+			for(int j=0 ; j<test.length-i-1; j++) {
+				if(test[j] < test[j+1]) {
+					int temp = test[j];
+					test[j] = test[j+1];
+					test[j+1] = temp;
+				}
+			}
+		}
+		for(int a : test) {
+			System.out.println(a);
 		}
 		
 	}
-
+	
 
 	public static void main(String[] args) {
-
-		test4();
+    Practice test = new Practice();
+	test.sortArray();
+    
 	}
 }

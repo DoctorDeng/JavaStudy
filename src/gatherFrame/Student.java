@@ -4,7 +4,7 @@ import java.util.HashSet;
  * Description:   学生类
  */
 import java.util.Set;
-public class Student {
+public class Student implements Comparable<Student>{
 
 
 	@Override
@@ -56,5 +56,9 @@ public class Student {
 
 	public void setCourses(Set<Course> courses) {
 		this.courses = courses;
+	}
+	
+	public int compareTo(Student stu) {
+		return this.getId().compareTo(stu.id);
 	}
 }
