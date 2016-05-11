@@ -39,8 +39,8 @@ public class BufferStream {
 		try {
 			File file1 = new File("G:/io/4级《学霸秘籍》.pdf");
 			File file2 = new File("G:test.pdf");
-			if (file2.isFile()) {
-				System.out.println("111");
+			if (!file2.isFile()) {
+				file2.createNewFile();
 			}
 			BufferStream.copyFileBuffer(file1, file2);
 		} catch (IOException e) {
