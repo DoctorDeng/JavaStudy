@@ -11,7 +11,7 @@ import java.io.Serializable;
  * 练习序列化中子类和父类构造函数的调用的问题
  */
 
-//一个类实现了序列化接口，那么其子类都可以进行序列化
+//一个父类类实现了序列化接口，那么其子类都可以进行序列化
 class Foo implements Serializable {
 	public Foo() {
 		System.out.println("foo...");
