@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class BufferedWriterPractice {
 	Scanner input = new Scanner(System.in);
-	
+	List<Student> stuList;  //用于存储Student信息
 	//存Student信息
 	public void saveInfor(int stuId, String stuName) {
 		FileWriter writer = null;
@@ -35,8 +35,14 @@ public class BufferedWriterPractice {
 		}
 		finally {
 			try {
-				buWriter.flush();
-				buWriter.close();
+				if (buWriter != null) {
+					buWriter.flush();
+					buWriter.close();
+				}
+				if (writer != null) {
+					writer.close();
+				}
+				
 			} catch (IOException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
@@ -49,7 +55,7 @@ public class BufferedWriterPractice {
 	public List<Student> getInfor() {
 	
 		Student student;
-		List<Student> stuList = new ArrayList<Student>();  //用于存储Student的信息
+		stuList = new ArrayList<Student>();  //用于存储Student的信息
 		FileReader reader = null;
 		BufferedReader buReader = null;
 		
