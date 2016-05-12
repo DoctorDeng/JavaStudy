@@ -1,6 +1,6 @@
 package practice.io;
 /*
- * 练习OutputStreamWriterPractice的使用
+ * 练习OutputStreamWriter的使用
  */
 import java.io.*;
 public class OutputStreamWriterPractice {
