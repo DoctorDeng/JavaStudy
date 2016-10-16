@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bookstore>
+    <book id="1" username="Doctor">
+        <name>冰与火之歌</name>
+        <author>乔治马丁</author> 
+        <year>2014</year>
+        <price>79</price>
+        <new>
+            <new1>dskf</new1>
+            <new2>dskf</new2>
+        </new>
+    </book>
+     <book id="2">
+        <name>安徒生通话</name>
+        <year>2004</year>
+        <price>77</price>
+		<language>English</language>
+    </book>
+</bookstore>
