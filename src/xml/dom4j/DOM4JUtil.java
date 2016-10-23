@@ -1,18 +1,22 @@
 package xml.dom4j;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.dom4j.Attribute;
+import org.dom4j.CDATA;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
+import org.dom4j.dom.DOMCDATA;
+import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
+import org.dom4j.io.XMLWriter;
 
 import xml.PathUtil;
 
@@ -57,8 +61,43 @@ public class DOM4JUtil {
 			printElement(it.next());
 		}
 	}
-	
+
+	public static void createXml() {
+		//1.创建 Document 对象
+		Document document = DocumentHelper.createDocument();
+		//2.创建根节点
+		Element rss = document.addElement("rss");
+		//3.向节点中添加 属性
+		rss.addAttribute("version", "2.0");
+		//生成子节点及内容
+		Element channel = rss.addElement("channel");
+		Element title   = channel.addElement("title");
+		CDATA cdata     = new DOMCDATA("<你好>");
+		title.add(cdata);;
+		Element name    = channel.addElement("name");
+		name.setText("<安徒生童话>");
+		
+		//设置生成的 XML 文件相关属性
+		//OutputFormat.createPrettyPrint() : 自动生成格式良好的 XML 文件
+		OutputFormat format = OutputFormat.createPrettyPrint();
+		//设置编码
+		format.setEncoding("GBK");
+		
+		try {
+
+			//---------------最后.生成 XML 文件-----------------------------//
+			XMLWriter writer = new XMLWriter(new FileOutputStream(new File("rssDom4j.xml")), format);
+			
+			//设置是否将特殊字符 转义, 默认为 True(转义)
+			writer.setEscapeText(false);;
+			writer.write(document);
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	public static void main(String[] args) {
-		DOM4JUtil.printXml();
+		//DOM4JUtil.printXml();
+		DOM4JUtil.createXml();
 	}
 }
