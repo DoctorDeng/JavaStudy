@@ -1,21 +1,17 @@
 package thread;
 
-import java.util.Random;
-
-
 public class TestThreadLocal {
 
-	private static ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
-	private static ThreadLocal<Student> stuThreadLocal = new ThreadLocal<>();
+	private static ThreadLocal<ThreadLocalData> stuThreadLocal = new ThreadLocal<>();
 	
 	public static void main(String[] args) {
 		new Thread(new Runnable() {
 			
 			@Override
 			public void run() {
-				Student student = new Student("邓华杰", 20);
-				stuThreadLocal.set(student);
-				System.out.println(Thread.currentThread().getName() + "放入数据：" + student.toString());
+				ThreadLocalData.getStudent().setName("邓华杰");
+				ThreadLocalData.getStudent().setAge(22);
+				System.out.println(Thread.currentThread().getName() + "放入数据：" + ThreadLocalData.getStudent().toString());
 				new A().getData();
 				new B().getData();
 			}
@@ -25,9 +21,9 @@ public class TestThreadLocal {
 			
 			@Override
 			public void run() {
-				Student student = new Student("熊勇", 25);
-				stuThreadLocal.set(student);
-				System.out.println(Thread.currentThread().getName() + "放入数据：" + student.toString());
+				ThreadLocalData.getStudent().setName("熊勇");
+				ThreadLocalData.getStudent().setAge(24);
+				System.out.println(Thread.currentThread().getName() + "放入数据：" + ThreadLocalData.getStudent().toString());
 				new A().getData();
 				new B().getData();
 			}
@@ -36,30 +32,36 @@ public class TestThreadLocal {
 
 	static class A{
 		public void getData(){
-			Student stu = stuThreadLocal.get();
-			System.out.println("A 从" + Thread.currentThread().getName() + "线程，取出数据：" + stu.toString());
+			System.out.println("A 从" + Thread.currentThread().getName() + "线程，取出数据：" + ThreadLocalData.getStudent());
 		}
 	}
 	
 	static class B{
 		public void getData(){
-			Student stu = stuThreadLocal.get();
-			System.out.println("B 从" + Thread.currentThread().getName() + "线程，取出数据：" + stu.toString());
+			ThreadLocalData stu = stuThreadLocal.get();
+			System.out.println("B 从" + Thread.currentThread().getName() + "线程，取出数据：" + ThreadLocalData.getStudent());
 		}
 	}
 	
 }
 
-class Student {
+class ThreadLocalData {
+	private static ThreadLocal<ThreadLocalData> map = new ThreadLocal<ThreadLocalData>();
+	private ThreadLocalData(){}
+	
+	public static ThreadLocalData getStudent() {
+		ThreadLocalData stu = map.get();
+		if (null == stu) {
+			stu = new ThreadLocalData();
+			map.set(stu);
+		}
+		
+		return stu;
+	}
+	
 	private String name;
 	private int age;
 	
-	public Student(String name, int age) {
-		super();
-		this.name = name;
-		this.age = age;
-	}
-
 	public String getName() {
 		return name;
 	}
