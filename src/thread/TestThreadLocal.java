@@ -2,7 +2,6 @@ package thread;
 
 public class TestThreadLocal {
 
-	private static ThreadLocal<ThreadLocalData> stuThreadLocal = new ThreadLocal<>();
 	
 	public static void main(String[] args) {
 		new Thread(new Runnable() {
@@ -26,6 +25,8 @@ public class TestThreadLocal {
 				System.out.println(Thread.currentThread().getName() + "放入数据：" + ThreadLocalData.getStudent().toString());
 				new A().getData();
 				new B().getData();
+				
+				
 			}
 		}).start();
 	}
@@ -38,11 +39,9 @@ public class TestThreadLocal {
 	
 	static class B{
 		public void getData(){
-			ThreadLocalData stu = stuThreadLocal.get();
 			System.out.println("B 从" + Thread.currentThread().getName() + "线程，取出数据：" + ThreadLocalData.getStudent());
 		}
 	}
-	
 }
 
 class ThreadLocalData {

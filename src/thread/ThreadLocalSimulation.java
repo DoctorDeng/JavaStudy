@@ -7,7 +7,6 @@ import java.util.Random;
 /**
  * 模仿 ThreadLocal 达到同一个线程共享变量
  * @author Doctor邓
- *
  */
 public class ThreadLocalSimulation {
 	private static Map<Thread, Integer> threadData = new HashMap<>();
