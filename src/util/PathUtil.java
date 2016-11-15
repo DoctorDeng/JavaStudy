@@ -1,4 +1,4 @@
-package xml;
+package util;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
