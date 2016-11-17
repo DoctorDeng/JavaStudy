@@ -15,7 +15,8 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
-import xml.PathUtil;
+import util.PathUtil;
+
 
 public class JDOMUtil {
 	public static void printXml() {

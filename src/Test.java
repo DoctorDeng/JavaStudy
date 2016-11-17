@@ -1,5 +1,8 @@
 
 import static java.util.concurrent.TimeUnit.SECONDS;
+
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -7,8 +10,9 @@ import java.util.concurrent.ScheduledFuture;
 public class Test {
 
 	public static void main(String[] args) {
-		BeeperControl bc = new BeeperControl();
-		bc.beepForAnHour();
+		BigDecimal big = new BigDecimal(10.0, new MathContext(1));
+		double b = 2.0 - 1.1;
+		System.out.println(b);
 	}
 
 }

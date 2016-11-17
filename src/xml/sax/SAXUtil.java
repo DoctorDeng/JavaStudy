@@ -20,7 +20,8 @@ import org.xml.sax.SAXException;
 
 import com.sun.xml.internal.bind.util.AttributesImpl;
 
-import xml.PathUtil;
+import util.PathUtil;
+
 
 public class SAXUtil {
 	public static void printXml() {

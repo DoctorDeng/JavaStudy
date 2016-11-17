@@ -1,4 +1,5 @@
 package thread;
+<<<<<<< HEAD
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -60,5 +61,18 @@ public class TestCountLatch {
 
 	public static void main(String[] args) {
 		testCountLatch();
+=======
+/**
+ * 练习 CountDownLatch
+ * @author Doctor邓
+ *
+ */
+public class TestCountLatch {
+	
+	
+	
+	public static void main(String[] args) {
+		
+>>>>>>> branch 'master' of https://github.com/DoctorDeng/JavaStudy.git
 	}
 }

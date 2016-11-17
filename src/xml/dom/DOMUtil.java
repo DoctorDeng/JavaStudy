@@ -23,7 +23,8 @@ import org.w3c.dom.Text;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import xml.PathUtil;
+import util.PathUtil;
+
 
 public class DOMUtil {
 	
