@@ -6,11 +6,13 @@ import java.util.concurrent.BlockingQueue;
 
 /*
  * 练习 Java 阻塞队列  
+ * 当队列满后放入数据会被堵塞, 放队列空时取数据会被堵塞
  */
 public class TestBlockingQueue {
 	
 	public static void testBlockQueue() {
 		BlockingQueue<String> queue = new ArrayBlockingQueue<>(3);
+		//创建两个线程放数据
 		for (int i = 0; i < 2; i++) {
 			new Thread(()->{
 				while (true) {
@@ -28,7 +30,7 @@ public class TestBlockingQueue {
 				}
 			}).start();
 		}
-		
+		//创建一个线程取数据
 		new Thread(() -> {
 			while (true) {
 				try {
