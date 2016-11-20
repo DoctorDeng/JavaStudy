@@ -12,8 +12,7 @@ public class TestBigNumber {
 	public static void testBigInteger() {
 		//BigInteger.valueOf() 将普通数值转换为大数值
 		BigInteger bigInteger = BigInteger.valueOf(100);
-		bigInteger.a
-	}
+ 	}
 	
 	public static void main(String[] args) {
 		testBigInteger();
