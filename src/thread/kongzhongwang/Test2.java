@@ -1,14 +1,11 @@
 package thread.kongzhongwang;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.SynchronousQueue;
 
 public class Test2 {
-	
 		public static void main(String[] args) {
 			ExecutorService service = Executors.newFixedThreadPool(10);
 			//BlockingQueue<String> queue = new ArrayBlockingQueue<>(10);
