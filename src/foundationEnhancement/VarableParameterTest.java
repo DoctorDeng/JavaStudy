@@ -1,6 +1,5 @@
 package foundationEnhancement;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -16,11 +15,15 @@ public class VarableParameterTest {
         for (int i = 0; i < temp.length; i++) {
             result += temp[i];
         }
-        result = (int)(result/x);
+        result = (int) (result / x);
         System.out.print(x + "除" + Arrays.toString(temp) + "相加的结果约等于为：" + result);
+        System.out.println();
     }
 
     public static void main(String[] args) {
-        varableParameterTset(3,10,3,4,5);
+        //varableParameterTset(3, 10, 3, 4, 5);
+        Integer a = Integer.valueOf(127);
+        Integer b = Integer.valueOf(127);
+        System.out.println(a == b);
     }
 }
