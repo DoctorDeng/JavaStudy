@@ -23,6 +23,22 @@ enum Sex {
     private String name;
     private Integer indtify;
 
-
-
+    private Sex(String name, Integer indtify) {
+    	this.name = name;
+    	this.indtify = indtify;
+    }
+    
+    
+    public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Integer getIndtify() {
+		return indtify;
+	}
+	public void setIndtify(Integer indtify) {
+		this.indtify = indtify;
+	}
 }
