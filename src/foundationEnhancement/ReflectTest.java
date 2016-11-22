@@ -1,5 +1,6 @@
 package foundationEnhancement;
 
+import java.lang.reflect.Array;
 import java.sql.Date;
 
 import javax.annotation.Resource;
@@ -25,6 +26,14 @@ public class ReflectTest {
 		Class date2 = temp.getClass();
 	}
 	
-	Class class1 = Resource.class;
-	Class class2 = new StaticImportTest().getClass();
+	public static void main(String[] args) {
+		Class<String> str1= String.class;
+		Class<Integer> int1 = int.class;
+		System.out.println(int1.isPrimitive());
+		
+		int[] ints = new int[1];
+		Class<? extends int[]> classInt = ints.getClass();
+		//判断是否是数组
+		classInt.isArray();
+	}
 }
