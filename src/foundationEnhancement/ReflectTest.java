@@ -20,10 +20,10 @@ public class ReflectTest {
 			e.printStackTrace();
 		}
 		//2、通过每个类的静态成员变量
-		Class date  = Date.class;
+		Class<Date> date  = Date.class;
 		Date temp   = new Date(0);
 		//3、通过类的示例对象获取
-		Class date2 = temp.getClass();
+		Class<? extends Date> date2 = temp.getClass();
 	}
 	
 	public static void main(String[] args) {
