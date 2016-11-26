@@ -10,15 +10,51 @@ import java.lang.reflect.Field;
 public class FieldTest {
 	private int x;
 	public String y;
+	private String z;
 	
-	public FieldTest(int x, String y) {
+	public FieldTest(int x, String y, String z) {
 		super();
 		this.x = x;
 		this.y = y;
+		this.z = z;
 	}
-
 	public static void main(String[] args) {
-		FieldTest fieldTest = new FieldTest(2, "3");
+		changeStringValue(new FieldTest(2, "5s55ss66", "abcdesf"));
+	}
+	//将对象中所有为 String 类型的成员变量中的 s 该为 AA
+	public static void changeStringValue(Object obj) {
+		Class<? extends Object> clas = obj.getClass();
+		Field[] fields = clas.getDeclaredFields();
+		
+		for (Field field : fields) {
+			//获取成员变量名称
+			//System.out.println(field.getName());
+			// 获取成员变量类型的类类型
+			Class<?> fieldTypeClass = field.getType();
+			// 当 成员变量为 String 类型时, 将 其中的 s 都替换为 AA
+			// 这里使用 == 比 equals() 更为准确, 因为都是同一份 String.class
+			if (String.class == fieldTypeClass) {
+				try {
+					//获取成员变量值
+					String oldValue = (String)field.get(obj);
+					//获取改变后的值
+					String newValue = oldValue.replace("s", "AA");
+					//将改变后的值设置到赋值给成员变量
+					field.set(obj, newValue);
+				} catch (IllegalArgumentException | IllegalAccessException e) {
+					e.printStackTrace();
+				} 
+			}
+		}
+		System.out.println(obj.toString());
+	}
+	@Override
+	public String toString() {
+		return "FieldTest [x=" + x + ", y=" + y + ", z=" + z + "]";
+	}
+	
+	public static void fieldTest() {
+		FieldTest fieldTest = new FieldTest(2, "3","你好sb");
 		Class<? extends FieldTest> cla = FieldTest.class;
 		try {
 			// 获取单个 Field, Field 不是对象的变量, 而是 Class 类上, 要用它取获取某个对象上对应的值
@@ -49,21 +85,4 @@ public class FieldTest {
 			e.printStackTrace();
 		}
 	}
-
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public String getY() {
-		return y;
-	}
-
-	public void setY(String y) {
-		this.y = y;
-	}
-
 }
