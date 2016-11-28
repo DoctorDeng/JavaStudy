@@ -6,7 +6,20 @@ import java.util.Scanner;
 
 import util.PathUtil;
 
+/**
+ * <blockquote><pre>{@code
+ *     Scanner sc = new Scanner(System.in);
+ *     int i = sc.nextInt();
+ * }</pre></blockquote>
+ * @author Doctor邓
+ *
+ */
 public class TestScanner {
+	
+	public void test() {
+		TestScanner aaa = this;
+	}
+	
 	public static void testScanner() {
 		Scanner in = new Scanner(System.in);
 		String name = in.nextLine();
