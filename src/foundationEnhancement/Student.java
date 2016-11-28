@@ -8,6 +8,16 @@ public class Student {
     private int age;
     private boolean sex;
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "birth=" + birth +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                '}';
+    }
+
     public Student(String name, int age, boolean sex) {
         this.name = name;
         this.age = age;

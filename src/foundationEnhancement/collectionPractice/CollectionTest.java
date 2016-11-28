@@ -28,6 +28,28 @@ public class CollectionTest {
             e.printStackTrace();
         }
     }
+
+    public static void printOutCollection(Collection<?> collection) {
+        if (null == collection) {
+            System.out.println("null");
+        }
+
+        for (Object obj:collection) {
+            System.out.println(obj);
+        }
+    }
+
+    /**
+     * 练习 泛型通配符
+     */
+    public static void wildcard() {
+        Class<?> y;
+        Class<String> x = String.class;
+        // 通配符可以等于具体的类型，但是具体的类型却不能成为通配符：
+        //x = y; //不合法
+        y = x; //合法
+
+    }
     public static void main(String[] args) {
         collectionTest();
     }
