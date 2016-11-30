@@ -14,7 +14,7 @@ public class DataStreamDemo {
 
 	public static void main(String[] args) throws IOException {
 		// TODO 自动生成的方法存根
-		String  file = "demo/test.txt";
+		String  file = "bin/foundationEnhancement/classLoaderTest/ClassLoaderAttachment.java";
 		DataOutputStream test = new DataOutputStream(new FileOutputStream(file));
 		int a = 100;
 		double b = 100.0;
