@@ -19,15 +19,15 @@ public class ClassLoaderTest {
     /**
      * 按照层次结构打印加载 ClassLoaderTest 类的所有类加载器的名称
      */
-    public static void printClassLoaderName() {
-        ClassLoader classLoader = ClassLoaderTest.class.getClassLoader();
+    public static <T> void printClassLoaderName(T t) {
+        ClassLoader classLoader = t.getClass().getClassLoader();
         while (classLoader != null) {
             System.out.println("ClassLoader: " + classLoader.getClass().getName());
             classLoader = classLoader.getParent();
         }
     }
     public static void main(String[] args) {
-        printClassLoaderName();
+       // printClassLoaderName();
         getClassLoader();
     }
 }
