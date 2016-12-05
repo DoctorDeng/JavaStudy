@@ -33,36 +33,20 @@ public class ProxyTest {
             sb.append(')');
             System.out.println(sb.toString());
         }
-        Method[] methods = clazzProxy.getMethods();
-        System.out.println("------方法列表------");
-        for (Method method:methods) {
-            String name = method.getName();
-            StringBuilder sb = new StringBuilder(name);
-
-            sb.append('(');
-            Class[] clazzParams = method.getParameterTypes();
-            for (Class clazzParam:clazzParams) {
-                sb.append(clazzParam.getName() + ',');
-            }
-            if (clazzParams != null && clazzParams.length > 0) {
-                sb.deleteCharAt(sb.length() - 1);
-            }
-            sb.append(')');
-            System.out.println(sb.toString());
-        }
         System.out.println("-------创建实例对象------");
         try {
             // 创建一个具体的 InvocationHandler 实例
-            InvocationHandler collectionHandler = new CollectionHandlerTest();
+            InvocationHandler collectionHandler = new CollectionHandlerTest(new ArrayList());
             // 生成的代理类只有一个有参的构造方法 xxx(InvocationHandler ih), 所以要先获取 Constructor 来然后创建实例
             Collection  collection = (Collection)  clazzProxy.
                     getConstructor(InvocationHandler.class).
                     newInstance(collectionHandler); //将具体的 InvocationHandler 传入构造方法
-            System.out.println(collection);
-            // 调用无返回值方法成功            collection.clear();
+            // 调用无返回值方法成功
+            collection.clear();
             // 调用有返回值方法抛出异常
            // System.out.println(collection.size());
-            //collection.add("ddd");
+            collection.add("ddd");
+            System.out.println(collection.size());
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -73,12 +57,25 @@ public class ProxyTest {
     }
 }
 class CollectionHandlerTest implements InvocationHandler {
+    // InvocationHandler invoke() 方法最终执行的具体实例对象,
+    private Collection target;
+    public CollectionHandlerTest(Collection target) {
+        this.target = target;
+    }
+    /**
+     * 参数：
+     * proxy  代理对象
+     * method 被代理对象类类型(Class)的 Method 对象
+     * args   执行方法的参数
+     * 返回值：
+     * Object 方法的返回值
+     */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-       /* System.out.println("正在添加");
-        method.invoke(args);
-        System.out.println("添加完成");*/
-       ArrayList arrayList = new ArrayList();
-        return null;
+        System.out.println("------开始执行------");
+        // 由 Method 对象来执行具体实例对象的方法
+        Object obj = method.invoke(this.target, args);
+        System.out.println("------执行结束------");
+        return obj;
     }
 }

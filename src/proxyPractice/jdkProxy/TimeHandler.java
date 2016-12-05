@@ -14,7 +14,7 @@ public class TimeHandler implements InvocationHandler {
 	/**
 	 * 参数：
 	 * proxy  被代理对象
-	 * method 被代理对象方法
+	 * method 被代理对象类类型的 Method 对象
 	 * args   方法的参数
 	 * 返回值：
 	 * Object 方法的返回值
