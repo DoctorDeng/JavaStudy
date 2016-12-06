@@ -51,15 +51,42 @@ public class ProxyTest {
             e.printStackTrace();
         }
     }
+    // 动态获取代理类
+    public static Object getProxy(final Object target) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        // 创建一个具体的 InvocationHandler 实例, 这里采用内部类方式
+        InvocationHandler handler = (Object proxy, Method method, Object[] args) ->{
+           long beginTime = System.currentTimeMillis();
+            // 由 Method 对象来执行具体实例对象的方法
+            Object obj = method.invoke(target, args);
+            long endTime  = System.currentTimeMillis();
+            System.out.println(method.getName() + "执行时间为：" + (endTime - beginTime));
+            return obj;
+        };
+        // 动态创建一个实现了某个接口的代理类
+        Class clazzProxy = Proxy.getProxyClass(target.getClass().getClassLoader(), target.getClass().getInterfaces());
+        // 生成的代理类只有一个有参的构造方法 xxx(InvocationHandler ih), 所以要先获取 Constructor 来然后创建实例
+        Object  object = clazzProxy.getConstructor(InvocationHandler.class).
+                                    newInstance(handler); //将具体的 InvocationHandler 传入构造方法
+
+        return object;
+    }
 
     public static void main(String[] args) {
-        proxyTest();
+        //proxyTest();
+        try {
+            Collection<String> collection = (Collection<String>) getProxy(new ArrayList<String>());
+            collection.add("等哈街");
+            collection.add("你好");
+            System.out.println(collection.toString());
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
+            e.printStackTrace();
+        }
     }
 }
 class CollectionHandlerTest implements InvocationHandler {
     // InvocationHandler invoke() 方法最终执行的具体实例对象,
-    private Collection target;
-    public CollectionHandlerTest(Collection target) {
+    private Object target;
+    public CollectionHandlerTest(Object target) {
         this.target = target;
     }
     /**
