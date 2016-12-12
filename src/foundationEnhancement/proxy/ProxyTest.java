@@ -44,7 +44,7 @@ public class ProxyTest {
             // 调用无返回值方法成功
             collection.clear();
             // 调用有返回值方法抛出异常
-           // System.out.println(collection.size());
+            // System.out.println(collection.size());
             collection.add("ddd");
             System.out.println(collection.size());
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
@@ -55,7 +55,7 @@ public class ProxyTest {
     public static Object getProxy(final Object target) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         // 创建一个具体的 InvocationHandler 实例, 这里采用内部类方式
         InvocationHandler handler = (Object proxy, Method method, Object[] args) ->{
-           long beginTime = System.currentTimeMillis();
+            long beginTime = System.currentTimeMillis();
             // 由 Method 对象来执行具体实例对象的方法
             Object obj = method.invoke(target, args);
             long endTime  = System.currentTimeMillis();
@@ -66,7 +66,7 @@ public class ProxyTest {
         Class clazzProxy = Proxy.getProxyClass(target.getClass().getClassLoader(), target.getClass().getInterfaces());
         // 生成的代理类只有一个有参的构造方法 xxx(InvocationHandler ih), 所以要先获取 Constructor 来然后创建实例
         Object  object = clazzProxy.getConstructor(InvocationHandler.class).
-                                    newInstance(handler); //将具体的 InvocationHandler 传入构造方法
+                newInstance(handler); //将具体的 InvocationHandler 传入构造方法
 
         return object;
     }
