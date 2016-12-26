@@ -13,6 +13,5 @@ public class AopTest {
         BeanFactory beanFactory = new BeanFactory("aopconfig.properties");
         Collection collection = (Collection) beanFactory.getBean("arrayList");
         collection.add("你好");
-        Integer
     }
 }
