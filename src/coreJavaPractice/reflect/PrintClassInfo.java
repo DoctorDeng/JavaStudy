@@ -62,6 +62,7 @@ public class PrintClassInfo {
 		
 		String constructorName = constructor.getName();
 		System.out.print("  ");
+		// 获取 Method 修饰符
 		String modifiers = Modifier.toString(constructor.getModifiers());
 		if (modifiers.length() > 0) System.out.print(modifiers + " ");
 		
@@ -92,6 +93,7 @@ public class PrintClassInfo {
 		
 		Class<?> returnType = method.getReturnType();
 		String methodName   = method.getName();
+		// 获取 Method 修饰符
 		String modifiers = Modifier.toString(method.getModifiers());
 		System.out.print("  ");
 		if (modifiers.length() > 0) System.out.print(modifiers + " ");
@@ -111,7 +113,6 @@ public class PrintClassInfo {
 	 */
 	public static void printFields(final Class<?> clazz) {
 		if (null == clazz) return;
-		
 		Field[] fields = clazz.getDeclaredFields();
 		for (Field field : fields) {
 			PrintClassInfo.printField(field);
@@ -126,6 +127,7 @@ public class PrintClassInfo {
 		
 		Class<?> fieldType = field.getType();
 		String fieldTypeName = fieldType.getSimpleName();
+		// 打印修饰符
 		String modifers = Modifier.toString(field.getModifiers());
 		System.out.print("  ");
 		if (modifers.length() > 0) System.out.print(modifers + " ");
