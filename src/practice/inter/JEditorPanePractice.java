@@ -1,17 +1,24 @@
 package practice.inter;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 /**
  * 
  * @author Doctordeng
  * 练习JEditorPane的使用，显示URL资源中的HTML文件
  */
-import javax.swing.*;
-
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Text;
-
-import java.awt.*;
-import java.awt.event.*;
-import java.net.*;
-import java.io.*;
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 
 public class JEditorPanePractice {
 

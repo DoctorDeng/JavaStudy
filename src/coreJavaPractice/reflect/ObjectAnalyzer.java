@@ -15,7 +15,7 @@ public class ObjectAnalyzer {
 	// 存储打印过的对象, 防止重复打印和死循环
 	private ArrayList<Object> visited = new ArrayList<>(); 
 	/**
-	 * 打印目标对象的所有属性,包括其值
+	 * 打印目标对象的所有成员变量,如果为基础数据类型，则打印其值
 	 * @param targetObject 目标对象
 	 * @return String
 	 */
@@ -27,7 +27,10 @@ public class ObjectAnalyzer {
 		
 		Class<?> clazz = targetObject.getClass();
 		if (clazz == String.class) return (String) targetObject;
+		
 		StringBuilder returnString = new StringBuilder();
+		
+		// 打印数组
 		if (clazz.isArray()) {
 			// getComponentType():返回表示数组组件类型的 Class
 			returnString.append(clazz.getComponentType() + "[]{");
@@ -54,7 +57,7 @@ public class ObjectAnalyzer {
 			{
 				if (!Modifier.isStatic(field.getModifiers())) 
 				{
-					if (returnString.toString().endsWith("[")) returnString.append(",");
+					if (!returnString.toString().endsWith("[")) returnString.append(",");
 					returnString.append(field.getName() + "=");
 					try {
 						// getType():返回一个 Class 对象，它标识了此 Field 对象所表示字段的声明类型。
