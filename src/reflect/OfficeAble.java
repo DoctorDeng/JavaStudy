@@ -1,4 +1,4 @@
-package javaReflectPractice;
+package reflect;
 
 public class OfficeAble {
 

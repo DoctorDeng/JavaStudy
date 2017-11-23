@@ -1,4 +1,4 @@
-package javaReflectPractice;
+package reflect;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -10,7 +10,7 @@ public class MethodDemo1 {
 		 * 要获取print(int,int)方法
 		 * 获取方法就是要获取类的信息，获取类的信息首先要获取类的类类型
 		 */
-		A a1 = new A();
+		AAA a1 = new AAA();
 		Class c = a1.getClass();
 		/**
 		 * 获取方法,名称和参数列表来决定方法
@@ -53,7 +53,7 @@ public class MethodDemo1 {
 
 }
 
-class A{
+class AAA{
 	
 	public void print(){
 		System.out.println("HelloWorld");

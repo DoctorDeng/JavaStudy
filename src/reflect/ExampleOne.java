@@ -1,4 +1,4 @@
-package classUse;
+package reflect;
 /*
  * Description:            练习Class类的使用
  * String getName()        返回类的名字

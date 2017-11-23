@@ -1,4 +1,4 @@
-package classUse;
+package reflect;
 /*
  * Description:   使用Class实例化一个对象
  * 语法：   static  Class  forName(String className); 
