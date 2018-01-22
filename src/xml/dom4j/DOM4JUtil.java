@@ -90,7 +90,7 @@ public class DOM4JUtil {
 			XMLWriter writer = new XMLWriter(new FileOutputStream(new File("rssDom4j.xml")), format);
 			
 			//设置是否将特殊字符 转义, 默认为 True(转义)
-			writer.setEscapeText(false);;
+			writer.setEscapeText(false);
 			writer.write(document);
 			writer.close();
 		} catch (IOException e) {
