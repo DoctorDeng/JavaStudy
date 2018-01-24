@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//Demo/test.txt=UTF-8
+encoding//src/io/FixJar.java=GBK
 encoding//src/junit/CalculateTest.java=GBK
 encoding//src/xml/books.xml=UTF-8
 encoding/<project>=UTF-8
