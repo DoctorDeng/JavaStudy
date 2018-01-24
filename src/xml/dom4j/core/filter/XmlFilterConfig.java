@@ -15,4 +15,6 @@ public class XmlFilterConfig {
 	public static final String CONST_FILTER_CLASS = "filter-class";
 	public static final String CONST_FILTER_MAPPING = "filter-mapping";
 	public static final String CONST_DISPATCHER = "dispatcher";
+	//public static final String CONST_DISPATCHER_REQUEST = "REQUEST";
+	//public static final String CONST_DISPATCHER_FORWARD = "FORWARD";
 }
