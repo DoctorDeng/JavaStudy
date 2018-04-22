@@ -1,4 +1,4 @@
-package exceptionPractice;
+package exception;
 /*
  * Description:   练习异常处理
  * Author:        Doctor邓

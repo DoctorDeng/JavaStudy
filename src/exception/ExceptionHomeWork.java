@@ -1,4 +1,4 @@
-package exceptionPractice;
+package exception;
 /*
  * Description:   模拟借书系统
  *         说明:   主要练习Java异常的相关知识：对用户输入错误，抛出各种异常。

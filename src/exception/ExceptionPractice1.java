@@ -1,4 +1,4 @@
-package exceptionPractice;
+package exception;
 /*
  * Description:   练习 异常
  */
