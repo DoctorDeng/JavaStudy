@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>vip.doctordeng</groupId>
     <artifactId>JavaStudy</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>JavaStudy Maven Project</name>
     <url>http://maven.apache.org</url>
@@ -26,6 +26,14 @@
     </properties>
 
     <dependencies>
+    	<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcprov-jdk15on</artifactId>
+		    <version>1.54</version>
+		</dependency>
+    	
+    
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
         <dependency>
             <groupId>redis.clients</groupId>

@@ -638,7 +638,7 @@ public class SQLUtil {
 		//sql.build_NSBRANCH();
 		//sql.build_WF_ATTACHMENT();
 		//sql.build_WFBRANCH_PAGE_MAPPING();
-		sql.build_WF_PRODUCT();
+		//sql.build_WF_PRODUCT();
 		//sql.build_WF_PRODUCT_INNERURL();
 	}
 }
