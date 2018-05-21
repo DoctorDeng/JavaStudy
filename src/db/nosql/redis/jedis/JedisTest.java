@@ -10,7 +10,7 @@ import redis.clients.jedis.Jedis;
  */
 public class JedisTest {
     // 1. 设置 IP 地址和端口
-    Jedis jedis = new Jedis("192.168.32.130",6379);
+    Jedis jedis = new Jedis("192.168.1.27",7000);
 
     private void testString() {
         jedis.set("key1", "value1");
