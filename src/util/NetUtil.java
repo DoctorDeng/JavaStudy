@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 import java.util.Enumeration;
 
 /**
- * code from��https://stackoverflow.com/questions/6164167/get-mac-address-on-local-machine-with-java
+ * code from：https://stackoverflow.com/questions/6164167/get-mac-address-on-local-machine-with-java
  * 
  * @since 1.1.5
  */

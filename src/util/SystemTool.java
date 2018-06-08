@@ -7,16 +7,16 @@ import java.io.InputStreamReader;
 public class SystemTool {
 	private static String macAddressCache = null;
 	/**
-	 * ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½. return ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½:windows xp,linux ï¿½ï¿½.
+	 * »ñÈ¡µ±Ç°²Ù×÷ÏµÍ³Ãû³Æ. return ²Ù×÷ÏµÍ³Ãû³Æ ÀýÈç:windows xp,linux µÈ.
 	 */
 	public static String getOSName() {
 		return System.getProperty("os.name").toLowerCase();
 	}
 
 	/**
-	 * ï¿½ï¿½È¡unixï¿½ï¿½ï¿½ï¿½ï¿½ï¿½macï¿½ï¿½Ö·. ï¿½ï¿½windowsï¿½ï¿½ÏµÍ³Ä¬ï¿½Ïµï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½È¡macï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½.
+	 * »ñÈ¡unixÍø¿¨µÄmacµØÖ·. ·ÇwindowsµÄÏµÍ³Ä¬ÈÏµ÷ÓÃ±¾·½·¨»ñÈ¡.Èç¹ûÓÐÌØÊâÏµÍ³Çë¼ÌÐøÀ©³äÐÂµÄÈ¡macµØÖ··½·¨.
 	 * 
-	 * @return macï¿½ï¿½Ö·
+	 * @return macµØÖ·
 	 */
 	private static String getUnixMACAddress() {
 		String mac = getUnixMAXAddress("UTF-8");
@@ -35,21 +35,21 @@ public class SystemTool {
 		Process process = null;
 		try {
 			// ifconfig eth0
-			process = Runtime.getRuntime().exec("ifconfig");// linuxï¿½Âµï¿½ï¿½ï¿½ï¿½î£¬Ò»ï¿½ï¿½È¡eth0ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-			// ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½macï¿½ï¿½Ö·ï¿½ï¿½Ï¢
+			process = Runtime.getRuntime().exec("ifconfig");// linuxÏÂµÄÃüÁî£¬Ò»°ãÈ¡eth0×÷Îª±¾µØÖ÷Íø¿¨
+			// ÏÔÊ¾ÐÅÏ¢ÖÐ°üº¬ÓÐmacµØÖ·ÐÅÏ¢
 			bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream(), charsetName));
 			String line = null;
 			int index = -1;
 			while ((line = bufferedReader.readLine()) != null) {
-				index = line.toLowerCase().indexOf("hwaddr");// Ñ°ï¿½Ò±ï¿½Ê¾ï¿½Ö·ï¿½ï¿½ï¿½[hwaddr]
-				if (index >= 0) {// ï¿½Òµï¿½ï¿½ï¿½
-					mac = line.substring(index + "hwaddr".length() + 1).trim();// È¡ï¿½ï¿½macï¿½ï¿½Ö·ï¿½ï¿½È¥ï¿½ï¿½2ï¿½ß¿Õ¸ï¿½
+				index = line.toLowerCase().indexOf("hwaddr");// Ñ°ÕÒ±êÊ¾×Ö·û´®[hwaddr]
+				if (index >= 0) {// ÕÒµ½ÁË
+					mac = line.substring(index + "hwaddr".length() + 1).trim();// È¡³ömacµØÖ·²¢È¥³ý2±ß¿Õ¸ñ
 					break;
 				}
 
-				index = line.toLowerCase().indexOf("Ó²ï¿½ï¿½ï¿½ï¿½Ö·");
-				if (index >= 0) {// ï¿½Òµï¿½ï¿½ï¿½
-					mac = line.substring(index + "Ó²ï¿½ï¿½ï¿½ï¿½Ö·".length() + 1).trim();// È¡ï¿½ï¿½macï¿½ï¿½Ö·ï¿½ï¿½È¥ï¿½ï¿½2ï¿½ß¿Õ¸ï¿½
+				index = line.toLowerCase().indexOf("Ó²¼þµØÖ·");
+				if (index >= 0) {// ÕÒµ½ÁË
+					mac = line.substring(index + "Ó²¼þµØÖ·".length() + 1).trim();// È¡³ömacµØÖ·²¢È¥³ý2±ß¿Õ¸ñ
 					break;
 				}
 			}
@@ -74,27 +74,27 @@ public class SystemTool {
 		BufferedReader bufferedReader = null;
 		Process process = null;
 		try {
-			process = Runtime.getRuntime().exec("ipconfig /all");// windowsï¿½Âµï¿½ï¿½ï¿½ï¿½î£¬ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½macï¿½ï¿½Ö·ï¿½ï¿½Ï¢
+			process = Runtime.getRuntime().exec("ipconfig /all");// windowsÏÂµÄÃüÁî£¬ÏÔÊ¾ÐÅÏ¢ÖÐ°üº¬ÓÐmacµØÖ·ÐÅÏ¢
 			bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream(), charsetName));
 			String line = null;
 			int index = -1;
 			while ((line = bufferedReader.readLine()) != null) {
-				index = line.toLowerCase().indexOf("physical address");// Ñ°ï¿½Ò±ï¿½Ê¾ï¿½Ö·ï¿½ï¿½ï¿½[physical
+				index = line.toLowerCase().indexOf("physical address");// Ñ°ÕÒ±êÊ¾×Ö·û´®[physical
 				// address]
-				// Ó¢ï¿½Ä²ï¿½ï¿½ï¿½ÏµÍ³
-				if (index >= 0) {// ï¿½Òµï¿½ï¿½ï¿½
-					index = line.indexOf(":");// Ñ°ï¿½ï¿½":"ï¿½ï¿½Î»ï¿½ï¿½
+				// Ó¢ÎÄ²Ù×÷ÏµÍ³
+				if (index >= 0) {// ÕÒµ½ÁË
+					index = line.indexOf(":");// Ñ°ÕÒ":"µÄÎ»ÖÃ
 					if (index >= 0) {
-						mac = line.substring(index + 1).trim();// È¡ï¿½ï¿½macï¿½ï¿½Ö·ï¿½ï¿½È¥ï¿½ï¿½2ï¿½ß¿Õ¸ï¿½
+						mac = line.substring(index + 1).trim();// È¡³ömacµØÖ·²¢È¥³ý2±ß¿Õ¸ñ
 					}
 					break;
 				}
-				// ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ÏµÍ³
-				index = line.toLowerCase().indexOf("ï¿½ï¿½ï¿½ï¿½ï¿½Ö·");
-				if (index >= 0) {// ï¿½Òµï¿½ï¿½ï¿½
-					index = line.indexOf(":");// Ñ°ï¿½ï¿½":"ï¿½ï¿½Î»ï¿½ï¿½
+				// ÖÐÎÄ²Ù×÷ÏµÍ³
+				index = line.toLowerCase().indexOf("ÎïÀíµØÖ·");
+				if (index >= 0) {// ÕÒµ½ÁË
+					index = line.indexOf(":");// Ñ°ÕÒ":"µÄÎ»ÖÃ
 					if (index >= 0) {
-						mac = line.substring(index + 1).trim();// È¡ï¿½ï¿½macï¿½ï¿½Ö·ï¿½ï¿½È¥ï¿½ï¿½2ï¿½ß¿Õ¸ï¿½
+						mac = line.substring(index + 1).trim();// È¡³ömacµØÖ·²¢È¥³ý2±ß¿Õ¸ñ
 					}
 					break;
 				}
@@ -115,9 +115,9 @@ public class SystemTool {
 		return  mac;
 	}
 	/**
-	 * ï¿½ï¿½È¡widnowsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½macï¿½ï¿½Ö·.
+	 * »ñÈ¡widnowsÍø¿¨µÄmacµØÖ·.
 	 * 
-	 * @return macï¿½ï¿½Ö·
+	 * @return macµØÖ·
 	 */
 	private static String getWindowsMACAddress() {
 		String mac = getWindownsMACAddress("GBK");
@@ -147,10 +147,10 @@ public class SystemTool {
 		} 
 	}
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½mainï¿½ï¿½ï¿½ï¿½.
+	 * ²âÊÔÓÃµÄmain·½·¨.
 	 * 
 	 * @param argc
-	 *            ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½.
+	 *            ÔËÐÐ²ÎÊý.
 	 */
 	public static void main(String[] argc) {
 /*		System.out.println(System.getProperty("file.encoding"));
@@ -158,11 +158,11 @@ public class SystemTool {
 		String os = getOSName();
 		System.out.println(os);
 		if (os.startsWith("windows")) {
-			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½windows
+			// ±¾µØÊÇwindows
 			String mac = getWindowsMACAddress();
 			System.out.println(mac);
 		} else {
-			// ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½windowsÏµÍ³ Ò»ï¿½ï¿½ï¿½ï¿½ï¿½unix
+			// ±¾µØÊÇ·ÇwindowsÏµÍ³ Ò»°ã¾ÍÊÇunix
 			String mac = getUnixMACAddress();
 			System.out.println(mac);
 		}
