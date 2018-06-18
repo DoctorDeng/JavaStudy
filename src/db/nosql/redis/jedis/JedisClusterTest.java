@@ -1,10 +1,11 @@
 package db.nosql.redis.jedis;
 
-import redis.clients.jedis.HostAndPort;
-import redis.clients.jedis.JedisCluster;
-import redis.clients.jedis.JedisPoolConfig;
+import lombok.NonNull;
+import org.springframework.util.Assert;
+import redis.clients.jedis.*;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -31,12 +32,41 @@ public class JedisClusterTest {
         cluster = new JedisCluster(nodes, config);
     }
 
-    private static void test() {
+    private static void simpleTest() {
         cluster.set("hello", "world");
         System.out.println(cluster.get("hello"));
     }
 
+    /**
+     * 练习 Redis Cluster 多节点命令
+     */
+    private static void multiClusterNodeCommandTest() {
+        Map<String, JedisPool> jedisPoolMap = cluster.getClusterNodes();
+        for (Map.Entry<String, JedisPool> entry : jedisPoolMap.entrySet()) {
+            // 获取每个节点的 Jedis 连接
+            Jedis jedis = entry.getValue().getResource();
+            if (isMaster(jedis)) {
+                // do something
+                // ......
+
+                // close: 需要手动关闭
+                jedis.close();
+            }
+        }
+    }
+
+    private static boolean isMaster(@NonNull Jedis jedis) {
+        Assert.notNull(jedis);
+        String info = jedis.info("replication");
+        if (info != null && info.contains("role:master")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
-        test();
+        //simpleTest();
+        multiClusterNodeCommandTest();
     }
 }
