@@ -24,9 +24,21 @@
         <dom4j.version>2.1.0</dom4j.version>
         <slf4j.version>1.7.25</slf4j.version>
         <ojdbc.version>11.1.0.7.0</ojdbc.version>
+        <guava.version>25.1-jre</guava.version>
     </properties>
-
     <dependencies>
+        <dependency>
+            <groupId>com.sohu.tv</groupId>
+            <artifactId>cachecloud-client-redis</artifactId>
+            <version>1.6.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+            <!-- or, for Android: -->
+            <!--<version>25.1-android</version>-->
+        </dependency>
     	<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
 		<dependency>
 		    <groupId>org.bouncycastle</groupId>
@@ -307,6 +319,10 @@
             <id>alimaven</id>
             <name>aliyun maven</name>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>sohu.nexus</id>
+            <url>http://index.tv.sohuno.com/nexus/content/groups/public</url>
         </repository>
     </repositories>
 </project>
