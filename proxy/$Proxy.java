@@ -1,7 +1,7 @@
-package proxyPractice;
-class $Proxy0 implements proxyPractice.Moveable{ 
-private proxyPractice.Moveable move; 
-public $Proxy0(proxyPractice.Moveable move) { 
+package proxy;
+class $Proxy0 implements proxy.Moveable{
+private proxy.Moveable move;
+public $Proxy0(proxy.Moveable move) {
 super(); 
 this.move = move; 
 } 

@@ -1,5 +1,6 @@
 package algorithm.sort;
 
+import algorithm.SortUtil;
 import util.PrintUtil;
 
 import java.util.Random;
@@ -17,9 +18,7 @@ import java.util.Random;
 public class BubbleSort {
 
     public static int[] simpleSort(int[] array) {
-        if (array == null) {
-            throw new NullPointerException(" Array must not be null");
-        }
+        SortUtil.checkArgument(array);
 
         for (int i = 0, len = array.length; i < len; i++) {
 
@@ -35,10 +34,13 @@ public class BubbleSort {
 
         return array;
     }
+
+    /**
+     * 在 {@link algorithm.sort.BubbleSort#simpleSort(int[])} 的基础上优化的冒泡排序算法
+     * 采用了数组有序标志位，当数据有序时通过标志位提前跳出排序循环
+     */
     public static int[] optimizationSort(int[] array) {
-        if (array == null) {
-            throw new NullPointerException(" Array must not be null");
-        }
+        SortUtil.checkArgument(array);
 
         for (int i = 0, len = array.length; i < len; i++) {
             /*
@@ -63,10 +65,12 @@ public class BubbleSort {
         return array;
     }
 
+    /**
+     * 在 {@link algorithm.sort.BubbleSort#optimizationSort(int[])} 的基础上再次优化的冒泡排序算法
+     * 在排序时界定数组有序边界（即数组从边界开始至右所有元素已全部有序），然后在排序时比较到边界即可
+     */
     public static int[] bestSort(int[] array) {
-        if (array == null) {
-            throw new NullPointerException(" Array must not be null");
-        }
+        SortUtil.checkArgument(array);
 
         // 数组有序边界下标(即从此边界开始数组已有序)
         int sortBorderIndex = array.length - 1;
@@ -102,21 +106,12 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-       int[] testData = getTestData(10);
+       int[] testData = SortUtil.getTestData(10);
        //PrintUtil.print(testData);
        //PrintUtil.print(simpleSort(testData));
         //int[] array = {1,4,2,3,5};
         //PrintUtil.print(bestSort(array));
         //int[] array1 = {1,4,2,3,5};
         //PrintUtil.print(optimizationSort(array1));
-    }
-
-    private static int[] getTestData(int size) {
-        Random random = new Random();
-        int[] array = new int[size];
-        for (int i = 0; i < size; i++) {
-            array[i] = random.nextInt(1000);
-        }
-        return array;
     }
 }

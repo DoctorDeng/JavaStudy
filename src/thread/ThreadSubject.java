@@ -11,7 +11,7 @@ public class ThreadSubject {
 	/**
 	 * 表示主线程和子线程是否在运行的变量, true 为子线程运行, false 为主线程执行
 	 */
-	private boolean isChildRun = true;
+	private volatile boolean isChildRun = true;
 	
 	public synchronized void mainThreadMethod() {
 		// 这里不采用  while (!isChildRun) { for ().....} 的原因是
@@ -63,7 +63,7 @@ public class ThreadSubject {
 			public void run() {
 				for (int i = 1; i <= 50; i++) {
 					threadSubject.childThreadMethod();
-				}
+			}
 			}
 		}).start();
 
