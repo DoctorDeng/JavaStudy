@@ -21,7 +21,7 @@ public class Decryptor {
 
     public static void main(String args[]) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, InvalidKeySpecException, InvalidAlgorithmParameterException {
         Security.addProvider(new BouncyCastleProvider());
-        String serializedSystemIniPath = "E:\\DEV\\T0112\\SingleProduct\\º£Âí\\SerializedSystemIni.dat";
+        String serializedSystemIniPath = "xxxSerializedSystemIni.dat";
         String ciphertext = "{AES}U2MR8XscGom3Rs3cKluum9aX5icJcJVRszBzFRZxr6U=";
         String cleartext = "";
 
@@ -36,7 +36,7 @@ public class Decryptor {
         System.out.println(cleartext);
     }
 
-    
+
     public static String decryptAES(String SerializedSystemIni, String ciphertext) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, IOException {
         byte[] encryptedPassword1 = new BASE64Decoder().decodeBuffer(ciphertext);
         byte[] salt = null;
@@ -84,7 +84,7 @@ public class Decryptor {
         outCipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivParameterSpec);
 
         byte[] cleartext = outCipher.doFinal(encryptedPassword2);
-        
+
         return new String(cleartext, "UTF-8");
         //return "aaa";
     }

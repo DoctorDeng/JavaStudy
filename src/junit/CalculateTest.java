@@ -16,22 +16,22 @@ public class CalculateTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		calculate = new Calculate();
-		System.out.println("----ËùÓĞ²âÊÔ·½·¨Ö´ĞĞÇ°----");
+		System.out.println("----æ‰€æœ‰æµ‹è¯•æ–¹æ³•æ‰§è¡Œå‰----");
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		System.out.println("----ËùÓĞ²âÊÔ·½·¨Ö´ĞĞºó----");
+		System.out.println("----æ‰€æœ‰æµ‹è¯•æ–¹æ³•æ‰§è¡Œå----");
 	}
 
 	@Before
 	public void setUp() throws Exception {
-		System.out.println("----²âÊÔ·½·¨Ö´ĞĞÖ®Ç°----");
+		System.out.println("----æµ‹è¯•æ–¹æ³•æ‰§è¡Œä¹‹å‰----");
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		System.out.println("----²âÊÔ·½·¨Ö´ĞĞÖ®ºó----");
+		System.out.println("----æµ‹è¯•æ–¹æ³•æ‰§è¡Œä¹‹å----");
 	}
 
 	@Test
@@ -39,17 +39,17 @@ public class CalculateTest {
 		assertEquals(6, calculate.addInt(3, 3));
 	}
 	/**
-	 * Ô¤ÆÚÅ×³öËãÊıÒì³£, Èç¹ûÅ×³öÒì³£ÔòÖ´ĞĞ³É¹¦, ²»Å×³öÖ´ĞĞÏÔÊ¾ Failure
+	 * é¢„æœŸæŠ›å‡ºç®—æ•°å¼‚å¸¸, å¦‚æœæŠ›å‡ºå¼‚å¸¸åˆ™æ‰§è¡ŒæˆåŠŸ, ä¸æŠ›å‡ºæ‰§è¡Œæ˜¾ç¤º Failure
 	 */
 	@Test(expected=ArithmeticException.class)
 	public void testDivide() {
 		assertEquals(6, calculate.divide(6, 1));
 	}
 	/**
-	 * ÉèÖÃ·½·¨Ö´ĞĞÊ±¼ä, ³¬Ê±½«×Ô¶¯ÖÕÖ¹·½·¨Ö´ĞĞ, ·ÀÖ¹³öÏÖËÀÑ­»·
+	 * è®¾ç½®æ–¹æ³•æ‰§è¡Œæ—¶é—´, è¶…æ—¶å°†è‡ªåŠ¨ç»ˆæ­¢æ–¹æ³•æ‰§è¡Œ, é˜²æ­¢å‡ºç°æ­»å¾ªç¯
 	 */
 	@Ignore
-	@Test(timeout=2000)//µ¥Î»ºÁÃë
+	@Test(timeout=2000)//å•ä½æ¯«ç§’
 	public void testLoop() {
 		for (int i=0; true; i++) {
 			System.out.println(i);
