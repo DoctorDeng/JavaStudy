@@ -27,11 +27,11 @@
         <guava.version>25.1-jre</guava.version>
     </properties>
     <dependencies>
-        <dependency>
+ <!--        <dependency>
             <groupId>com.sohu.tv</groupId>
             <artifactId>cachecloud-client-redis</artifactId>
             <version>1.6.1-SNAPSHOT</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
