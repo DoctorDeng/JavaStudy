@@ -13,7 +13,6 @@ import java.util.concurrent.RecursiveTask;
 public class ForkJoinTest {
 	private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(CountTask.class);
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		ForkJoinPool forkJoinPool = new ForkJoinPool();
 		// 生成一个计算任务，负责计算 1 + 2 + 3 + 4
 		CountTask countTask = new CountTask(1, 4);

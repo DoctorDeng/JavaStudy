@@ -1,3 +1,4 @@
+import java.util.Date;
 
 /**
  * @author <a href="http://doctordeng.vip/">Doctor邓</a>
@@ -8,6 +9,6 @@
 public class Template {
     public static void main(String[] args) {
         String a = "b" + "c" + 1;
-
+        System.out.println((new Date()).getTime());
     }
 }

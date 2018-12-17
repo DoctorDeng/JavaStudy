@@ -1,4 +1,4 @@
-package RationalPackage;
+package rational;
 
 public class Computer {
 

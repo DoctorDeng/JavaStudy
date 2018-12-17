@@ -1,4 +1,4 @@
-package RationalPackage;
+package rational;
 /*
  * Description:    实现对有理数(分数)的封装,使得有理数在经过四则运算(加、减、乘、除)后任然是有理数
  * 
