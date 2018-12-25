@@ -25,6 +25,7 @@
         <slf4j.version>1.7.25</slf4j.version>
         <ojdbc.version>11.1.0.7.0</ojdbc.version>
         <guava.version>25.1-jre</guava.version>
+        <jaxb.version>2.3.1</jaxb.version>
     </properties>
     <dependencies>
  <!--        <dependency>
@@ -78,6 +79,12 @@
             <artifactId>commons-beanutils</artifactId>
             <version>1.9.3</version>
         </dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.7</version>
+		</dependency>
 
         <!-- https://mvnrepository.com/artifact/org.lucee/jdom2 -->
         <dependency>
@@ -288,6 +295,20 @@
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>${jaxb.version}</version>
+		</dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl -->
+		<dependency>
+		    <groupId>com.sun.xml.bind</groupId>
+		    <artifactId>jaxb-impl</artifactId>
+		    <version>${jaxb.version}</version>
+		</dependency>
+        
     </dependencies>
     <build>
         <finalName>JavaStudy</finalName>
