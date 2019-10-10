@@ -26,6 +26,7 @@
         <ojdbc.version>11.1.0.7.0</ojdbc.version>
         <guava.version>25.1-jre</guava.version>
         <jaxb.version>2.3.1</jaxb.version>
+        <poi.version>3.14</poi.version>
     </properties>
     <dependencies>
  <!--        <dependency>
@@ -308,7 +309,29 @@
 		    <artifactId>jaxb-impl</artifactId>
 		    <version>${jaxb.version}</version>
 		</dependency>
-        
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-compress -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-compress</artifactId>
+		    <version>1.18</version>
+		</dependency>
     </dependencies>
     <build>
         <finalName>JavaStudy</finalName>
