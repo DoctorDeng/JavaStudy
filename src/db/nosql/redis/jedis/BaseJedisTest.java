@@ -1,6 +1,5 @@
 package db.nosql.redis.jedis;
 
-import org.junit.Assert;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
