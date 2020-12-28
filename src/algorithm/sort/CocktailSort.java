@@ -1,6 +1,6 @@
 package algorithm.sort;
 
-import algorithm.SortUtil;
+import algorithm.utils.SortUtil;
 import util.PrintUtil;
 /**
  * 鸡尾酒排序：

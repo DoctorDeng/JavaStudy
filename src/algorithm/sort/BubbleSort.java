@@ -1,9 +1,6 @@
 package algorithm.sort;
 
-import algorithm.SortUtil;
-import util.PrintUtil;
-
-import java.util.Random;
+import algorithm.utils.SortUtil;
 
 /**
  * 冒泡排序算法的运作如下：
