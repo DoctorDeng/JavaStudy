@@ -1,6 +1,6 @@
-package algorithm.sort;
+package datastructureAndalgorithm.sort;
 
-import algorithm.utils.SortUtil;
+import datastructureAndalgorithm.utils.SortUtil;
 import util.PrintUtil;
 /**
  * 鸡尾酒排序：
@@ -66,7 +66,7 @@ public class CocktailSort {
         return array;
     }
     /**
-     * 优化后的鸡尾酒排序，同 {@link algorithm.sort.BubbleSort#bestSort(int[])} 优化手法一致
+     * 优化后的鸡尾酒排序，同 {@link datastructureAndalgorithm.sort.BubbleSort#bestSort(int[])} 优化手法一致
      */
     public static int[] optimizationSort(int[] array) {
         SortUtil.checkArgument(array);
