@@ -186,6 +186,9 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
         }
 
         while (slow != null) {
+            if (slow.getValue() == null || prev == null || prev.getValue() == null) {
+                return false;
+            }
            if (!slow.getValue().equals(prev.getValue())) {
                return false;
            }
