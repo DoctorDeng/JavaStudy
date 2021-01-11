@@ -8,7 +8,6 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * 
  * @author <a href="http://doctordeng.vip">DoctorDeng</a>
  * @date 2021/1/9 11:35
  * @since 1.0.0
@@ -17,21 +16,21 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
     /**
      * 头节点
      */
-    private SinglyNode<V> head;
+    protected SinglyNode<V> head;
 
     /**
      * 尾部节点
      */
-    private SinglyNode<V> tail;
+    protected SinglyNode<V> tail;
 
     /**
      * 链表节点数
      */
-    int size;
+    protected int size;
 
     @Override
     public boolean add(V value) {
-        checkArgument(value);
+        checkNullAndSize(value);
         SinglyNode<V> node = newNode(value);
         if (head == null) {
             head = node;
@@ -53,7 +52,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
         }
 
         int cursor = 0;
-        for (V value: this) {
+        for (V value : this) {
             if (cursor == index) {
                 return value;
             }
@@ -62,7 +61,11 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
         throw new IndexOutOfBoundsException("index = " + index);
     }
 
-    private void checkArgument(V value) {
+    protected void checkNullAndSize(V value) {
+        // Interger.MAX_VALUE +1 = Interger.MIN_VALUE
+        if (size + 1 < 0) {
+            throw new OutOfMemoryError();
+        }
         if (value == null) {
             throw new NullPointerException("value must not be null");
         }
@@ -191,11 +194,11 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
             if (slow.getValue() == null || prev == null || prev.getValue() == null) {
                 return false;
             }
-           if (!slow.getValue().equals(prev.getValue())) {
-               return false;
-           }
-           slow = slow.next;
-           prev = prev.next;
+            if (!slow.getValue().equals(prev.getValue())) {
+                return false;
+            }
+            slow = slow.next;
+            prev = prev.next;
         }
         return true;
     }
@@ -203,7 +206,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
     @Override
     public SinglyLinkedList<V> clone() {
         SinglyLinkedList<V> clone = new SinglyLinkedList<>();
-        for (V value: this) {
+        for (V value : this) {
             if (value instanceof Cloneable) {
                 clone.add(ObjectUtils.clone(value));
             } else {
@@ -213,12 +216,53 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
         return clone;
     }
 
-    private SinglyNode<V> newNode(V value) {
+    protected SinglyNode<V> newNode(V value) {
         return newNode(value, null);
     }
 
-    private SinglyNode<V> newNode(V value, SinglyNode<V> next) {
+    protected SinglyNode<V> newNode(V value, SinglyNode<V> next) {
         return new SinglyNode<>(value, next);
+    }
+
+    /**
+     * 添加头结点
+     *
+     * @param value 头结点值
+     * @return true 添加成功, false 添加失败
+     */
+    protected boolean addHead(V value) {
+        checkNullAndSize(value);
+
+        head = newNode(value, head);
+        if (tail == null) {
+            tail = head;
+        }
+        size++;
+        return true;
+    }
+
+    /**
+     * 在指定节点后添加节点
+     *
+     * @param target 指定节点
+     * @param value  要添加的节点的值
+     * @return true 添加成功, false 添加失败
+     * @throws NoSuchElementException 当 target 为 null 时
+     */
+    protected boolean addAfter(SinglyNode<V> target, V value) {
+        checkNullAndSize(value);
+
+        if (target == null) {
+            throw new NoSuchElementException("target node not exists");
+        }
+
+        SinglyNode<V> newNode = newNode(value, target.getNext());
+        target.setNext(newNode);
+
+        if (tail == target) {
+            tail = newNode;
+        }
+        return true;
     }
 
     @Override
@@ -230,7 +274,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
     /**
      * 单向链表节点
      */
-    static class SinglyNode<V> implements LinkedList.Node<V> {
+    protected static class SinglyNode<V> implements LinkedList.Node<V> {
         /**
          * 节点储存的值
          */
@@ -242,7 +286,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 
         public SinglyNode(V value, SinglyNode<V> next) {
             this.value = value;
-            this.next  = next;
+            this.next = next;
         }
 
         @Override
@@ -268,7 +312,8 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
             this.next = next;
         }
     }
-    private class SinglyIterator implements Iterator<V> {
+
+    protected final class SinglyIterator implements Iterator<V> {
 
         private SinglyNode<V> cursor = head;
 
@@ -307,7 +352,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
                 prev.next = current.next;
             } else {
                 if (current == head) {
-                   head = head.next;
+                    head = head.next;
                 }
                 if (current == tail) {
                     tail = prev;
@@ -328,7 +373,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
     private static void testBasic() {
         LinkedList<Object> linkedList = new SinglyLinkedList<>();
 
-        String str3 =  "3";
+        String str3 = "3";
         linkedList.add("1");
         linkedList.add(2);
         linkedList.add(str3);
