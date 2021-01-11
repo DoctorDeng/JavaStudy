@@ -68,6 +68,13 @@ public interface LinkedList<V> extends Iterable<V> {
      * 链表中的节点
      */
     interface Node<V> {
+
+        /**
+         * 当前节点下一个节点
+         * @return 下一个节点
+         */
+        Node<V> next();
+
         /**
          * 获取值
          * @return 节点值

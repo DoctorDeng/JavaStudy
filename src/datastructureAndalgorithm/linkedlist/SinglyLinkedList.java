@@ -246,6 +246,11 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
         }
 
         @Override
+        public Node<V> next() {
+            return next;
+        }
+
+        @Override
         public V getValue() {
             return value;
         }
