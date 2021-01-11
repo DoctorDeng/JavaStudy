@@ -168,7 +168,9 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
         }
 
         SinglyLinkedList<V> clone = clone();
+        // 快指针, 每次前进两个节点
         SinglyNode<V> fast = clone.head;
+        // 慢指针, 每次前进一个节点
         SinglyNode<V> slow = clone.head;
         SinglyNode<V> prev = null;
 
@@ -180,11 +182,11 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
             prev = slow;
             slow = slowNext;
         }
-
+        // 对于基数节点需要额外将慢指针前移一位
         if (fast != null) {
             slow = slow.next;
         }
-
+        // 链表前半部分和后半部分进行比较
         while (slow != null) {
             if (slow.getValue() == null || prev == null || prev.getValue() == null) {
                 return false;
