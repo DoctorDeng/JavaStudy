@@ -167,8 +167,13 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 
     @Override
     public boolean isPalindrome() {
+        // 快速失败
         if (isEmpty()) {
             return false;
+        }
+        // 快速成功
+        if (size == 1) {
+            return true;
         }
 
         SinglyLinkedList<V> clone = clone();
@@ -186,7 +191,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
             prev = slow;
             slow = slowNext;
         }
-        // 对于基数节点需要额外将慢指针前移一位
+        // 对于奇数个数节点链表需要额外将慢指针前移一位
         if (fast != null) {
             slow = slow.next;
         }
@@ -202,6 +207,32 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
             prev = prev.next;
         }
         return true;
+    }
+
+    @Override
+    public LinkedList<V> reverse() {
+        SinglyLinkedList<V> reverse = clone();
+        // 快速返回
+        if (isEmpty() || size == 1) {
+            return reverse;
+        }
+        SinglyNode<V> cursor = reverse.head;
+        SinglyNode<V> prev = null;
+        SinglyNode<V> head = reverse.head;
+        SinglyNode<V> tail = reverse.tail;
+
+        // 反转节点
+        while (cursor != null) {
+            SinglyNode<V> next = cursor.next;
+            cursor.next = prev;
+            // 移动游标到下一个节点
+            prev = cursor;
+            cursor = next;
+        }
+        // 头尾反转
+        reverse.tail = head;
+        reverse.head = tail;
+        return reverse;
     }
 
     @Override
@@ -378,6 +409,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
     public static void main(String[] args) {
         testBasic();
         testPalindrome();
+        testReverse();
     }
 
     private static void testBasic() {
@@ -417,5 +449,22 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
         linkedList2.add("2");
         linkedList2.add("1");
         Assert.isTrue(linkedList2.isPalindrome(), "LinkedList.isPalindrome() test failed");
+    }
+
+    private static void testReverse() {
+        LinkedList<String> linkedList = new SinglyLinkedList<>();
+        LinkedList<String> reverse1 = linkedList.reverse();
+        Assert.isTrue("{}".equals(reverse1.toString()), "LinkedList.reverse() test failed");
+
+        linkedList.add("1");
+        LinkedList<String> reverse2 = linkedList.reverse();
+        Assert.isTrue("{1}".equals(reverse2.toString()), "LinkedList.reverse() test failed");
+
+        linkedList.add("2");
+        linkedList.add("3");
+        linkedList.add("4");
+        linkedList.add("5");
+        LinkedList<String> reverse = linkedList.reverse();
+        Assert.isTrue("{5},{4},{3},{2},{1}".equals(reverse.toString()), "LinkedList.reverse() test failed");
     }
 }

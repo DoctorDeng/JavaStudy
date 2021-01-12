@@ -65,6 +65,12 @@ public interface LinkedList<V> extends Iterable<V> {
     boolean isPalindrome();
 
     /**
+     * 链表反转
+     * @return 反转后的新链表
+     */
+    LinkedList<V> reverse();
+
+    /**
      * 链表中的节点
      */
     interface Node<V> {
