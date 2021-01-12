@@ -315,35 +315,31 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 
     protected final class SinglyIterator implements Iterator<V> {
 
-        private SinglyNode<V> cursor = head;
+        private SinglyNode<V> next;
 
-        private SinglyNode<V> prevCursor = null;
-
-        private SinglyNode<V> current = head;
+        private SinglyNode<V> current = null;
 
         private SinglyNode<V> prev = null;
 
+        public SinglyIterator() {
+            super();
+            this.next = head;
+        }
+
         @Override
         public boolean hasNext() {
-            return cursor != null;
+            return next != null;
         }
 
         @Override
         public V next() {
-            if (cursor == null) {
+            if (next == null) {
                 throw new NoSuchElementException();
             }
-            // 保存当前节点信息
-            current = cursor;
-            prev = prevCursor;
-            // 移动游标到下一个节点
-            moveCursor();
+            prev = current;
+            current = next;
+            next = next.next;
             return current.getValue();
-        }
-
-        private void moveCursor() {
-            prevCursor = cursor;
-            cursor = cursor.next;
         }
 
         @Override
