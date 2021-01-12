@@ -15,9 +15,9 @@ public interface LinkedList<V> extends Iterable<V> {
     boolean add(V value);
 
     /**
-     * 从头开始遍历链表，获取指定索引下的节点的值
-     * @param index 节点指定索引
-     * @return 指定索引节点的值
+     * 从头开始遍历链表，获取指定位置节点的值
+     * @param index 节点位置
+     * @return 节点的值
      */
     V get(int index);
 

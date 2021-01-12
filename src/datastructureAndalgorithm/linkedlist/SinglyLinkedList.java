@@ -6,6 +6,7 @@ import org.springframework.util.Assert;
 import javax.annotation.Nonnull;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 /**
  * @author <a href="http://doctordeng.vip">DoctorDeng</a>
@@ -310,6 +311,19 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 
         public void setNext(SinglyNode<V> next) {
             this.next = next;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            SinglyNode<?> that = (SinglyNode<?>) o;
+            return value.equals(that.value);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(value);
         }
     }
 
