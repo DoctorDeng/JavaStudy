@@ -294,6 +294,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
         if (tail == target) {
             tail = newNode;
         }
+        size++;
         return true;
     }
 
