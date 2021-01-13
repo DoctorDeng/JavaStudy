@@ -72,8 +72,19 @@ public class SortSinglyLinkedList<V extends Comparable<V>> extends SinglyLinkedL
     }
 
     public static void main(String[] args) {
+        testAdd();
         testAescSort();
         testDescSort();
+    }
+
+    private static  void testAdd() {
+        SortSinglyLinkedList<Integer> sortSinglyLinkedList = new SortSinglyLinkedList<>();
+        sortSinglyLinkedList.add(1);
+        Assert.isTrue(1 == sortSinglyLinkedList.size, "SortSinglyLinkedList.add()  test failed");
+        sortSinglyLinkedList.add(2);
+        Assert.isTrue(2 == sortSinglyLinkedList.size, "SortSinglyLinkedList.add()  test failed");
+        sortSinglyLinkedList.add(3);
+        Assert.isTrue(3 == sortSinglyLinkedList.size, "SortSinglyLinkedList.add()  test failed");
     }
 
     private static void testAescSort() {
