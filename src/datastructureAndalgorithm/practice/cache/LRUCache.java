@@ -2,7 +2,6 @@ package datastructureAndalgorithm.practice.cache;
 
 import datastructureAndalgorithm.linkedlist.SortSinglyLinkedList;
 
-import javax.annotation.Nonnull;
 import java.util.Iterator;
 
 /**
@@ -15,7 +14,7 @@ public class LRUCache<K, V> implements Cache<K, V> {
     /**
      * 缓存链表
      */
-    private final SortSinglyLinkedList<LRUCacheEntry<K, V>> innerCache;
+    private final SortSinglyLinkedList<LRUCacheEntry<K, V>> cacheList;
 
     /**
      * 默认缓存容量
@@ -30,7 +29,7 @@ public class LRUCache<K, V> implements Cache<K, V> {
     public LRUCache() {
         super();
         this.capacity = DEFAULT_CAPACITY;
-        innerCache = new SortSinglyLinkedList<>(false);
+        cacheList = new SortSinglyLinkedList<>(false);
     }
 
     public LRUCache(int capacity) {
@@ -39,7 +38,7 @@ public class LRUCache<K, V> implements Cache<K, V> {
             throw new IllegalArgumentException("cache capacity must be greater than or equal to 0");
         }
         this.capacity = capacity;
-        innerCache = new SortSinglyLinkedList<>(false);
+        cacheList = new SortSinglyLinkedList<>(false);
     }
 
     @Override
@@ -55,18 +54,18 @@ public class LRUCache<K, V> implements Cache<K, V> {
      * @return 缓存对象
      */
     private LRUCacheEntry<K, V> get(K key, boolean accessRecord) {
-        if (key == null || innerCache.isEmpty()) {
+        if (key == null || cacheList.isEmpty()) {
             return null;
         }
 
-        Iterator<LRUCacheEntry<K, V>> iterator = innerCache.iterator();
+        Iterator<LRUCacheEntry<K, V>> iterator = cacheList.iterator();
         while (iterator.hasNext()) {
             LRUCacheEntry<K, V> cacheEntry = iterator.next();
             if (key.equals(cacheEntry.getKey())) {
                 if (accessRecord) {
                     iterator.remove();
                     cacheEntry.refreshLatestAccessTime();
-                    innerCache.add(cacheEntry);
+                    cacheList.add(cacheEntry);
                 }
                 return cacheEntry;
             }
@@ -82,7 +81,7 @@ public class LRUCache<K, V> implements Cache<K, V> {
             throw new NullPointerException("cache key must not be null");
         }
 
-        Iterator<LRUCacheEntry<K, V>> iterator = innerCache.iterator();
+        Iterator<LRUCacheEntry<K, V>> iterator = cacheList.iterator();
         while (iterator.hasNext()) {
             LRUCacheEntry<K, V> cacheEntry = iterator.next();
             if (key.equals(cacheEntry.getKey())) {
@@ -94,29 +93,29 @@ public class LRUCache<K, V> implements Cache<K, V> {
                     // 当缓存中已存在指定 key 对应的缓存时刷新缓存
                     iterator.remove();
                     cacheEntry.refreshLatestAccessTime();
-                    innerCache.add(cacheEntry);
+                    cacheList.add(cacheEntry);
                     return;
                 }
             }
             // 最后一个节点时判断缓存容量是否已达上限, 如果已达上限则删除最后一个节点
             else if (!iterator.hasNext()) {
-                if (innerCache.size() >= capacity) {
+                if (cacheList.size() >= capacity) {
                     iterator.remove();
                 }
             }
         }
 
-        innerCache.add(new LRUCacheEntry<>(key, value));
-        System.out.println(innerCache.size());
+        cacheList.add(new LRUCacheEntry<>(key, value));
+        System.out.println(cacheList.size());
     }
 
     @Override
     public boolean remove(K key) {
-        if (key == null || innerCache.isEmpty()) {
+        if (key == null || cacheList.isEmpty()) {
             return false;
         }
 
-        Iterator<LRUCacheEntry<K, V>> iterator = innerCache.iterator();
+        Iterator<LRUCacheEntry<K, V>> iterator = cacheList.iterator();
         while (iterator.hasNext()) {
             LRUCacheEntry<K, V> cacheEntry = iterator.next();
             if (key.equals(cacheEntry.getKey())) {
@@ -135,7 +134,7 @@ public class LRUCache<K, V> implements Cache<K, V> {
 
     @Override
     public String toString() {
-        return innerCache.toString();
+        return cacheList.toString();
     }
 
     static class LRUCacheEntry<K, V> implements CacheEntry<K, V>, Comparable<LRUCacheEntry<K, V>> {
