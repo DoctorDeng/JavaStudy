@@ -26,7 +26,7 @@
         <ojdbc.version>11.1.0.7.0</ojdbc.version>
         <guava.version>25.1-jre</guava.version>
         <jaxb.version>2.3.1</jaxb.version>
-        <poi.version>3.14</poi.version>
+        <poi.version>4.1.2</poi.version>
 
         <javax.cache.version>1.1.1</javax.cache.version>
     </properties>
