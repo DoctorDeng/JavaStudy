@@ -140,6 +140,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
     public void clear() {
         this.head = null;
         this.tail = null;
+        this.size = 0;
     }
 
     @Override
