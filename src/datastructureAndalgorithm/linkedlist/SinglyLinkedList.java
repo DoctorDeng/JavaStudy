@@ -362,7 +362,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 
     protected final class SinglyIterator implements  LinkedListIterator<V> {
 
-        private SinglyNode<V> next;
+        private SinglyNode<V> cursor;
 
         private SinglyNode<V> current = null;
 
@@ -370,20 +370,20 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 
         public SinglyIterator() {
             super();
-            this.next = head;
+            this.cursor = head;
         }
 
         @Override
         public boolean hasNext() {
-            return next != null;
+            return cursor != null;
         }
 
         @Override
         public V next() {
             elementCheck();
             prev = current;
-            current = next;
-            next = next.next;
+            current = cursor;
+            cursor = cursor.next;
             return current.getValue();
         }
 
