@@ -74,18 +74,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 
     @Override
     public boolean remove(V value) {
-        boolean removed = false;
-
-        if (!isEmpty()) {
-            Iterator<V> iterator = iterator();
-            while (iterator.hasNext()) {
-                V v = iterator.next();
-                if (v != null && v.equals(value)) {
-                    iterator.remove();
-                    removed = true;
-                }
-            }
-        }
+        return IterableUtils.remove(value, this);
 //        if (!isEmpty()) {
 //            SinglyNode<V> node = this.head, preNode = null, head = this.head, tail = this.tail;
 //
@@ -111,11 +100,10 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 //                }
 //            }
 //        }
-        return removed;
     }
 
     @Override
-    public boolean containsValue(Object value) {
+    public boolean containsValue(V value) {
 //        if (!isEmpty()) {
 //            SinglyNode<V> node = this.head;
 //            while (node != null) {
@@ -126,14 +114,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 //              }
 //            }
 //        }
-        if (!isEmpty()) {
-            for (V v : this) {
-                if (v != null && v.equals(value)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return IterableUtils.containsValue(value, this);
     }
 
     @Override

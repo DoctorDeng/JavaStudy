@@ -17,9 +17,13 @@ public class LinkedListUtils {
     public static void basicTest(LinkedList<Object> linkedList) {
         Assert.notNull(linkedList, "LinkedList must not be null");
         String str3 = "3";
+        Assert.isTrue(linkedList.size() ==  0,"LinkedList.size() test failed");
         linkedList.add("1");
+        Assert.isTrue(linkedList.size() ==  1, "LinkedList.size() test failed");
         linkedList.add(2);
+        Assert.isTrue(linkedList.size() ==  2, "LinkedList.size() test failed");
         linkedList.add(str3);
+        Assert.isTrue(linkedList.size() ==  3, "LinkedList.size() test failed");
 
         Assert.isTrue(linkedList.containsValue("1"), "LinkedList.containsValue() test failed");
         Assert.isTrue(linkedList.containsValue(2), "LinkedList.containsValue() test failed");
@@ -30,6 +34,7 @@ public class LinkedListUtils {
         linkedList.remove(str3);
         Assert.isTrue("{1},{2}".equals(linkedList.toString()), "LinkedList.remove() test failed");
         linkedList.remove("1");
+        System.out.println(linkedList.toString());
         Assert.isTrue("{2}".equals(linkedList.toString()), "LinkedList.remove() test failed");
         linkedList.remove(2);
         Assert.isTrue("{}".equals(linkedList.toString()), "LinkedList.remove() test failed");
