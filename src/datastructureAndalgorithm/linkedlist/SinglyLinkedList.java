@@ -1,5 +1,6 @@
 package datastructureAndalgorithm.linkedlist;
 
+import datastructureAndalgorithm.utils.IterableUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.util.Assert;
 
@@ -155,15 +156,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        if (!isEmpty()) {
-            for (V value : this) {
-                sb.append("{").append(value.toString()).append("},");
-            }
-        } else {
-            sb.append("{},");
-        }
-        return sb.substring(0, sb.lastIndexOf(","));
+        return IterableUtils.toString(this);
     }
 
     @Override
