@@ -33,6 +33,7 @@ public class LinkedListUtils {
         Assert.isTrue("{1},{2},{3}".equals(linkedList.toString()), "LinkedList.toString() test failed");
         linkedList.remove(str3);
         Assert.isTrue("{1},{2}".equals(linkedList.toString()), "LinkedList.remove() test failed");
+        System.out.println(linkedList.toString());
         linkedList.remove("1");
         System.out.println(linkedList.toString());
         Assert.isTrue("{2}".equals(linkedList.toString()), "LinkedList.remove() test failed");
