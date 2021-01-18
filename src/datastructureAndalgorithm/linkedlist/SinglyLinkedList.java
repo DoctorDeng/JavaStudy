@@ -2,7 +2,6 @@ package datastructureAndalgorithm.linkedlist;
 
 import datastructureAndalgorithm.utils.IterableUtils;
 import org.apache.commons.lang3.ObjectUtils;
-import org.springframework.util.Assert;
 
 import javax.annotation.Nonnull;
 import java.util.Iterator;
@@ -405,7 +404,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 
     public static void main(String[] args) {
         LinkedListUtils.basicTest(new SinglyLinkedList<>());
-        LinkedListUtils.testPalindrome(new SinglyLinkedList<>());
-        LinkedListUtils.testReverse(new SinglyLinkedList<>());
+        LinkedListUtils.palindromeTest(new SinglyLinkedList<>());
+        LinkedListUtils.teverseTest(new SinglyLinkedList<>());
     }
 }

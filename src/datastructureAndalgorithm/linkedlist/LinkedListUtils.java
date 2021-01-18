@@ -34,7 +34,8 @@ public class LinkedListUtils {
         linkedList.remove(2);
         Assert.isTrue("{}".equals(linkedList.toString()), "LinkedList.remove() test failed");
     }
-    public static void testPalindrome(LinkedList<Object> linkedList) {
+    public static void palindromeTest(LinkedList<Object> linkedList) {
+        Assert.notNull(linkedList, "LinkedList must not be null");
         linkedList.add("1");
         linkedList.add("2");
         linkedList.add("3");
@@ -50,7 +51,8 @@ public class LinkedListUtils {
         Assert.isTrue(linkedList2.isPalindrome(), "LinkedList.isPalindrome() test failed");
     }
 
-    public static void testReverse(LinkedList<Object> linkedList) {
+    public static void teverseTest(LinkedList<Object> linkedList) {
+        Assert.notNull(linkedList, "LinkedList must not be null");
         LinkedList<Object> reverse1 = linkedList.reverse();
         Assert.isTrue("{}".equals(reverse1.toString()), "LinkedList.reverse() test failed");
 
