@@ -1,5 +1,8 @@
 package datastructureAndalgorithm.linkedlist;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * 链表接口
  * @author <a href="http://doctordeng.vip">DoctorDeng</a>
@@ -102,4 +105,15 @@ public interface LinkedList<V> extends Iterable<V> {
         boolean equals(Object o);
     }
 
+    interface LinkedListIterator<V> extends Iterator<V> {
+        /**
+         * 检查迭代器是否还存在下一个元素, 不存在抛出 {@link NoSuchElementException} 异常
+         * @throws NoSuchElementException 当迭代器没有下一个元素时
+         */
+        default void elementCheck() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+        }
+    }
 }

@@ -360,7 +360,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
         }
     }
 
-    protected final class SinglyIterator implements Iterator<V> {
+    protected final class SinglyIterator implements  LinkedListIterator<V> {
 
         private SinglyNode<V> next;
 
@@ -380,9 +380,7 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 
         @Override
         public V next() {
-            if (next == null) {
-                throw new NoSuchElementException();
-            }
+            elementCheck();
             prev = current;
             current = next;
             next = next.next;
@@ -405,6 +403,12 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
                 }
             }
             size--;
+        }
+
+        private void emptyCheck() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
         }
     }
 
