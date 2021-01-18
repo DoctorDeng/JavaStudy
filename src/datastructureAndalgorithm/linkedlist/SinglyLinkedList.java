@@ -389,6 +389,10 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
 
         @Override
         public void remove() {
+            if (current == null) {
+                throw new NoSuchElementException();
+            }
+
             if (current != head && current != tail) {
                 prev.next = current.next;
             } else {
@@ -403,12 +407,6 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
                 }
             }
             size--;
-        }
-
-        private void emptyCheck() {
-            if (!hasNext()) {
-                throw new NoSuchElementException();
-            }
         }
     }
 
