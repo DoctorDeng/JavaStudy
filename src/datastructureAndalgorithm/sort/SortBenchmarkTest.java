@@ -3,6 +3,8 @@ package datastructureAndalgorithm.sort;
 import datastructureAndalgorithm.utils.SortUtil;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 /**
  * 排序性能测试
@@ -10,9 +12,16 @@ import org.junit.Test;
  * @date 2021/3/29 20:41
  * @since 1.0.0
  */
+@RunWith(Parameterized.class)
 public class SortBenchmarkTest {
 
     private int[] testData;
+
+    @Parameterized.Parameters
+    public static Object[][] data() {
+        // 执行 10 次
+        return new Object[10][0];
+    }
 
     @Before
     public void initData() throws Exception {
@@ -27,6 +36,11 @@ public class SortBenchmarkTest {
     @Test
     public void insertionSort() {
         sort(() -> InsertionSort.sort(testData, testData.length));
+    }
+
+    @Test
+    public void cocktailSort() {
+        sort(() -> CocktailSort.sort(testData));
     }
 
     private void sort(Function function) {
