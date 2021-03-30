@@ -33,14 +33,13 @@ public class SinglyLinkedList<V> implements LinkedList<V>, Cloneable {
     public boolean add(V value) {
         checkNullAndSize(value);
         SinglyNode<V> node = newNode(value);
-        if (head == null) {
+
+        SinglyNode<V> last = tail;
+        tail = node;
+        if (last == null) {
             head = node;
-        }
-        if (tail == null) {
-            tail = head;
         } else {
-            tail.next = node;
-            tail = node;
+            last.next = node;
         }
         size++;
         return true;
