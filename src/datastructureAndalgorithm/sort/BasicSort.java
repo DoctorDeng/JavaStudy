@@ -59,6 +59,19 @@ public abstract class BasicSort {
         }
     }
 
+    public void checkArguments(int[] array, int startIndex, int endIndex) {
+        checkArgument(array);
+        if (startIndex < 0) {
+            throw new IndexOutOfBoundsException("index =" + startIndex);
+        }
+        if (endIndex > array.length -1) {
+            throw new IndexOutOfBoundsException("index =" + endIndex);
+        }
+        if (startIndex > endIndex) {
+            throw new IndexOutOfBoundsException("start index =" + startIndex + ", end index =" + endIndex);
+        }
+    }
+
     public void swap(int[] array, int sourceIndex, int targetIndex) {
         if (sourceIndex == targetIndex) {
             return;

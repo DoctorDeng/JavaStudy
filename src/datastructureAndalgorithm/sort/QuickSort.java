@@ -11,18 +11,36 @@ public class QuickSort extends BasicSort {
 
     @Override
     public void sort(int[] array) {
-        recursionImpl(array, 0, array.length -1);
+        quickSortByRecursion(array, 0, array.length -1);
     }
 
-    // 基于递归实现
-    private void recursionImpl(int[] array, int startIndex, int endIndex) {
+    /**
+     * 对指定数组指定下标范围进行排序.
+     * <p>算法为基于递归实现的快速排序算法, 未做任何优化, 有堆栈溢出风险.
+     * @param array 待排序数组
+     * @param startIndex  起始下标
+     * @param endIndex    结尾下标
+     */
+    private void quickSortByRecursion(int[] array, int startIndex, int endIndex) {
         if (startIndex >= endIndex) {
             return;
         }
         int pivotIndex = partition(array, startIndex, endIndex);
-        recursionImpl(array, startIndex, pivotIndex -1);
-        recursionImpl(array, pivotIndex, endIndex);
+        quickSortByRecursion(array, startIndex, pivotIndex -1);
+        quickSortByRecursion(array, pivotIndex + 1, endIndex);
     }
+
+    /**
+     * 对指定数组指定下标范围进行排序.
+     * <p>算法为基于循环实现的快速排序算法, 未做任何优化.
+     * @param array 待排序数组
+     * @param startIndex  起始下标
+     * @param endIndex    结尾下标
+     */
+    private void quickSortByLoop(int[] array, int startIndex, int endIndex) {
+
+    }
+
 
     private int partition(int[] array, int start, int end) {
         int pivot = array[end];
