@@ -13,7 +13,7 @@ public class QuickSort extends BasicSort {
 
     @Override
     public void sort(int[] array) {
-        quickSortByRecursion(array, 0, array.length -1);
+        //quickSortByRecursion(array, 0, array.length -1);
         quickSortByLoop(array, 0, array.length -1);
     }
 

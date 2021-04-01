@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.util.Arrays;
+
 /**
  * 排序性能测试
  * @author <a href="http://doctordeng.vip">DoctorDeng</a>
@@ -48,12 +50,18 @@ public class SortBenchmarkTest {
         sort(() -> new QuickSort().sort(testData));
     }
 
+    @Test
+    public void arraysSort() {
+        sort(() -> Arrays.sort(testData));
+    }
+
     private void sort(Function function) {
         long startTime = System.currentTimeMillis();
         function.run();
         long endTime = System.currentTimeMillis();
         double timeConsuming = endTime - startTime;
         System.out.printf("%s 个数据, 耗时 %.5f 毫秒", testData.length, timeConsuming);
+        System.out.println();
     }
 
     @FunctionalInterface
