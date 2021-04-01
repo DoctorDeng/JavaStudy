@@ -1,5 +1,7 @@
 package datastructureAndalgorithm.sort;
 
+import java.util.Stack;
+
 /**
  * 快速排序.
  *
@@ -12,6 +14,7 @@ public class QuickSort extends BasicSort {
     @Override
     public void sort(int[] array) {
         quickSortByRecursion(array, 0, array.length -1);
+        quickSortByLoop(array, 0, array.length -1);
     }
 
     /**
@@ -38,6 +41,26 @@ public class QuickSort extends BasicSort {
      * @param endIndex    结尾下标
      */
     private void quickSortByLoop(int[] array, int startIndex, int endIndex) {
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(startIndex);
+        stack.push(endIndex);
+
+        while (!stack.isEmpty()) {
+            int _endIdx = stack.pop();
+            int _startIdx =  stack.pop();
+
+            int pivotIndex = partition(array, _startIdx, _endIdx);
+
+            if (pivotIndex > _startIdx) {
+                stack.push(_startIdx);
+                stack.push(pivotIndex - 1);
+            }
+            if (pivotIndex < _endIdx) {
+                stack.push(pivotIndex + 1);
+                stack.push(_endIdx);
+            }
+        }
 
     }
 
@@ -57,6 +80,7 @@ public class QuickSort extends BasicSort {
 
 
     public static void main(String[] args) {
-        new QuickSort().simpleTest();
+        //new QuickSort().simpleTest();
+        new QuickSort().largeDataTest();
     }
 }

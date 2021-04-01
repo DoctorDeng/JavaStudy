@@ -43,6 +43,11 @@ public class SortBenchmarkTest {
         sort(() -> CocktailSort.sort(testData));
     }
 
+    @Test
+    public void quickSort() {
+        sort(() -> new QuickSort().sort(testData));
+    }
+
     private void sort(Function function) {
         long startTime = System.currentTimeMillis();
         function.run();
