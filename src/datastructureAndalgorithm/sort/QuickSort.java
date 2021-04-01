@@ -1,5 +1,7 @@
 package datastructureAndalgorithm.sort;
 
+import org.apache.commons.lang3.RandomUtils;
+
 import java.util.Stack;
 
 /**
@@ -28,7 +30,7 @@ public class QuickSort extends BasicSort {
         if (startIndex >= endIndex) {
             return;
         }
-        int pivotIndex = partition(array, startIndex, endIndex);
+        int pivotIndex = lowPartition(array, startIndex, endIndex);
         quickSortByRecursion(array, startIndex, pivotIndex -1);
         quickSortByRecursion(array, pivotIndex + 1, endIndex);
     }
@@ -50,7 +52,7 @@ public class QuickSort extends BasicSort {
             int _endIdx = stack.pop();
             int _startIdx =  stack.pop();
 
-            int pivotIndex = partition(array, _startIdx, _endIdx);
+            int pivotIndex = lowPartition(array, _startIdx, _endIdx);
 
             if (pivotIndex > _startIdx) {
                 stack.push(_startIdx);
@@ -64,20 +66,27 @@ public class QuickSort extends BasicSort {
 
     }
 
+    private int lowPartition(int[] array, int lowIndex, int hightIndex) {
+        int pivot = array[hightIndex];
+        return partition(array, lowIndex, hightIndex, pivot);
+    }
 
-    private int partition(int[] array, int start, int end) {
-        int pivot = array[end];
-        int i = start;
-        for (int j = start; j < end; j++) {
+    private int randomPartition(int[] array, int lowIndex, int hightIndex) {
+        int pivot = array[(lowIndex + RandomUtils.nextInt(0, hightIndex - lowIndex))];
+        return partition(array, lowIndex, hightIndex, pivot);
+    }
+
+    private int partition(int[] array, int lowIndex, int hightIndex, int pivot) {
+        int i = lowIndex;
+        for (int j = lowIndex; j < hightIndex; j++) {
             if (array[j] < pivot) {
                 swap(array, i, j);
                 i++;
             }
         }
-        swap(array, i, end);
+        swap(array, i, hightIndex);
         return i;
     }
-
 
     public static void main(String[] args) {
         //new QuickSort().simpleTest();

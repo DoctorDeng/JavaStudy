@@ -21,7 +21,7 @@ public class SortBenchmarkTest {
 
     @Parameterized.Parameters
     public static Object[][] data() {
-        // 执行 10 次
+        // 执行 100 次
         return new Object[10][0];
     }
 
