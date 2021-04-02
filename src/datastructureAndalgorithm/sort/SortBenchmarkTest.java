@@ -55,6 +55,11 @@ public class SortBenchmarkTest {
         sort(() -> Arrays.sort(testData));
     }
 
+    @Test
+    public void mergeSort() {
+        sort(() -> new MergeSort().sort(testData));
+    }
+
     private void sort(Function function) {
         long startTime = System.currentTimeMillis();
         function.run();
