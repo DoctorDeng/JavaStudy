@@ -15,6 +15,7 @@ public class QuickSort extends BasicSort {
 
     @Override
     public void sort(int[] array) {
+        checkArgument(array);
         //quickSortByRecursion(array, 0, array.length -1);
         quickSortByLoop(array, 0, array.length -1);
     }
