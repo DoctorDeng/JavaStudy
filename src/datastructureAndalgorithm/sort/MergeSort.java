@@ -44,12 +44,12 @@ public class MergeSort extends BasicSort {
         int range = 2;
         int length = end - start + 1;
 
-        while (range <= length) {
-            for (int i = 0; i <= length; i++) {
-                int _start = start + i * range;
-                if (_start > end) {
-                    break;
-                }
+        while (true) {
+            if (range > length) {
+                merge(array, start, (end + start)/2, end);
+                break;
+            }
+            for (int _start = start; _start <= end; _start = _start + range) {
                 int _end = _start + range - 1;
                 if (_end > end) {
                     _end = end;
@@ -59,7 +59,6 @@ public class MergeSort extends BasicSort {
             }
             range = range * 2;
         }
-        merge(array, start, (end + start)/2, end);
     }
 
 
@@ -89,7 +88,7 @@ public class MergeSort extends BasicSort {
     }
 
     public static void main(String[] args) {
-        //new MergeSort().simpleTest();
+        new MergeSort().simpleTest();
         new MergeSort().largeDataTest();
     }
 
