@@ -15,9 +15,14 @@ public class QuickSort extends BasicSort {
 
     @Override
     public void sort(int[] array) {
-        checkArgument(array);
+        checkArguments(array);
         //quickSortByRecursion(array, 0, array.length -1);
         quickSortByLoop(array, 0, array.length -1);
+    }
+
+    @Override
+    public String getName() {
+        return "快速排序";
     }
 
     /**
@@ -27,7 +32,7 @@ public class QuickSort extends BasicSort {
      * @param startIndex  起始下标
      * @param endIndex    结尾下标
      */
-    private void quickSortByRecursion(int[] array, int startIndex, int endIndex) {
+    protected static void quickSortByRecursion(int[] array, int startIndex, int endIndex) {
         if (startIndex >= endIndex) {
             return;
         }
@@ -43,7 +48,7 @@ public class QuickSort extends BasicSort {
      * @param startIndex  起始下标
      * @param endIndex    结尾下标
      */
-    private void quickSortByLoop(int[] array, int startIndex, int endIndex) {
+    protected static void quickSortByLoop(int[] array, int startIndex, int endIndex) {
         Stack<Integer> stack = new Stack<>();
 
         stack.push(startIndex);
@@ -67,30 +72,30 @@ public class QuickSort extends BasicSort {
 
     }
 
-    private int lowPartition(int[] array, int lowIndex, int hightIndex) {
-        int pivot = array[hightIndex];
-        return partition(array, lowIndex, hightIndex, pivot);
+    protected static int lowPartition(int[] array, int lowIndex, int hightIndex) {
+        return partition(array, lowIndex, hightIndex, lowIndex);
     }
 
-    private int randomPartition(int[] array, int lowIndex, int hightIndex) {
-        int pivot = array[(lowIndex + RandomUtils.nextInt(0, hightIndex - lowIndex))];
-        return partition(array, lowIndex, hightIndex, pivot);
+    protected static int randomPartition(int[] array, int lowIndex, int hightIndex) {
+        return partition(array, lowIndex, hightIndex, (lowIndex + RandomUtils.nextInt(0, hightIndex - lowIndex)));
     }
 
-    private int partition(int[] array, int lowIndex, int hightIndex, int pivot) {
+    protected static int partition(int[] array, int lowIndex, int hightIndex, int pivotIndex) {
         int i = lowIndex;
-        for (int j = lowIndex; j < hightIndex; j++) {
+        int pivot = array[pivotIndex];
+
+        for (int j = lowIndex; j <= hightIndex; j++) {
             if (array[j] < pivot) {
                 swap(array, i, j);
                 i++;
             }
         }
-        swap(array, i, hightIndex);
+        array[i] = pivot;
         return i;
     }
 
     public static void main(String[] args) {
-        //new QuickSort().simpleTest();
-        new QuickSort().largeDataTest();
+        new QuickSort().simpleTest();
+        //new QuickSort().largeDataTest();
     }
 }

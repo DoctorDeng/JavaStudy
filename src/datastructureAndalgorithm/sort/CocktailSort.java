@@ -1,6 +1,5 @@
 package datastructureAndalgorithm.sort;
 
-import datastructureAndalgorithm.utils.SortUtil;
 import util.PrintUtil;
 /**
  * 鸡尾酒排序：
@@ -14,13 +13,23 @@ import util.PrintUtil;
  * @author <a href="http://doctordeng.vip/">Doctor邓</a>
  * @since 2018/9/2 9:43
  */
-public class CocktailSort {
+public class CocktailSort extends BasicSort {
+
+    @Override
+    public void sort(int[] array) {
+        checkArguments(array);
+        improveCocktailSort(array);
+    }
+
+    @Override
+    public String getName() {
+        return "鸡尾酒排序";
+    }
+
     /**
      * 鸡尾酒排序，通过数组有序标志来提前退出排序循环
      */
-    public static int[] sort(int[] array) {
-        SortUtil.checkArgument(array);
-
+    public static int[] cocktailSort(int[] array) {
         int rightIndex = array.length - 1;
         int leftIndex  = 0;
 
@@ -65,11 +74,12 @@ public class CocktailSort {
         }
         return array;
     }
+
     /**
      * 优化后的鸡尾酒排序，同 {@link datastructureAndalgorithm.sort.BubbleSort#bestSort(int[])} 优化手法一致
      */
-    public static int[] optimizationSort(int[] array) {
-        SortUtil.checkArgument(array);
+    public static int[] improveCocktailSort(int[] array) {
+        checkArguments(array);
         // 数组从左 -> 右有序左边界下标
         int rightOrderIndex = array.length - 1;
         // 数组从右 -> 左有序右边界下标
@@ -122,7 +132,7 @@ public class CocktailSort {
     }
 
     public static void main(String[] args) {
-        int[] testData = SortUtil.getTestData(10);
+        int[] testData = SortUtils.getTestData(10);
         PrintUtil.print(testData);
         //PrintUtil.print(sort(testData));
         // 鸡尾酒排序和优化后的冒泡排序对比，结果：鸡尾酒排序效率更高
@@ -137,6 +147,6 @@ public class CocktailSort {
         int[] array = {1,4,3,2,5};
         PrintUtil.print(BubbleSort.bestSort(array));
         int[] array1 = {1,4,3,2,5};
-        PrintUtil.print(optimizationSort(array1));
+        PrintUtil.print(improveCocktailSort(array1));
     }
 }

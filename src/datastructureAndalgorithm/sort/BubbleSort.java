@@ -1,7 +1,5 @@
 package datastructureAndalgorithm.sort;
 
-import datastructureAndalgorithm.utils.SortUtil;
-
 /**
  * 冒泡排序算法的运作如下：
  *   <p/>1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。
@@ -12,10 +10,20 @@ import datastructureAndalgorithm.utils.SortUtil;
  * @author <a href="http://doctordeng.vip/">Doctor邓</a>
  * @since 2018/9/1 16:40
  */
-public class BubbleSort {
+public class BubbleSort extends BasicSort {
+
+    @Override
+    public void sort(int[] array) {
+        bestSort(array);
+    }
+
+    @Override
+    public String getName() {
+        return "冒泡排序";
+    }
 
     public static int[] simpleSort(int[] array) {
-        SortUtil.checkArgument(array);
+        checkArguments(array);
 
         for (int i = 0, len = array.length; i < len; i++) {
 
@@ -37,7 +45,7 @@ public class BubbleSort {
      * 采用了数组有序标志位，当数据有序时通过标志位提前跳出排序循环
      */
     public static int[] optimizationSort(int[] array) {
-        SortUtil.checkArgument(array);
+        checkArguments(array);
 
         for (int i = 0, len = array.length; i < len; i++) {
             /*
@@ -67,7 +75,7 @@ public class BubbleSort {
      * 在排序时界定数组有序边界（即数组从边界开始至右所有元素已全部有序），然后在排序时比较到边界即可
      */
     public static int[] bestSort(int[] array) {
-        SortUtil.checkArgument(array);
+        checkArguments(array);
 
         // 数组有序边界下标(即从此边界开始数组已有序)
         int sortBorderIndex = array.length - 1;
@@ -100,15 +108,5 @@ public class BubbleSort {
             sortBorderIndex = lastChangeIndex;
         }
         return array;
-    }
-
-    public static void main(String[] args) {
-       int[] testData = SortUtil.getTestData(10);
-       //PrintUtil.print(testData);
-       //PrintUtil.print(simpleSort(testData));
-        //int[] array = {1,4,2,3,5};
-        //PrintUtil.print(bestSort(array));
-        //int[] array1 = {1,4,2,3,5};
-        //PrintUtil.print(optimizationSort(array1));
     }
 }

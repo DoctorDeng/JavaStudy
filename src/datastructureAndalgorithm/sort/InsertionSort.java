@@ -1,6 +1,5 @@
 package datastructureAndalgorithm.sort;
 
-import datastructureAndalgorithm.utils.SortUtil;
 import util.PrintUtil;
 
 /**
@@ -10,10 +9,20 @@ import util.PrintUtil;
  * @date 2021/3/29 19:35
  * @since 1.0.0
  */
-public class InsertionSort {
+public class InsertionSort extends BasicSort {
 
-    public static void sort(int[] array, int arrayLength) {
-        SortUtil.checkArguments(array, arrayLength);
+    @Override
+    public void sort(int[] array) {
+        insertionSort(array, array.length);
+    }
+
+    @Override
+    public String getName() {
+        return "插入排序";
+    }
+
+    public static void insertionSort(int[] array, int arrayLength) {
+        checkArguments(array, arrayLength);
 
         for (int i = 1; i < arrayLength; i++) {
             int noSortValue = array[i];
@@ -32,9 +41,7 @@ public class InsertionSort {
     }
 
     public static void main(String[] args) {
-        int[] testData = SortUtil.getTestData(10);
-        PrintUtil.print(testData);
-        sort(testData, 10);
-        PrintUtil.print(testData);
+        new  InsertionSort().simpleTest();
+        new  InsertionSort().largeDataTest();
     }
 }

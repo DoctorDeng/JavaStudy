@@ -10,9 +10,14 @@ package datastructureAndalgorithm.sort;
 public class MergeSort extends BasicSort {
     @Override
     public void sort(int[] array) {
-        checkArgument(array);
+        checkArguments(array);
         mergeSortByLoop(array, 0, array.length -1);
         //mergeSort(array, 0, array.length -1);
+    }
+
+    @Override
+    public String getName() {
+        return "归并排序";
     }
 
     /**
@@ -41,25 +46,16 @@ public class MergeSort extends BasicSort {
      * @param end    结尾下标
      */
     private void mergeSortByLoop(int[] array, int start, int end) {
-        int range = 2;
         int length = end - start + 1;
-
         int[] temp = new int[array.length];
-
-        while (true) {
-            if (range > length) {
-                mergeInPlace(array, temp, start, (end + start)/2, end);
-                break;
-            }
-            for (int _start = start; _start <= end; _start = _start + range) {
-                int _end = _start + range - 1;
+        for (int range = 1; range < length; range = range + range) {
+            for (int _start = start; _start <= end; _start += range + range) {
+                int _end = _start + range + range - 1;
                 if (_end > end) {
                     _end = end;
                 }
-                int mid = (_start + _end) / 2;
-                mergeInPlace(array, temp, _start, mid, _end);
+                mergeInPlace(array, temp, _start, _start + range -1, _end);
             }
-            range = range * 2;
         }
     }
 
@@ -107,12 +103,12 @@ public class MergeSort extends BasicSort {
         int leftCursor = start;
         int rightCursor = mid + 1;
         // 1. 复制待排序数据到临时数组中
-        System.arraycopy(array, start, temp, start, end - start);
+        System.arraycopy(array, start, temp, start, end - start + 1);
         // 2. 进行归并排序并直接将数据复制回原数组
         for (int i = start; i <= end; i++) {
             if (leftCursor > mid) {
                 array[i] = temp[rightCursor++];
-            }  else if (rightCursor > end) {
+            } else if (rightCursor > end) {
                 array[i] = temp[leftCursor++];
             } else if (temp[leftCursor] <= temp[rightCursor]) {
                 array[i] = temp[leftCursor++];
@@ -123,8 +119,10 @@ public class MergeSort extends BasicSort {
     }
 
     public static void main(String[] args) {
+        int[] aaa = new int[]{59,985,133};
+        //new MergeSort().sort(aaa);
         new MergeSort().simpleTest();
-        new MergeSort().largeDataTest();
+        //new MergeSort().largeDataTest();
     }
 
 }

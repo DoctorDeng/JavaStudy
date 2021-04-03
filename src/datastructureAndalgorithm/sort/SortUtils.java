@@ -1,4 +1,4 @@
-package datastructureAndalgorithm.utils;
+package datastructureAndalgorithm.sort;
 
 import java.util.Random;
 
@@ -9,18 +9,32 @@ import java.util.Random;
  * @version 1.0
  * @since 2018/9/2 9:59
  */
-public class SortUtil {
-    public static void checkArgument(int[] array) {
+public class SortUtils {
+
+    public static void checkArguments(int[] array) {
         if (array == null) {
             throw new NullPointerException(" Array must not be null");
         }
     }
 
     public static void checkArguments(int[] array, int arrayLenth) {
-        checkArgument(array);
+        checkArguments(array);
 
         if (arrayLenth < 0 || arrayLenth > array.length) {
-            throw new IndexOutOfBoundsException("index =" + arrayLenth);
+            throw new IndexOutOfBoundsException("length =" + arrayLenth);
+        }
+    }
+
+    public static <T> void checkArguments(Comparable<T>[] array) {
+        if (array == null) {
+            throw new NullPointerException("Array must not be null");
+        }
+    }
+
+    public static <T> void checkArguments(Comparable<T>[] array, int index) {
+        checkArguments(array);
+        if (index < 0 || index >= array.length) {
+            throw new IndexOutOfBoundsException("index =" + index);
         }
     }
 
