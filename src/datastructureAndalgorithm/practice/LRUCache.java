@@ -1,4 +1,4 @@
-package datastructureAndalgorithm.practice.cache;
+package datastructureAndalgorithm.practice;
 
 import datastructureAndalgorithm.linkedlist.SortSinglyLinkedList;
 

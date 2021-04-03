@@ -1,4 +1,4 @@
-package datastructureAndalgorithm.practice.cache;
+package datastructureAndalgorithm.practice;
 
 /**
  * 缓存接口
