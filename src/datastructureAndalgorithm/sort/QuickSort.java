@@ -96,6 +96,6 @@ public class QuickSort extends BasicSort {
 
     public static void main(String[] args) {
         new QuickSort().simpleTest();
-        //new QuickSort().largeDataTest();
+        new QuickSort().largeDataTest();
     }
 }

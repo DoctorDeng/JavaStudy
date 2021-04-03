@@ -119,10 +119,8 @@ public class MergeSort extends BasicSort {
     }
 
     public static void main(String[] args) {
-        int[] aaa = new int[]{59,985,133};
-        //new MergeSort().sort(aaa);
         new MergeSort().simpleTest();
-        //new MergeSort().largeDataTest();
+        new MergeSort().largeDataTest();
     }
 
 }

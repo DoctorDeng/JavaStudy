@@ -41,7 +41,7 @@ public class InsertionSort extends BasicSort {
     }
 
     public static void main(String[] args) {
-        new  InsertionSort().simpleTest();
-        new  InsertionSort().largeDataTest();
+        new InsertionSort().simpleTest();
+        new InsertionSort().largeDataTest();
     }
 }
