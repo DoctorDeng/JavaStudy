@@ -63,7 +63,13 @@ public class MergeSort extends BasicSort {
         }
     }
 
-
+    /**
+     * 将数组下标 start ~ mid 和 mid + 1 ~ end 两范围内的数据进行归并排序，每次归并都会创建临时数组.
+     * @param array 待归并数组
+     * @param start 起始下标
+     * @param mid   中间下标
+     * @param end   结尾下标
+     */
     private void merge(int[] array, int start, int mid, int end) {
         int[] temp = new int[end - start + 1];
 
@@ -90,12 +96,12 @@ public class MergeSort extends BasicSort {
     }
 
     /**
-     * 将 start ~ mid 和 mid + 1 ~ end 两范围内的数据进行归并排序，基于原地归并实现.
+     * 将数组下标 start ~ mid 和 mid + 1 ~ end 两范围内的数据进行归并排序，基于原地归并实现.
      * @param array 待归并数组
      * @param temp  临时数组, 大小应与 array 一样
-     * @param start 左边起始下标
-     * @param mid   左边结尾下标
-     * @param end   右边结尾下标
+     * @param start 起始下标
+     * @param mid   中间下标
+     * @param end   结尾下标
      */
     private void mergeInPlace(int[] array, int[] temp, int start, int mid, int end) {
         int leftCursor = start;
