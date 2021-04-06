@@ -22,7 +22,7 @@ public class SortTest {
     @Parameterized.Parameters
     public static Object[][] data() {
         // 执行 10 次
-        return new Object[1][0];
+        return new Object[10][0];
     }
 
     @Before

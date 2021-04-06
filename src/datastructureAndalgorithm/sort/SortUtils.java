@@ -39,10 +39,16 @@ public class SortUtils {
     }
 
     public static int[] getTestData(int size) {
+        return getTestData(0, 10000, size);
+    }
+
+    public static int[] getTestData(int min, int max, int size) {
         Random random = new Random();
+        int gap = max - min;
+
         int[] array = new int[size];
         for (int i = 0; i < size; i++) {
-            array[i] = random.nextInt(1000);
+            array[i] = min + random.nextInt(gap);
         }
         return array;
     }

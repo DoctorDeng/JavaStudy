@@ -26,8 +26,26 @@ public abstract class BasicSort implements Sort {
         }
     }
 
+    public void simpleTest(int min, int max) {
+        for (int i = 1; i <= 100; i++) {
+            test(this, SortUtils.getTestData(min, max, i));
+        }
+    }
+
+    public void largeDataTest(int min, int max) {
+        for (int i = 1; i <= 5; i++) {
+            test(this, SortUtils.getTestData(min, max, 100000 * i));
+        }
+    }
+
     public static void test(Sort sort, int size) {
         int[] src = SortUtils.getTestData(size);
+        test(sort, src);
+    }
+
+    public static void test(Sort sort, int[] src) {
+        checkArguments(src);
+        int size = src.length;
         int[] srcCopy = new int[size];
         System.arraycopy(src, 0, srcCopy, 0, size);
         long startTime = System.currentTimeMillis();
@@ -37,6 +55,10 @@ public abstract class BasicSort implements Sort {
         checkSort(srcCopy, src);
         System.out.printf("排序名称: %s, 共排序 %s 个数据, 耗时 %.2f 毫秒", sort.getName(), size, timeConsuming);
         System.out.println();
+    }
+
+    public static void test(Sort sort, int min, int max, int size) {
+        test(sort, SortUtils.getTestData(min, max, size));
     }
 
 
