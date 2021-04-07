@@ -58,7 +58,8 @@ public class CountingSort extends BasicSort {
         // 从而可以推断出在已排序情况下每个元素的最大下标不会超过 lessOrEqualNum - 1
         // 然后便可以根据这个规则将待排序元素放入到下标为 lessOrEqualNum - 1 的位置上, 然后将 lessOrEqualNum 数值减 1
         int[] sorted = new int[size];
-        for (int i = start; i <= end; i++) {
+        // 注意：需要从高到低遍历，否则便不是稳定排序了
+        for (int i = end; i >= start ; i--) {
             int value = array[i];
             int lessOrEqualNum = numTotal[value];
             sorted[lessOrEqualNum - 1] = value;
