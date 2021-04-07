@@ -1,5 +1,7 @@
 package datastructureAndalgorithm.sort;
 
+import util.PrintUtil;
+
 /**
  * 基数排序.
  *
@@ -16,6 +18,7 @@ public class RadixSort extends BasicSort {
 
     /**
      * 基数排序（假设数组元素都为正整数，对于负数排序待后续优化）.
+     * <p>基数排序核心思想是对待排序元素从低位到高位（无相应位数补 0）进行计数排序，最终便能够将整个数组进行排序</p>
      *
      * @param array 待排序数组
      * @param start 要排序的起始下标
@@ -25,31 +28,33 @@ public class RadixSort extends BasicSort {
         checkArguments(array, start, end);
 
         int max = getMax(array, start, end);
-
+        // 从个位开始排序, 一直到最大值的最高位
         for (int digit = 1; max / digit != 0; digit = digit * 10) {
             countingSort(array, start, end, digit);
         }
     }
 
     private static int getMax(int[] array, int start, int end) {
-        int max = array[start];
+        int max = Math.abs(array[start]);
         for (int i = start + 1; i <= end; i ++) {
-            if (max < array[i]) {
-                max = array[i];
+            int value = Math.abs(array[i]);
+            if (max < value) {
+                max = value;
             }
         }
         return max;
     }
 
     private static void countingSort(int[] array, int start, int end, int digit) {
-        int numTotalSize = 10;
+        // 对于整数, 每位（个位、百位、千位。。。）的可能值都为 0~9, 考虑到负数情况统计数组大小应该为 20 (-9 ~ 9)
+        int numTotalSize = 20;
         int size = end - start + 1;
         int[] numTotal = new int[numTotalSize];
 
         for (int i = start; i <= end; i++) {
-            int value = array[start];
+            int value = array[i];
             // 对元素对应位数的值
-            int digitValue = (value / digit) % 10;
+            int digitValue = (value / digit) % 10 + 10;
             numTotal[digitValue]++;
         }
 
@@ -58,14 +63,13 @@ public class RadixSort extends BasicSort {
         }
 
         int[] sorted = new int[size];
-
-        for (int i = start; i <= end; i++) {
-            int value = array[start];
+        for (int i = end; i >= start; i--) {
+            int value = array[i];
             // 对元素对应位数的值
-            int digitValue = (value / digit) % 10;
-            int num = numTotal[digitValue] - 1;
-            sorted[num] = value;
-            numTotal[digitValue] = num;
+            int digitValue = (value / digit) % 10 + 10;
+            int index = numTotal[digitValue] - 1;
+            sorted[index] = value;
+            numTotal[digitValue] = index;
         }
         System.arraycopy(sorted, 0, array, start, size);
     }
@@ -76,8 +80,8 @@ public class RadixSort extends BasicSort {
     }
 
     public static void main(String[] args) {
-        new RadixSort().simpleTest(0, 5);
-        new RadixSort().largeDataTest(0, 100);
+        new RadixSort().simpleTest(-100, 10);
+        new RadixSort().largeDataTest(-200, 100);
         BasicSort.test(new RadixSort(), 100000000, 200000000, 10000000);
     }
 }
