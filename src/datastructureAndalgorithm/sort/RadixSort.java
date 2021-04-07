@@ -1,7 +1,5 @@
 package datastructureAndalgorithm.sort;
 
-import util.PrintUtil;
-
 /**
  * 基数排序.
  *
