@@ -37,19 +37,20 @@ public class CountingSort extends BasicSort {
         // 在统计数组中：
         //    index: 待排序元素的值.
         //    index value: 元素个数（在待排序数据中值等同于元素的值的元素个数）.
-        int[] elementNumTotal = new int[max + 1];
+        int totalArraySize = max + 1;
+        int[] numTotal = new int[totalArraySize];
         for (int i = start; i <= end; i++) {
             int value = array[i];
-            // 等同于 elementNumTotal[value] = elementNumTotal[value] + 1;
-            elementNumTotal[value]++;
+            // 等同于 numTotal[value] = numTotal[value] + 1;
+            numTotal[value]++;
         }
 
         // 3. 将步骤 2 中统计数组中每个元素的值意义转换为小于或等于下标对应值的元素个数
         // 在统计数组中：
         //    index: 待排序元素的值.
         //    index value: 小于或等于元素值的元素个数, 这里称为 lessOrEqualNum.
-        for (int i = 1; i < elementNumTotal.length; i++) {
-            elementNumTotal[i] = elementNumTotal[i] + elementNumTotal[i - 1];
+        for (int i = 1; i < totalArraySize; i++) {
+            numTotal[i] = numTotal[i] + numTotal[i - 1];
         }
 
         // 4. 排序数组中的元素并将其放入到一个新的数组中，依据原理:
@@ -59,12 +60,12 @@ public class CountingSort extends BasicSort {
         int[] sorted = new int[size];
         for (int i = start; i <= end; i++) {
             int value = array[i];
-            int lessOrEqualNum = elementNumTotal[value];
+            int lessOrEqualNum = numTotal[value];
             sorted[lessOrEqualNum - 1] = value;
-            elementNumTotal[value] = lessOrEqualNum - 1;
+            numTotal[value] = lessOrEqualNum - 1;
             // 如上代码等同如下代码, 但是上面的性能更高.
-            // sorted[elementNumTotal[array[i]] - 1] = array[i];
-            // elementNumTotal[array[i]]--;
+            // sorted[numTotal[array[i]] - 1] = array[i];
+            // numTotal[array[i]]--;
         }
         // 5. 数据回拷
         System.arraycopy(sorted, 0, array, start, size);
