@@ -72,7 +72,7 @@ public class CountingSort extends BasicSort {
 
     @Override
     public String getName() {
-        return "基数排序";
+        return "计数排序";
     }
 
     public static void main(String[] args) {
