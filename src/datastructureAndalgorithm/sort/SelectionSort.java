@@ -19,11 +19,13 @@ public class SelectionSort extends BasicSort {
 
         for (int i = start; i < end; i++) {
             int minIndex = i;
+            // 选取未排序序列最小元素
             for (int j = i + 1; j <= end; j++) {
                 if (array[j] < array[minIndex]) {
                     minIndex = j;
                 }
             }
+            // 将最小元素插入至已排序序列尾部
             swap(array, minIndex, i);
         }
     }
