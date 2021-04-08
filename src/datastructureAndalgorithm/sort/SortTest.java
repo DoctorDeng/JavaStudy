@@ -60,6 +60,11 @@ public class SortTest {
         sort(new MergeSort());
     }
 
+    @Test
+    public void selectionSort() {
+        sort(new SelectionSort());
+    }
+
     private void sort(Sort sort) {
         sort(sort::sort, sort.getName());
     }

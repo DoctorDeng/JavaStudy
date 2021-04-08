@@ -19,11 +19,8 @@ public class SelectionSort extends BasicSort {
 
         for (int i = start; i < end; i++) {
             int minIndex = i;
-            int min = array[minIndex];
             for (int j = i + 1; j <= end; j++) {
-                int value = array[j];
-                if (value < min) {
-                    min = value;
+                if (array[j] < array[minIndex]) {
                     minIndex = j;
                 }
             }
