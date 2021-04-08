@@ -44,15 +44,15 @@ public class RadixSort extends BasicSort {
     }
 
     private static void countingSort(int[] array, int start, int end, int digit) {
-        // 对于整数, 每位（个位、百位、千位。。。）的可能值都为 0~9, 考虑到负数情况统计数组大小应该为 20 (-9 ~ 9)
-        int numTotalSize = 20;
+        // 对于整数, 每位（个位、百位、千位。。。）的可能值都为 0~9, 考虑到负数情况统计数组大小应该为 19 (-9 ~ 9)
+        int numTotalSize = 19;
         int size = end - start + 1;
         int[] numTotal = new int[numTotalSize];
 
         for (int i = start; i <= end; i++) {
             int value = array[i];
             // 对元素对应位数的值
-            int digitValue = (value / digit) % 10 + 10;
+            int digitValue = (value / digit) % 10 + 9;
             numTotal[digitValue]++;
         }
 
@@ -64,7 +64,7 @@ public class RadixSort extends BasicSort {
         for (int i = end; i >= start; i--) {
             int value = array[i];
             // 对元素对应位数的值
-            int digitValue = (value / digit) % 10 + 10;
+            int digitValue = (value / digit) % 10 + 9;
             int index = numTotal[digitValue] - 1;
             sorted[index] = value;
             numTotal[digitValue] = index;
