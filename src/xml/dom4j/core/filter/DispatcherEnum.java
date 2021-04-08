@@ -4,7 +4,6 @@ package xml.dom4j.core.filter;
  *
  * <p>Description: </p>
  *
- * <p>Company: 北京九恒星科技股份有限公司</p>
  *
  * @author denghuajie
  * 

@@ -10,7 +10,6 @@ import java.util.Set;
  *
  * <p>Description: </p>
  *
- * <p>Company: 北京九恒星科技股份有限公司</p>
  *
  * @author denghuajie
  * 
@@ -617,7 +616,7 @@ public class SQLUtil {
 	
 	public static void main(String[] args) {
 		SQLUtil sql = new SQLUtil();
-		//sql.build_wfuser_usergroup();
+		sql.build_wfuser_usergroup();
 		//sql.build_wf_master_user();
 		//sql.build_wfdept();
 		//sql.build_wfcltsofuser();
