@@ -47,14 +47,17 @@ public class MergeSort extends BasicSort {
      */
     private void mergeSortByLoop(int[] array, int start, int end) {
         int length = end - start + 1;
-        int[] temp = new int[array.length];
         for (int range = 1; range < length; range = range + range) {
             for (int _start = start; _start <= end; _start += range + range) {
                 int _end = _start + range + range - 1;
                 if (_end > end) {
                     _end = end;
                 }
-                mergeInPlace(array, temp, _start, _start + range -1, _end);
+                int mid = _start + range -1;
+                if (mid > end) {
+                    mid = end;
+                }
+                merge(array, _start, mid, _end);
             }
         }
     }
@@ -72,7 +75,6 @@ public class MergeSort extends BasicSort {
         int leftCursor = start;
         int rightCursor = mid + 1;
         int tempCursor = 0;
-
         while (leftCursor <= mid && rightCursor <= end) {
             if (array[leftCursor] <= array[rightCursor]) {
                 temp[tempCursor++] = array[leftCursor++];
