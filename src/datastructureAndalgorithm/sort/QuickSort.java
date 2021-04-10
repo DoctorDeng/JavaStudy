@@ -72,19 +72,41 @@ public class QuickSort extends BasicSort {
 
     }
 
-    protected static int lowPartition(int[] array, int lowIndex, int hightIndex) {
-        return partition(array, lowIndex, hightIndex, lowIndex);
+    /**
+     * 对序列进行分区，每次取序列头部元素做基准元素.
+     * @param array 待排序序列
+     * @param start 子序列起始下标
+     * @param end 待排序元素截止下标
+     * @return 分区基准元素下标.
+     */
+    protected static int lowPartition(int[] array, int start, int end) {
+        return partition(array, start, end, start);
     }
 
-    protected static int randomPartition(int[] array, int lowIndex, int hightIndex) {
-        return partition(array, lowIndex, hightIndex, (lowIndex + RandomUtils.nextInt(0, hightIndex - lowIndex)));
+    /**
+     * 对序列进行分区，每次取随机选取一个元素做基准元素.
+     * @param array 待排序序列
+     * @param start 待排序元素起始下标
+     * @param end 子序列截止下标
+     * @return 分区基准元素下标.
+     */
+    protected static int randomPartition(int[] array, int start, int end) {
+        return partition(array, start, end, (start + RandomUtils.nextInt(0, end - start)));
     }
 
-    protected static int partition(int[] array, int lowIndex, int hightIndex, int pivotIndex) {
-        int i = lowIndex;
+    /**
+     * 对序列进行分区, 将小于基准元素的元素放在序列左侧, 比大于、等于基准元素的元素放置序列右侧.
+     * @param array 待排序序列
+     * @param start 子序列起始下标
+     * @param end 子序列截止下标
+     * @param pivotIndex 基准元素下标
+     * @return 分区基准元素下标.
+     */
+    protected static int partition(int[] array, int start, int end, int pivotIndex) {
+        int i = start;
         int pivot = array[pivotIndex];
 
-        for (int j = lowIndex; j <= hightIndex; j++) {
+        for (int j = start; j <= end; j++) {
             if (array[j] < pivot) {
                 swap(array, i, j);
                 i++;
