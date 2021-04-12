@@ -29,19 +29,18 @@ public class InsertionSort extends BasicSort {
             int noSortValue = array[i];
             // 将未排序元素与已排序元素逐个比较
             // 备注：从右往左遍历，保证稳定性
-            int j = i - 1;
-            for (; j >= 0; j--) {
+            for (int j = i - 1; j >= 0; j--) {
                 // 当未排序元素比已排序元素小，已排序元素右移
                 if (array[j] > noSortValue) {
                     array[j + 1] = array[j];
                 }
                 // 当未排序元素比已排序元素大，结束遍历
                 else {
+                    // 插入未排序元素到正确位置
+                    array[j + 1] = noSortValue;
                     break;
                 }
             }
-            // 插入未排序元素到正确位置
-            array[j + 1] = noSortValue;
         }
     }
 
