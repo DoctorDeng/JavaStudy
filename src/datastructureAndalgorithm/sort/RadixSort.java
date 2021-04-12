@@ -24,15 +24,15 @@ public class RadixSort extends BasicSort {
      */
     public static void radixSort(int[] array, int start, int end) {
         checkArguments(array, start, end);
-
-        int max = getMax(array, start, end);
-        // 从个位开始排序, 一直到最大值的最高位
-        for (int digit = 1; max / digit != 0; digit = digit * 10) {
+        // 获取最大绝对值
+        int maxAbs = getMaxAbs(array, start, end);
+        // 从个位开始排序, 一直到最大绝对值最高位（也可以相反的顺序）
+        for (int digit = 1; maxAbs / digit != 0; digit = digit * 10) {
             countingSort(array, start, end, digit);
         }
     }
 
-    private static int getMax(int[] array, int start, int end) {
+    private static int getMaxAbs(int[] array, int start, int end) {
         int max = Math.abs(array[start]);
         for (int i = start + 1; i <= end; i ++) {
             int value = Math.abs(array[i]);
@@ -51,7 +51,7 @@ public class RadixSort extends BasicSort {
 
         for (int i = start; i <= end; i++) {
             int value = array[i];
-            // 对元素对应位数的值
+            // 计算元素对应位数的值
             int digitValue = (value / digit) % 10 + 9;
             numTotal[digitValue]++;
         }
@@ -63,7 +63,7 @@ public class RadixSort extends BasicSort {
         int[] sorted = new int[size];
         for (int i = end; i >= start; i--) {
             int value = array[i];
-            // 对元素对应位数的值
+            // 计算元素对应位数的值
             int digitValue = (value / digit) % 10 + 9;
             int index = numTotal[digitValue] - 1;
             sorted[index] = value;
