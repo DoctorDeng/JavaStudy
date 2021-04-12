@@ -1,7 +1,5 @@
 package datastructureAndalgorithm.sort;
 
-import util.PrintUtil;
-
 /**
  * 插入排序练习.
  *
