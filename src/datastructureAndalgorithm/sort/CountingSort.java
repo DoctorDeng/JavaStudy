@@ -29,8 +29,12 @@ public class CountingSort extends BasicSort {
         int max = array[start];
         // 1. 计算待排序数组中元素最大值
         for (int i = start + 1; i <= end; i++) {
-            if (max < array[i]) {
-                max = array[i];
+            int value = array[i];
+            if (value < 0) {
+                throw new IllegalArgumentException("The element in the array cannot be less than 0, element=" + value);
+            }
+            if (max < value) {
+                max = value;
             }
         }
         // 2. 统计待排序数组中各个元素的个数, 并将其放在统计数组中.
