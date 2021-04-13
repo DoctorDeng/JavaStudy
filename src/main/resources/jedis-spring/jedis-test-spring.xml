@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!--
+    	在Spring中当我们需要使用@Resource、@PostConstruct、@PreDestroy等注解就必须声明 CommonAnnotationBeanPostProcessor；
+    	使用@PersistenceContext注解，就必须声明 PersistenceAnnotationBeanPostProcessor的Bean
+    	这样做特别的不方便,所以可以使用`<context:annotation-config />`来隐式地向 Spring容器注册
+    	当然如果使用了：例如 <context:component-scan base-package="com.doctor.dao" />
+    	里面已包含了此功能,故这里不需要使用
+     -->
+    <!-- <context:annotation-config /> -->
+
+    <!--
+   	    <context:component-scan base-package="com.doctor.dao" />作用：
+        spring可以自动去扫描base-pack下面或者子包下面的java文件，如果扫描到有@Component @Controller@Service等这些注解的类，则把这些类注册为bean
+    	@Component是所有受Spring管理组件的通用形式；
+    	而@Repository、@Service和 @Controller则是@Component的细化，
+    	用来表示更具体的用例(例如，分别对应了持久化层、服务层和表现层)。
+    	也就是说，你能用@Component来注解你的组件类，但如果用@Repository、@Service 或@Controller来注解它们，
+    	你的类也许能更好地被工具处理，或与切面进行关联。例如，这些典型化注解可以成为理想的切入点目标。
+    	当然，在Spring Framework以后的版本中， @Repository、@Service和 @Controller也许还能携带更多语义。
+    	如此一来，如果你正在考虑服务层中是该用@Component还是@Service，那@Service显然是更好的选择。
+    	同样的，就像前面说的那样， @Repository已经能在持久化层中进行异常转换时被作为标记使用了。”
+     -->
+
+    <bean id="jedisClusterFactory" class="db.nosql.redis.jedis.spring.JedisClusterFactory" init-method="init" destroy-method="destroy">
+        <property name="hostPortList" >
+            <list>
+                <value>192.168.31.253:8000</value>
+                <value>192.168.31.253:8001</value>
+                <value>192.168.31.253:8002</value>
+                <value>192.168.31.253:8003</value>
+                <value>192.168.31.253:8004</value>
+                <value>192.168.31.253:8005</value>
+            </list>
+        </property>
+        <property name="timeout" value="200" />
+    </bean>
+
+    <bean id="jedisCluster" factory-bean="jedisClusterFactory" factory-method="getJedisCluster">
+    </bean>
+
+<!--    <bean id="redisService" class="db.nosql.redis.jedis.spring.impl.RedisClusterServiceImpl">
+
+    </bean>-->
+    <bean id="redisClusterService" class="db.nosql.redis.jedis.spring.impl.RedisClusterServiceImpl">
+        <property name="jedisCluster" ref="jedisCluster" />
+    </bean>
+</beans>
