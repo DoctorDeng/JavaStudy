@@ -10,16 +10,15 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class StringSort {
     // 将字符串中的小写字符排在大小字母前面
-    public static String sortString(String str) {
+    public static String lowercaseBeforeUppercase(String str) {
         if (StringUtils.isEmpty(str)) {
             return str;
         }
         // 原字符串拷贝
         char[] result = new char[str.length()];
-        str.getChars(0, str.length() - 1, result, 0);
+        str.getChars(0, str.length(), result, 0);
 
-        int lowerCursor = result.length - 1;
-        for (int upperCursor  = 0, len = result.length; upperCursor < len; upperCursor++) {
+        for (int upperCursor  = 0, lowerCursor = result.length - 1,  len = result.length; upperCursor < len; upperCursor++) {
             char upper = result[upperCursor];
             if (Character.isUpperCase(upper)) {
                 for (; lowerCursor > upperCursor; lowerCursor--) {
@@ -27,15 +26,11 @@ public class StringSort {
                     if (Character.isLowerCase(lower)) {
                         result[lowerCursor] = upper;
                         result[upperCursor] = lower;
+                        break;
                     }
                 }
             }
         }
         return String.copyValueOf(result);
     }
-
-    public static void main(String[] args) {
-        String aaa = "ab2323CA";
-    }
-
 }
