@@ -1,6 +1,5 @@
 package db.nosql.redis.jedis;
 
-import org.junit.Assert;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -29,7 +28,6 @@ public class JedisPoolTest {
         try (Jedis jedis = jedisPool.getResource()) { // JDK 1.7+ 写法
             //通过连接池获得连接
             jedis.set("name", "张三");
-            Assert.assertEquals("张三", jedis.get("name"));
         } catch (Exception e) {
             e.printStackTrace();
             //log.info("Jedis 通过连接池连接 Redis 出错");
