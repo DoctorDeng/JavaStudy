@@ -1,4 +1,4 @@
-package datastructureAndalgorithm.math;
+package datastructureAndalgorithm.practice;
 
 /**
  * 斐波那契数列：
