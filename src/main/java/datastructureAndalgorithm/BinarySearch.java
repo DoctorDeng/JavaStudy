@@ -143,4 +143,30 @@ public class BinarySearch {
         }
         return -1;
     }
+
+    /**
+     * 查找指定数组中最后一个小于等于给定元素的元素下标.
+     * @param array 有序数组
+     * @param value 给定元素
+     * @return 最后一个小于等于给定元素的元素下标，如果不存在符合条件的元素返回 -1
+     */
+    public static int equalOrLessLastIndexOf(int[] array, int value) {
+        SortUtils.checkArguments(array);
+        int start = 0;
+        int end = array.length - 1;
+        while (end >= start) {
+            int mid = start + ((end - start) >> 1);
+            int midValue = array[mid];
+            if (midValue <= value) {
+                if (mid == array.length - 1 || array[mid + 1] > value) {
+                    return mid;
+                } else {
+                    start = mid + 1;
+                }
+            } else {
+                end = mid - 1;
+            }
+        }
+        return -1;
+    }
 }
