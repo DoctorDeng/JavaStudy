@@ -34,6 +34,7 @@ public class BinarySearchTest {
             int value = test[5];
             Arrays.sort(test);
             Assert.assertEquals(ArrayUtils.indexOf(test, value), BinarySearch.indexOf(test, value));
+            Assert.assertEquals(-1, BinarySearch.lastIndexOf(test, 10));
         }
     }
 
@@ -51,6 +52,7 @@ public class BinarySearchTest {
             int value = test[5];
             Arrays.sort(test);
             Assert.assertEquals(ArrayUtils.indexOf(test, value), BinarySearch.indexOf2(test, value));
+            Assert.assertEquals(-1, BinarySearch.lastIndexOf(test, 10));
         }
     }
 
@@ -68,6 +70,7 @@ public class BinarySearchTest {
             int value = test[5];
             Arrays.sort(test);
             Assert.assertEquals(ArrayUtils.lastIndexOf(test, value), BinarySearch.lastIndexOf(test, value));
+            Assert.assertEquals(-1, BinarySearch.lastIndexOf(test, 10));
         }
     }
 
@@ -82,5 +85,6 @@ public class BinarySearchTest {
         Assert.assertEquals(0, BinarySearch.equalOrGreaterIndexOf(test, 2));
         test = new int[]{2,2,3,3,3};
         Assert.assertEquals(2, BinarySearch.equalOrGreaterIndexOf(test, 3));
+        Assert.assertEquals(-1, BinarySearch.equalOrGreaterIndexOf(test, 10));
     }
 }
