@@ -70,4 +70,17 @@ public class BinarySearchTest {
             Assert.assertEquals(ArrayUtils.lastIndexOf(test, value), BinarySearch.lastIndexOf(test, value));
         }
     }
+
+    @Test
+    public void equalOrGreaterIndexOf() {
+        int[] test = new int[]{0,2,2,2,5};
+        Assert.assertEquals(1, BinarySearch.equalOrGreaterIndexOf(test, 2));
+        Assert.assertEquals(1, BinarySearch.equalOrGreaterIndexOf(test, 1));
+        Assert.assertEquals(0, BinarySearch.equalOrGreaterIndexOf(test, 0));
+        Assert.assertEquals(4, BinarySearch.equalOrGreaterIndexOf(test, 5));
+        test = new int[]{2,2,2,2,2};
+        Assert.assertEquals(0, BinarySearch.equalOrGreaterIndexOf(test, 2));
+        test = new int[]{2,2,3,3,3};
+        Assert.assertEquals(2, BinarySearch.equalOrGreaterIndexOf(test, 3));
+    }
 }
