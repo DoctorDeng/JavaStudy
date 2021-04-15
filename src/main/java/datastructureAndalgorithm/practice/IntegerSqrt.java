@@ -9,33 +9,69 @@ package datastructureAndalgorithm.practice;
  */
 public class IntegerSqrt {
 
-    public static double sqrt(int value) {
-        int abs = Math.abs(value);
-
+    public static double sqrt(int value, int digit) {
         double start = 0;
         double end = value;
+        double precision = precision(digit);
         while (end>=start) {
             double mid = start + ((end - start)/2.00);
-            double mid2 = mid * mid;
-            double difference = mid2 - value;
+            double midSquare = mid * mid;
+            double difference = midSquare - value;
             if (difference == 0) {
-                return mid;
-            } else if (difference <= 0.000001 && difference >= -0.000001) {
-                return mid;
+                return range(mid, digit);
+            } else if (difference <= precision && difference >= -precision) {
+                return range(mid, digit);
             } else if (difference > 0) {
                 end = mid;
             } else if (difference < 0){
                 start = mid;
             } else {
-                return mid;
+                return range(mid, digit);
             }
         }
-        return -1;
+        throw new RuntimeException("sqrt error");
+    }
+
+
+    public static double precision(int digit) {
+        digitCheck(digit);
+        double precision = 1.0;
+        for (int i = 1; i <= digit; i++) {
+            precision = precision/10.0;
+        }
+
+        return precision;
+    }
+
+    private static void digitCheck(int digit) {
+        if (digit < 0 || digit > 16) {
+            throw new IllegalArgumentException("double digit range is 0 ~ 16, digit=" + digit);
+        }
+    }
+
+    public static double range(double value, int digit) {
+        digitCheck(digit);
+        if (value == 0) {
+            return value;
+        }
+        if (digit == 0) {
+            return (long) value;
+        }
+        if (digit == 16) {
+            return value;
+        }
+        long precision = 1;
+        for (int i = 1; i <= digit; i++) {
+            precision = precision * 10;
+        }
+        return  ((long)(value*precision))/ (precision*1.0);
     }
 
     public static void main(String[] args) {
-       System.out.println(sqrt(8));
-       System.out.println(2.82842712474619*2.82842712474619);
-       System.out.println(2.8284270763397217*2.8284270763397217);
+        //System.out.println(range(1.1111, 0));
+       // System.out.println(range(-1.1111, 3));
+       // System.out.println((double) precision(11));
+        System.out.println(sqrt(5, 6));
+        System.out.println(Math.sqrt(5));
     }
 }
