@@ -36,12 +36,12 @@ public class BinarySearch {
     }
 
     /**
-     * 查找指定数组中第一个与给定元素相等的元素的下标.
+     * 查找指定数组中第一个值与给定元素值相等的元素的下标.
      * @param array 有序数组
      * @param value 给定元素
      * @return 与给定元素相等的第一个元素下标，如果给定元素在数组中不存在返回 -1
      */
-    public static int findFirstEqual(int[] array, int value) {
+    public static int indexOf(int[] array, int value) {
         SortUtils.checkArguments(array);
 
         int start = 0;
@@ -61,13 +61,13 @@ public class BinarySearch {
     }
 
     /**
-     * 查找指定数组中第一个与给定元素相等的元素的下标.
-     * <p>功能与 {@link #findFirstEqual(int[], int)} 一样，但是代码更容易让人理解</p>
+     * 查找指定数组中第一个值与给定元素值相等的元素的下标.
+     * <p>功能与 {@link #indexOf(int[], int)} 一样，但是代码更容易让人理解</p>
      * @param array 有序数组
      * @param value 给定元素
      * @return 与给定元素相等的第一个元素下标，如果给定元素在数组中不存在返回 -1
      */
-    public static int findFirstEqual2(int[] array, int value) {
+    public static int indexOf2(int[] array, int value) {
         SortUtils.checkArguments(array);
         int start = 0;
         int end = array.length - 1;
@@ -83,6 +83,35 @@ public class BinarySearch {
                     return mid;
                 } else {
                     end = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找指定数组中最后一个值与给定元素值相等的元素的下标.
+     * @param array 有序数组
+     * @param value 给定元素
+     * @return 与给定元素相等的最后一个元素下标，如果给定元素在数组中不存在返回 -1
+     */
+    public static int lastIndexOf(int[] array, int value) {
+        SortUtils.checkArguments(array);
+
+        int start = 0;
+        int end = array.length - 1;
+        while (end >= start) {
+            int mid = start + ((end - start) >> 1);
+            int midValue = array[mid];
+            if (value < midValue) {
+                end = mid - 1;
+            } else if (value > midValue) {
+                start = mid + 1;
+            } else {
+                if (mid == array.length - 1 || array[mid + 1] != value) {
+                    return mid;
+                } else {
+                    start = mid + 1;
                 }
             }
         }

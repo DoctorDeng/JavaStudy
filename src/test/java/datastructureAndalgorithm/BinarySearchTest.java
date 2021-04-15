@@ -21,36 +21,53 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void findFirstEqual() {
+    public void indexOf() {
         int[] test = new int[]{0,2,2,2,5};
-        Assert.assertEquals(1, BinarySearch.findFirstEqual(test, 2));
+        Assert.assertEquals(1, BinarySearch.indexOf(test, 2));
         test = new int[]{2,2,2,2,2};
-        Assert.assertEquals(0, BinarySearch.findFirstEqual(test, 2));
+        Assert.assertEquals(0, BinarySearch.indexOf(test, 2));
         test = new int[]{0,0,0,2,2};
-        Assert.assertEquals(3, BinarySearch.findFirstEqual(test, 2));
+        Assert.assertEquals(3, BinarySearch.indexOf(test, 2));
 
         for (int i = 0; i < 100; i++) {
             test = SortUtils.getTestData(0, 5, 20);
             int value = test[5];
             Arrays.sort(test);
-            Assert.assertEquals(ArrayUtils.indexOf(test, value), BinarySearch.findFirstEqual(test, value));
+            Assert.assertEquals(ArrayUtils.indexOf(test, value), BinarySearch.indexOf(test, value));
         }
     }
 
     @Test
-    public void findFirstEqual2() {
+    public void indexOf2() {
         int[] test = new int[]{0,2,2,2,5};
-        Assert.assertEquals(1, BinarySearch.findFirstEqual2(test, 2));
+        Assert.assertEquals(1, BinarySearch.indexOf2(test, 2));
         test = new int[]{2,2,2,2,2};
-        Assert.assertEquals(0, BinarySearch.findFirstEqual2(test, 2));
+        Assert.assertEquals(0, BinarySearch.indexOf2(test, 2));
         test = new int[]{0,0,0,2,2};
-        Assert.assertEquals(3, BinarySearch.findFirstEqual2(test, 2));
+        Assert.assertEquals(3, BinarySearch.indexOf2(test, 2));
 
         for (int i = 0; i < 100; i++) {
             test = SortUtils.getTestData(0, 5, 20);
             int value = test[5];
             Arrays.sort(test);
-            Assert.assertEquals(ArrayUtils.indexOf(test, value), BinarySearch.findFirstEqual2(test, value));
+            Assert.assertEquals(ArrayUtils.indexOf(test, value), BinarySearch.indexOf2(test, value));
+        }
+    }
+
+    @Test
+    public void lastIndexOf() {
+        int[] test = new int[]{0,2,2,2,5};
+        Assert.assertEquals(3, BinarySearch.lastIndexOf(test, 2));
+        test = new int[]{2,2,2,2,2};
+        Assert.assertEquals(4, BinarySearch.lastIndexOf(test, 2));
+        test = new int[]{2,2,3,3,3};
+        Assert.assertEquals(1, BinarySearch.lastIndexOf(test, 2));
+
+        for (int i = 0; i < 100; i++) {
+            test = SortUtils.getTestData(0, 5, 20);
+            int value = test[5];
+            Arrays.sort(test);
+            Assert.assertEquals(ArrayUtils.lastIndexOf(test, value), BinarySearch.lastIndexOf(test, value));
         }
     }
 }
