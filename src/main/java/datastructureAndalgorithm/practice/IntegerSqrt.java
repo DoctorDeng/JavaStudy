@@ -27,7 +27,8 @@ public class IntegerSqrt {
 
         double start = 0;
         double end = value;
-        double precision = precision(digit);
+        // 增量, 当一个数的平方数与 value 值相差在增量内时, 该数变算作 value 的算术平方根
+        double delta = delta(digit);
         while (end>=start) {
             double mid = start + ((end - start)/2.00);
             double midSquare = mid * mid;
@@ -35,9 +36,9 @@ public class IntegerSqrt {
             if (difference == 0) {
                 return round(mid, digit);
             }
-            // 差值在指定精度下则算 mid 值未 value 的算术平方根
-            else if (difference <= precision
-                    && difference >= -precision) {
+            // 差值在指定增量下则 mid 值算是 value 的算术平方根
+            else if (difference <= delta
+                    && difference >= -delta) {
                 return round(mid, digit);
             } else if (difference > 0) {
                 end = mid;
@@ -48,18 +49,22 @@ public class IntegerSqrt {
         throw new RuntimeException("sqrt error");
     }
 
-    public static double precision(int digit) {
+    /**
+     * 求指定精度下求算术平方根的误差值(增量).
+     * @param digit 保留小数位数
+     * @return 增量值
+     */
+    private static double delta(int digit) {
         digitCheck(digit);
-        double precision = 1.0;
+        double delta = 1.0;
         for (int i = 1; i <= digit; i++) {
-            precision = precision/10.0;
+            delta = delta/10.0;
         }
-
-        return precision;
+        return delta;
     }
 
     /**
-     * 对给定值保留指定位精度（会做四色五入操作）.
+     * 对给定值保留指定位精度（做四色五入操作）.
      * @param value 给定值
      * @param digit 保留小数位数, 必须大于等于 0
      * @return 保留指定小数位数的值
