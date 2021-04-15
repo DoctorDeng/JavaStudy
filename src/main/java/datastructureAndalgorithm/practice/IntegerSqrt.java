@@ -10,6 +10,9 @@ package datastructureAndalgorithm.practice;
 public class IntegerSqrt {
 
     public static double sqrt(int value, int digit) {
+        if (value < 0) {
+            throw new IllegalArgumentException("value must be greater than or equal to 0, value=" + value);
+        }
         double start = 0;
         double end = value;
         double precision = precision(digit);
@@ -68,9 +71,6 @@ public class IntegerSqrt {
     }
 
     public static void main(String[] args) {
-        //System.out.println(range(1.1111, 0));
-       // System.out.println(range(-1.1111, 3));
-       // System.out.println((double) precision(11));
         System.out.println(sqrt(5, 6));
         System.out.println(Math.sqrt(5));
     }
