@@ -35,7 +35,7 @@ public class Skiplist<K, V> {
         }
         SkiplistNode<K, V> current = lastLess;
         while (current != null) {
-            if (current.key.equals(key)) {
+            if (key.equals(current.key)) {
                 return current.value;
             } else {
                 current = current.next;
@@ -48,8 +48,6 @@ public class Skiplist<K, V> {
         nullCheck(key);
 
         SkiplistNode<K, V> lastLess = findLastLess(key);
-        if (lastLess)
-
 
 
     }
