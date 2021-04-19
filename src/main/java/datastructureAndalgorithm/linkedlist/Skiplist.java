@@ -1,6 +1,7 @@
 package datastructureAndalgorithm.linkedlist;
 
 import java.util.Comparator;
+import java.util.concurrent.ConcurrentSkipListMap;
 
 /**
  * 跳表练习.
@@ -29,7 +30,7 @@ public class Skiplist<K, V> {
 
     public V get(K key) {
         nullCheck(key);
-        SkiplistNode<K, V> lastLess = findLastLess(key);
+        SkiplistNode<K, V> lastLess = findPre(key);
         if (lastLess.isHeader()) {
             return null;
         }
@@ -44,12 +45,13 @@ public class Skiplist<K, V> {
         return null;
     }
 
-    public void put(K key, V value) {
+    public V put(K key, V value) {
         nullCheck(key);
 
-        SkiplistNode<K, V> lastLess = findLastLess(key);
+        SkiplistNode<K, V> pre = findPre(key);
 
 
+        return value;
     }
 
 
@@ -60,8 +62,8 @@ public class Skiplist<K, V> {
     }
 
 
-    // 查找最后一个小于或等于给定 key 的元素, 如果没有则返回头部元素
-    private SkiplistNode<K, V> findLastLess(K key) {
+    // 查找最后一个小于给定 key 的元素, 如果没有则返回头部元素
+    private SkiplistNode<K, V> findPre(K key) {
         nullCheck(key);
 
         for (Index<K, V> currentIdx = head, rightIdx = currentIdx.right, down ; ; ) {
@@ -132,5 +134,12 @@ public class Skiplist<K, V> {
             super(node, down, right);
             this.level = level;
         }
+    }
+
+    public static void main(String[] args) {
+        ConcurrentSkipListMap<Integer, String> concurrentSkipListMap = new ConcurrentSkipListMap<>(Integer::compareTo);
+        concurrentSkipListMap.put(1111, "222");
+        concurrentSkipListMap.put(1111, "333");
+        concurrentSkipListMap.forEach((key, value) -> System.out.println("key is: " + key + " value is:" + value));
     }
 }
