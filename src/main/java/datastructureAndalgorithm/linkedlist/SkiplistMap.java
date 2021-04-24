@@ -5,7 +5,8 @@ import java.util.*;
 /**
  * 跳表练习.
  * 该练习是一个简易版本的练习, 更好的实现可参考 {@link java.util.concurrent.ConcurrentSkipListMap}
- * 或者 <a href="https://github.com/redis/redis/blob/unstable/src/t_zset.c">Redis 中的 Skiplist</a> 实现.
+ * 或者 <a href="https://github.com/redis/redis/blob/unstable/src/t_zset.c">Redis 中的 Skiplist</a> 实现
+ * 或者 <a href="https://github.com/MottoX/SkipList">SkipList</a>.
  *
  * @author <a href="http://doctordeng.github.io">DoctorDeng</a>
  * @date 2021/4/17 8:37
