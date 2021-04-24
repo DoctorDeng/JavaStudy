@@ -214,7 +214,20 @@ public class SkiplistMap<K, V> extends AbstractMap<K, V> {
         return new EntrySet();
     }
 
-    public int randomLevel() {
+    /**
+     * 采用 Redis zset 中随机层数算法, 具体见: t_zset.c#zslRandomLevel() 方法, 源码如下：
+     * <pre>{@code
+     *      // 其中 ZSKIPLIST_MAXLEVEL = 32, ZSKIPLIST_P = 0.25
+     *      int zslRandomLevel(void) {
+     *          int level = 1;
+     *          while ((random()&0xFFFF) < (ZSKIPLIST_P * 0xFFFF))
+     *              level += 1;
+     *          return (level<ZSKIPLIST_MAXLEVEL) ? level : ZSKIPLIST_MAXLEVEL;
+     *      }
+     *  }</pre>
+     * @return 随机层数
+     */
+    private int randomLevel() {
         int newLevel = 1;
         while ((random.nextInt() & 0xFFFF) < (SKIPLIST_P * 0xFFFF)) {
             newLevel++;
