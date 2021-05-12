@@ -5,12 +5,12 @@ import datastructureAndalgorithm.linkedlist.SortSinglyLinkedList;
 import java.util.Iterator;
 
 /**
- * 基于 LRU 算法进行缓存淘汰的 {@link Cache} 实现
+ * 基于 LRU 算法进行缓存淘汰的 {@link Cache} 实现，底层基于链表结构
  * @author <a href="http://doctordeng.vip">DoctorDeng</a>
  * @date 2021/1/13 19:08
  * @since 1.0.0
  */
-public class LRUCache<K, V> implements Cache<K, V> {
+public class LinkedListLRUCache<K, V> implements Cache<K, V> {
     /**
      * 缓存链表
      */
@@ -26,13 +26,13 @@ public class LRUCache<K, V> implements Cache<K, V> {
      */
     private final int capacity;
 
-    public LRUCache() {
+    public LinkedListLRUCache() {
         super();
         this.capacity = DEFAULT_CAPACITY;
         cacheList = new SortSinglyLinkedList<>(false);
     }
 
-    public LRUCache(int capacity) {
+    public LinkedListLRUCache(int capacity) {
         super();
         if (capacity <= 0) {
             throw new IllegalArgumentException("cache capacity must be greater than or equal to 0");
@@ -207,7 +207,7 @@ public class LRUCache<K, V> implements Cache<K, V> {
     }
 
     private static void basicTest() throws InterruptedException {
-        Cache<String, Integer> cache = new LRUCache<>(5);
+        Cache<String, Integer> cache = new LinkedListLRUCache<>(5);
         cache.put("1", 1);
         Thread.sleep(100);
         cache.put("2", 2);
