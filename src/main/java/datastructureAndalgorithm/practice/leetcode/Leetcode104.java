@@ -10,7 +10,12 @@ package datastructureAndalgorithm.practice.leetcode;
 public class Leetcode104 {
 
 }
-
+class SimpleRecursionSolution {
+    // 通过递归求解, 更加简洁
+    public int maxDepth(TreeNode root) {
+        return root == null ? 0 : Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+    }
+}
 class RecursionSolution {
     // 通过递归求解
     public int maxDepth(TreeNode root) {
@@ -20,7 +25,7 @@ class RecursionSolution {
         int depth = 1;
         int leftDepth  = root.left  == null ? depth : maxDepth(root.left, depth);
         int rightDepth = root.right == null ? depth : maxDepth(root.right, depth);
-        return max(leftDepth, rightDepth);
+        return Math.max(leftDepth, rightDepth);
     }
     private int maxDepth(TreeNode node, int depth) {
         depth++;
@@ -29,10 +34,7 @@ class RecursionSolution {
         }
         int leftDepth  = node.left  == null ? depth : maxDepth(node.left, depth);
         int rightDepth = node.right == null ? depth : maxDepth(node.right, depth);
-        return max(leftDepth, rightDepth);
-    }
-    private int max(int a, int b) {
-        return a > b ? a : b;
+        return Math.max(leftDepth, rightDepth);
     }
 }
 // TODO: 通过队列求解
