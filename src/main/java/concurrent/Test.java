@@ -1,33 +1,33 @@
-package concurrent;
+package  concurrent;
+
 
 public class Test {
-
-    public synchronized void say() {
-        System.out.println("1");
-        nosay();
+    private long count = 0;
+    private void add10K() {
+        int idx = 0;
+        while(idx++ < 100000000) {
+            count += 1;
+        }
+    }
+    public  static long calc() throws InterruptedException {
+        final Test test = new Test();
+        // 创建两个线程，执行add()操作
+        Thread th1 = new Thread(()->{
+            test.add10K();
+        });
+        Thread th2 = new Thread(()->{
+            test.add10K();
+        });
+        // 启动两个线程
+        th1.start();
+        th2.start();
+        // 等待两个线程执行结束
+        th1.join();
+        th2.join();
+        return test.count;
     }
 
-    public synchronized void nosay() {
-        System.out.println("2");
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println(calc());
     }
-
-    public static void main(String[] args) {
-
-        Test test = new Test();
-        new Thread() {
-            @Override
-            public void run() {
-                while (true) {
-                    test.say();
-                    try {
-                        Thread.currentThread();
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }.start();
-    }
-
 }

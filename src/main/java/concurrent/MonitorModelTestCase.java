@@ -1,7 +1,7 @@
 package concurrent;
 
 /**
- * 管程模型测试, 验证 Java 中的管程属于下面那种模型：
+ * Java 管程模型验证, 验证 Java 中的管程模型属于下面哪中模型：
  * <p>
  *     1. MESA  模型：线程 B 唤醒线程 A. A 继续等待, B 依旧执行，直到完成.
  *     2. Hasen 模型：线程 B 唤醒线程 A. 唤醒操为最后才可以执行的操作.
@@ -11,8 +11,19 @@ package concurrent;
  * @version 1.0.0
  * @date 2021/7/16 18:55
  */
-public class MonitorTest {
+public class MonitorModelTestCase {
 
+    /**
+     * 打印结果：
+     * this is Runnable A
+     * this is Runnable B
+     * this is Runnable B
+     * this is Runnable A
+     * this is Runnable B
+     * this is Runnable B
+     * this is Runnable A
+     * ......
+     */
     public static void main(String[] args) throws InterruptedException {
         Object lock = new Object();
 
@@ -31,7 +42,7 @@ public class MonitorTest {
             while (true) synchronized (lock) {
                 lock.notifyAll();
                 try {
-                    for (int i = 0; i < 5; i++) {
+                    for (int i = 0; i < 2; i++) {
                         Thread.sleep(1000);
                         System.out.println("this is Runnable B");
                     }
