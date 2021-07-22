@@ -1,5 +1,6 @@
 package datastructureAndalgorithm.practice;
 
+import cache.Cache;
 import datastructureAndalgorithm.linkedlist.SortSinglyLinkedList;
 
 import java.util.Iterator;
