@@ -1,7 +1,5 @@
 package concurrent;
 
-import lombok.SneakyThrows;
-import org.junit.Assert;
 import org.junit.Test;
 
 
