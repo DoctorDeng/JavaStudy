@@ -1,7 +1,6 @@
 package weblogic;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import sun.misc.BASE64Decoder;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -21,6 +20,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.Security;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Base64;
 
 
 public class Decryptor {
@@ -44,7 +44,7 @@ public class Decryptor {
 
 
     public static String decryptAES(String SerializedSystemIni, String ciphertext) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, IOException {
-        byte[] encryptedPassword1 = new BASE64Decoder().decodeBuffer(ciphertext);
+        byte[] encryptedPassword1 = Base64.getDecoder().decode(ciphertext);
         byte[] salt = null;
         byte[] encryptionKey = null;
 
@@ -97,7 +97,7 @@ public class Decryptor {
 
     public static String decrypt3DES(String SerializedSystemIni, String ciphertext) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, IOException {
 
-        byte[] encryptedPassword1 = new BASE64Decoder().decodeBuffer(ciphertext);
+        byte[] encryptedPassword1 = Base64.getDecoder().decode(ciphertext);
         byte[] salt = null;
         byte[] encryptionKey = null;
 
