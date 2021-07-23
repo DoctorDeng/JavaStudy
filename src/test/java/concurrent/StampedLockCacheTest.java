@@ -3,16 +3,15 @@ package concurrent;
 import cache.Cache;
 import org.junit.Test;
 
-public class ReadWriteCacheTest extends AbstractCacheTest {
+public class StampedLockCacheTest extends AbstractCacheTest {
 
     @Override
     public Cache<String, Integer> getCacheInstance() {
-        return new ReadWriteCache<>();
+        return new StampedLockCache<>();
     }
 
     @Test
     public void cacheTest() {
         super.cacheTest();
     }
-
 }
