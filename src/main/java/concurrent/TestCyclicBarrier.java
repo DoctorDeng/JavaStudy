@@ -20,11 +20,12 @@ public class TestCyclicBarrier {
     private static final Logger log = LoggerFactory.getLogger(TestCountDownLatch.class);
 
     private static void cyclicBarrierTest() {
-        final ExecutorService executorService = Executors.newCachedThreadPool();
-        Queue<Long> orderQueue    = new ArrayBlockingQueue<>(1);
-        Queue<Long> deliveryQueue = new ArrayBlockingQueue<>(1);
+        final ExecutorService executorService = Executors.newFixedThreadPool(1);
+        final Queue<Long> orderQueue    = new ArrayBlockingQueue<>(1);
+        final Queue<Long> deliveryQueue = new ArrayBlockingQueue<>(1);
 
         final CyclicBarrier cyclicBarrier = new CyclicBarrier(2, () -> {
+            // 回调 Runnable 此处为同步执行, 建议使用线程池异步执行.
             Long order = orderQueue.poll();
             Long delivery = deliveryQueue.poll();
             if (order != null && delivery != null) {
