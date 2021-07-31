@@ -1,7 +1,7 @@
 package  concurrent;
 
 
-public class Test {
+public class Add10K {
     private long count = 0;
     private void add10K() {
         int idx = 0;
@@ -10,13 +10,13 @@ public class Test {
         }
     }
     public  static long calc() throws InterruptedException {
-        final Test test = new Test();
+        final Add10K add10K = new Add10K();
         // 创建两个线程，执行add()操作
         Thread th1 = new Thread(()->{
-            test.add10K();
+            add10K.add10K();
         });
         Thread th2 = new Thread(()->{
-            test.add10K();
+            add10K.add10K();
         });
         // 启动两个线程
         th1.start();
@@ -24,7 +24,7 @@ public class Test {
         // 等待两个线程执行结束
         th1.join();
         th2.join();
-        return test.count;
+        return add10K.count;
     }
 
     public static void main(String[] args) throws InterruptedException {
