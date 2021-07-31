@@ -5,12 +5,14 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 练习 Java 线程池
+ * 练习 Java 线程池.
  *
  * @author Doctor邓
  */
 public class ThreadPoolTest {
-    //测试固定线程池
+    /**
+     * 练习固定数量线程的线程池.
+     */
     public static void testFixedThreadPool() {
         // 创建线程池, 这里创建线程数量固定的 固定线程池
         ExecutorService threadPool = Executors.newFixedThreadPool(3);
