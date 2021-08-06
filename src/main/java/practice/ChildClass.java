@@ -10,7 +10,7 @@ public class ChildClass extends FatherClass {
 	//方法的重写
 	public int age=50;
 	public void eat(){
-		System.out.println("年龄:"+age+" 邓华杰吃东西特别厉害");
+		System.out.println("年龄:"+age+" doctordeng吃东西特别厉害");
 	}
 	public ChildClass(){
 		super();

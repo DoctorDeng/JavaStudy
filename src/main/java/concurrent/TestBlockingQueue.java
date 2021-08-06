@@ -20,7 +20,7 @@ public class TestBlockingQueue {
                         Thread.sleep((long) (Math.random() * 10000));
                         System.out.println(Thread.currentThread().getName() +
                                 "正准备放数据!");
-                        queue.put("邓华杰" + (new Random()).nextInt());
+                        queue.put("doctordeng" + (new Random()).nextInt());
 
                         System.out.println(Thread.currentThread().getName() +
                                 "已经放了" + queue.size() + "个数据");

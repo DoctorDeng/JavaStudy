@@ -8,7 +8,7 @@ public class TestThreadLocal {
 
             @Override
             public void run() {
-                ThreadLocalData.getStudent().setName("邓华杰");
+                ThreadLocalData.getStudent().setName("doctordeng");
                 ThreadLocalData.getStudent().setAge(22);
                 System.out.println(Thread.currentThread().getName() + "放入数据：" + ThreadLocalData.getStudent().toString());
                 new A().getData();
@@ -20,7 +20,7 @@ public class TestThreadLocal {
 
             @Override
             public void run() {
-                ThreadLocalData.getStudent().setName("熊勇");
+                ThreadLocalData.getStudent().setName("xiongyong");
                 ThreadLocalData.getStudent().setAge(24);
                 System.out.println(Thread.currentThread().getName() + "放入数据：" + ThreadLocalData.getStudent().toString());
                 new A().getData();

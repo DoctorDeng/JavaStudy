@@ -33,7 +33,7 @@ public class TestExchange {
 
         service.execute(() -> {
             try {
-                String data2 = "邓华杰";
+                String data2 = "doctordeng";
                 System.out.println("线程" + Thread.currentThread().getName() +
                         "正把数据" + data2 + "换出去");
 

@@ -9,7 +9,7 @@ public class TestInherit {
 		//创建一个孩子对象
         ChildClass child=new ChildClass();
         //由于孩子类继承父亲类，顾其有父类的方法和属性，顾下面可以调用
-        child.name="邓华杰";
+        child.name="doctordeng";
         child.eat();
         child.method();
         System.out.println("包名+哈希地址： "+child);

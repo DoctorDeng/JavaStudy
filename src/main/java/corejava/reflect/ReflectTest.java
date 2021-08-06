@@ -38,7 +38,7 @@ public class ReflectTest {
 	}
 	
 	public static void main(String[] args) {
-		Student stu = new Student("12", "邓华杰");
+		Student stu = new Student("12", "doctordeng");
 		try {
 			Set<Course> name = getFiled(stu, "courses");
 			System.out.println(name);

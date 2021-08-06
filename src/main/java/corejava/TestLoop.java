@@ -3,7 +3,7 @@ package corejava;
 /**
  * 练习 Java 中循环的跳出
  * 
- * @author 邓华杰
+ * @author doctordeng
  *
  */
 public class TestLoop {

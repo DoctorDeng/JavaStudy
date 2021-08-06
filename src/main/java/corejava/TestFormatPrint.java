@@ -1,7 +1,7 @@
 package corejava;
 /**
  * 练习格式化输出
- * @author 邓华杰
+ * @author doctordeng
  *
  */
 public class TestFormatPrint {

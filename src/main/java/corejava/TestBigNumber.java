@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 /**
  * 练习  Java  中 BigDecimal 和 BigInteger 的使用
- * @author 邓华杰
+ * @author doctordeng
  *
  */
 public class TestBigNumber {
