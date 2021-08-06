@@ -19,7 +19,9 @@ public abstract class ThreadUtils {
         }
     }
 
-    public static void sleepRandomSlience() {
-        sleepSlience(RandomUtils.nextLong(1000, 3000));
+    public static long sleepRandomSlience() {
+        long sleepMillis = RandomUtils.nextLong(1000, 3000);
+        sleepSlience(sleepMillis);
+        return sleepMillis;
     }
 }
