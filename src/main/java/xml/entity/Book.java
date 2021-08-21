@@ -1,7 +1,7 @@
 package xml.entity;
 /**
  * 书实体
- * @author Doctor邓
+ * @author doctordeng
  *
  */
 public class Book {

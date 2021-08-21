@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
 /**
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @description 练习 Guava 内建布隆过滤器
  * @since 2018/7/3 20:12

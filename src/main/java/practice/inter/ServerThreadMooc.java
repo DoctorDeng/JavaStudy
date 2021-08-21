@@ -10,7 +10,7 @@ import java.net.Socket;
 
 /**
  * 
- * @author Doctor邓
+ * @author doctordeng
  * 服务器端线程处理类
  */
 public class ServerThreadMooc extends Thread {

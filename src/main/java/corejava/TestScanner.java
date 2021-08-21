@@ -11,7 +11,7 @@ import java.util.Scanner;
  *     Scanner sc = new Scanner(System.in);
  *     int i = sc.nextInt();
  * }</pre></blockquote>
- * @author Doctor邓
+ * @author doctordeng
  *
  */
 public class TestScanner {

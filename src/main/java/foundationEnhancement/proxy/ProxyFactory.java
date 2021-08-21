@@ -8,7 +8,7 @@ import java.lang.reflect.Proxy;
 /**
  * Description:
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/12/7 21:44
  */
 public class ProxyFactory {

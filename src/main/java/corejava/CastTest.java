@@ -2,7 +2,7 @@ package corejava;
 
 /**
  * 练习 Java 类型转换
- * @author Doctor邓
+ * @author doctordeng
  */
 public class CastTest {
 	String a = "";

@@ -4,7 +4,7 @@ package concurrent;
  * 多线程题目代码, 题目如下: 子线程循环 10 次, 接着主线程循环 100 次, 接着又回到子线程 循环 10 次, 接着再回到主线程又循环 100
  * 次, 如此循环 50次, 请写出程序
  *
- * @author Doctor邓
+ * @author doctordeng
  */
 public class ThreadSubject {
     /**

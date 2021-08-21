@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 我们喜欢在单独的等待 set 中保存 put 线程和 take 线程，这样就可以在缓冲区中的项或空间变得可用时利用最佳规划，
  * 一次只通知一个线程。 可以使用两个Condition 实例来做到这一点。
  *
- * @author Doctor邓
+ * @author doctordeng
  */
 public class BoundedBuffer {
     final Lock lock = new ReentrantLock();

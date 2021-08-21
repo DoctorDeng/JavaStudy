@@ -16,7 +16,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @description 练习 JedisCluster 使用
  * @since 2018/6/14 21:05

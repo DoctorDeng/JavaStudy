@@ -8,13 +8,13 @@ import java.lang.reflect.Method;
 /**
  * Description: 练习 Java Bean
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/26 17:13
  */
 public class JavaBeanTest {
 
     private static void beanTest() {
-        Student student = new Student("Doctor邓", 20, true);
+        Student student = new Student("doctordeng", 20, true);
         System.out.println(getProperties("name", student));
         setProperties("name", "DoctorDeng", student);
         System.out.println(student.getName());

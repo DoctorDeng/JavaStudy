@@ -13,7 +13,7 @@ import java.util.concurrent.Executors;
 /**
  * 练习 {@link CountDownLatch}.
  *
- * @author Doctor邓
+ * @author doctordeng
  */
 public class TestCountDownLatch {
     private static final Logger log = LoggerFactory.getLogger(TestCountDownLatch.class);

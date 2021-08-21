@@ -5,7 +5,7 @@ import java.util.Collection;
 /**
  * Description: 测试 Aop 练习
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/12/8 21:42
  */
 public class AopTest {

@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 /**
  * Description:
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/12/8 21:47
  */
 public class TimeAdvice implements Advice {

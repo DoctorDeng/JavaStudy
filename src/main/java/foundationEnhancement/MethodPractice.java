@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  * 使用反射调用其他类的 Main 方法
- * @author Doctor邓
+ * @author doctordeng
  *
  */
 public class MethodPractice {

@@ -5,7 +5,7 @@ import java.io.InputStream;
 /**
  * Description: 练习 Java 路径
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/26 16:32
  */
 public class PathTest {

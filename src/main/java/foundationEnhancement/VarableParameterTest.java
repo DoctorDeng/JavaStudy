@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * 练习 Java 可变参数
- * Created by Doctor邓 on 2016/11/20.
+ * Created by doctordeng on 2016/11/20.
  */
 public class VarableParameterTest {
 

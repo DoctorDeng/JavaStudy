@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Description: 练习自定义泛型的使用
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/28 21:57
  */
 public class CustomGenericity {

@@ -1,7 +1,7 @@
 package string;
 
 /**
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @description 练习 String 的 Immutable(不可变) 机制
  * @since 2018/9/19 11:08

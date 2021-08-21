@@ -11,7 +11,7 @@ import java.util.Set;
  * 泛型案例
  * Description: 打印一个 HashMap中的所有 Key 和 Value
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/28 21:30
  */
 public class CollectionPractice {
@@ -46,7 +46,7 @@ public class CollectionPractice {
         hashMap.put("age", "20");
         printOutHashMap(hashMap);
         HashMap<String, Student> hashMap1 = new HashMap<>();
-        hashMap1.put("Doctor", new Student("Doctor邓", 20, true));
+        hashMap1.put("Doctor", new Student("doctordeng", 20, true));
         hashMap1.put("Deng", new Student("Moto", 25, false));
         printOutHashMap(hashMap1);
 

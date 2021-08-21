@@ -1,7 +1,7 @@
 package exception;
 /*
  * Description:   练习异常处理
- * Author:        Doctor邓
+ * Author:        doctordeng
  * Time:          2016-4-18
  */
 

@@ -2,7 +2,7 @@ package practice;
 import java.util.Scanner;
 /* 
  * Description:    练习递归并用循环实现递归
- * Author:         Doctor邓
+ * Author:         doctordeng
  * Time:           2016-4-9
  */
 public class Recursion {

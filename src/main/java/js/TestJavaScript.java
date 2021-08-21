@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @description 练习使用 Java 运行 JavaScript
  * @since 2017/11/22 19:44

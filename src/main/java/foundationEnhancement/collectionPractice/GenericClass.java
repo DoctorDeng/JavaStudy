@@ -10,7 +10,7 @@ import java.util.List;
  *     在一个类的实例对象中多处都要用到同一个泛型, 即这些地方引用的泛型要保持
  *     同一个实际类型时, 这时候要采用泛型类型的方式进行定义, 也就是类级别的泛型
  *     可以参考 ArrayList 等泛型集合
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/29 21:17
  */
 public class GenericClass<T> {

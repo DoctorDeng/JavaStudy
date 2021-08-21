@@ -43,7 +43,7 @@ public class FileOutDemo1 {
 //			out.write(a >>> 16);
 //			out.write(a >>> 8);
 //			out.write(a);
-//			byte[] utf = "Doctor邓".getBytes("UTF-8");
+//			byte[] utf = "doctordeng".getBytes("UTF-8");
 //			out.write(utf);
 //			IOUtil.printHex("demo/test.txt");
 //			

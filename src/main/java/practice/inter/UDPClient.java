@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 
 /**
  * 
- * @author Doctor邓
+ * @author doctordeng
  * 客户端
  */
 public class UDPClient {

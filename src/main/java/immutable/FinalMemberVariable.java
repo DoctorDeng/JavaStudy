@@ -1,7 +1,7 @@
 package immutable;
 
 /**
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @description 练习 final 修饰 MemberVariable(成员变量)
  * @since 2018/9/19 11:18

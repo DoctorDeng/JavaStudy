@@ -1,7 +1,7 @@
 package db.nosql.redis.jedis.spring;
 
 /**
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @description
  * @since 2018/6/18 16:03

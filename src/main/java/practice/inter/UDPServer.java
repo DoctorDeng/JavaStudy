@@ -7,7 +7,7 @@ import java.net.SocketException;
 
 /**
  * 
- * @author Doctor邓
+ * @author doctordeng
  * 练习UDP数据报的使用
  * UDP服务端类，基于UDP的用户登陆
  */

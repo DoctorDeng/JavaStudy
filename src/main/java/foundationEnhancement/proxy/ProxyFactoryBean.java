@@ -8,7 +8,7 @@ import java.lang.reflect.Proxy;
 /**
  * Description: 生成动态代理的工厂, 需要为工厂类提供：目标 和 通知
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/12/7 22:10
  */
 public class ProxyFactoryBean {

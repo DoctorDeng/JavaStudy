@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 /**
  * 练习反射中的 Method
- * @author Doctor邓
+ * @author doctordeng
  *
  */
 public class MethodTableTest {

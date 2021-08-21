@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * 汽车时间代理
- * @author Doctor邓
+ * @author doctordeng
  *
  */
 public class Client {

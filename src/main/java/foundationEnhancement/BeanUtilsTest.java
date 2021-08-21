@@ -10,13 +10,13 @@ import java.util.Map;
 /**
  * Description: 练习使用 BeanUtils 工具包来操作 JavaBean
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/26 21:02
  */
 public class BeanUtilsTest {
 
     public static void beanUtilsTest() {
-        Student student = new Student("Doctor邓", 20, true);
+        Student student = new Student("doctordeng", 20, true);
         try {
             // 获取属性值
             System.out.println(BeanUtils.getProperty(student, "age"));
@@ -31,7 +31,7 @@ public class BeanUtilsTest {
             // BeanUtils 支持 Map 设置 value
             Map map = new HashMap();
             map.put("name","Doctor");
-            BeanUtils.setProperty(map,"name","Doctor邓");
+            BeanUtils.setProperty(map,"name","doctordeng");
             System.out.println(map.get("name"));
 
             // PropertyUtils 不会进行类型转换

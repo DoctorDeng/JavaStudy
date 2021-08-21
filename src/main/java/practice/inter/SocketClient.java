@@ -7,7 +7,7 @@ import java.net.Socket;
 
 /**
  * 练习Socket的使用
- * @author Doctor邓
+ * @author doctordeng
  * 客户端
  */
 

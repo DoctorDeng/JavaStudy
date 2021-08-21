@@ -1,7 +1,7 @@
 package practice;
 /*
  * Description:    练习定义数组的几种方法
- * Author:         Doctor邓
+ * Author:         doctordeng
  * Time:           2016-4-9
  */
 public class DefineArray {

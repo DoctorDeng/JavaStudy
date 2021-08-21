@@ -1,7 +1,7 @@
 package foundationEnhancement;
 
 /**
- * 练习 Java 枚举 Enum Created by Doctor邓 on 2016/11/20.
+ * 练习 Java 枚举 Enum Created by doctordeng on 2016/11/20.
  */
 public class EnumTest {
 	public static void main(String[] args) {

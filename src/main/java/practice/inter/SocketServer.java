@@ -2,7 +2,7 @@ package practice.inter;
 
 /**
  * 练习Socket的使用
- * @author Doctor邓
+ * @author doctordeng
  * 服务器端
  */
 

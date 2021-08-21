@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 练习 Java 线程池.
  *
- * @author Doctor邓
+ * @author doctordeng
  */
 public class ThreadPoolTest {
     /**

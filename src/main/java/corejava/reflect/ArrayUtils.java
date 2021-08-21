@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 
 /**
  * 数组工具类
- * @author Doctor邓
+ * @author doctordeng
  *
  */
 public class ArrayUtils {

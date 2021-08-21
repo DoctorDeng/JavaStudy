@@ -2,7 +2,7 @@ package regularExcepression;
 /*
  * Description:  练习正则表达式的使用
  *         说明:  程序判断用户从键盘输入的字符序列是否全部由英文字母组成
- * Author:       Doctor邓
+ * Author:       doctordeng
  * Time:         2016-4-19
  */
 import java.util.Scanner;

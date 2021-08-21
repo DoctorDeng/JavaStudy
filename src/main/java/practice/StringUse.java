@@ -1,7 +1,7 @@
 package practice;
 /* 
  * Description:   练习String字符串类 的使用
- * Author:        Doctor邓
+ * Author:        doctordeng
  * Time:          2016-4-10
  */
 public class StringUse {

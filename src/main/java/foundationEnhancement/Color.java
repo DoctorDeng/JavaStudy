@@ -3,7 +3,7 @@ package foundationEnhancement;
 /**
  * Description:
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/27 17:42
  */
 public enum Color {

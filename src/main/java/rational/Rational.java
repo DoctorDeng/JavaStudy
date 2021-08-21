@@ -8,7 +8,7 @@ package rational;
  *                 Rational muti(Rational r)方法：有理数的乘法运算
  *                 Rational div(Rational r)方法：有理数的除法运算
  *                 
- * Author:         Doctor邓
+ * Author:         doctordeng
  * Time:           2016-4-18
  */       
 

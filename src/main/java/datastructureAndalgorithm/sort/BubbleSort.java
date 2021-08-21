@@ -7,7 +7,7 @@ package datastructureAndalgorithm.sort;
  *   <p/>3.针对所有的元素重复以上的步骤，除了最后一个。
  *   <p/>4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
  *  <p/>具体信息见：<a href="https://zh.wikipedia.org/wiki/冒泡排序">维基百科-冒泡排序</a>
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @since 2018/9/1 16:40
  */
 public class BubbleSort extends BasicSort {

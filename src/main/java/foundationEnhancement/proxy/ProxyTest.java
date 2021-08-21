@@ -12,7 +12,7 @@ import java.util.Collection;
 /**
  * Description: 练习 JDK 的动态代理相关类之Proxy
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/12/3 13:56
  */
 public class ProxyTest {

@@ -1,7 +1,7 @@
 package base.loop;
 
 /**
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @description 练习使用标识跳出外层 For 循环
  * @since 2018/9/20 16:15

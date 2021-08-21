@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 /**
  * Description: 练习注解
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/27 14:59
  */
 

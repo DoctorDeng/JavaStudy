@@ -6,7 +6,7 @@ import redis.clients.jedis.Pipeline;
 import java.util.List;
 
 /**
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @description 练习 Redis Pipeline
  * @since 2018/4/2 20:42

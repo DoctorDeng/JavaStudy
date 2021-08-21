@@ -7,7 +7,7 @@ import java.util.concurrent.Semaphore;
 /**
  * 练习 Semaphore
  *
- * @author Doctor邓
+ * @author doctordeng
  */
 public class TestSemaphore {
 

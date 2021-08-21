@@ -9,7 +9,7 @@ import java.net.URL;
 
 /**
  * 
- * @author Doctor邓
+ * @author doctordeng
  * 使用URL读取网页中的内容
  */
 public class URLReadMooc {

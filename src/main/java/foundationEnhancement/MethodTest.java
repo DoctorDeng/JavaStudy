@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 /**
  * 练习反射中的 Method 类
- * @author Doctor邓
+ * @author doctordeng
  *
  */
 public class MethodTest {
@@ -26,7 +26,7 @@ public class MethodTest {
 	}
 	public static void stringCharAtMehtod() {
 		try {
-			String str  = new String("Hello World, Doctor邓");
+			String str  = new String("Hello World, doctordeng");
 			/**
 			 * 从某个 Class 上获取某个 Method, 注意：Method 和 Field 一样并不是
 			 * 属于某个具体对象的而是属于某个 Class 的。

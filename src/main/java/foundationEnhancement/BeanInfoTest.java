@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 /**
  * Description: 练习使用 BeanInfo 来操作 JavaBean
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/26 20:31
  */
 public class BeanInfoTest {

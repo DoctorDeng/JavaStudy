@@ -3,7 +3,7 @@ package concurrent;
 /**
  * 练习多个线程共享数据
  *
- * @author Doctor邓
+ * @author doctordeng
  */
 public class MultiThreadShareData3 {
 

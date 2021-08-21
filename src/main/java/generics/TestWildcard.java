@@ -1,7 +1,7 @@
 package generics;
 
 /**
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @description 练习泛型通配符
  * @since 2017/10/17 21:27

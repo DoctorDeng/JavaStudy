@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 练习 Lock
  *
- * @author Doctor邓
+ * @author doctordeng
  */
 public class TestLock {
 

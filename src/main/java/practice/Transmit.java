@@ -1,7 +1,7 @@
 package practice;
 /*
  * Description:  值传递和引用传递练习
- * Author:       Doctor邓
+ * Author:       doctordeng
  * Time:         2016-4-9
  */
 public class Transmit {

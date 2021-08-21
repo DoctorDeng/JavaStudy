@@ -6,7 +6,7 @@ import java.util.concurrent.BlockingQueue;
 /**
  * 使用阻塞队列实现两个线程之间的同步通信
  *
- * @author Doctor邓
+ * @author doctordeng
  */
 public class TestThreadCommunicationByBlockingQueue {
     private static BlockingQueue<String> queueA = new ArrayBlockingQueue<>(1);

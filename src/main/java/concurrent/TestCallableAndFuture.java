@@ -12,7 +12,7 @@ import java.util.concurrent.Future;
 /**
  * 练习 Callable 和 Future 的使用, 让 线程执行返回结果
  *
- * @author Doctor邓
+ * @author doctordeng
  */
 public class TestCallableAndFuture {
     /**

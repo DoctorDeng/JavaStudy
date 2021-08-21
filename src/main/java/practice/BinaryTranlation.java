@@ -2,7 +2,7 @@ package practice;
 import java.util.Scanner;
 /* 
  * Description:   实现十进制转二进制
- * Author:        Doctor邓
+ * Author:        doctordeng
  * Time:          2016-4-9
  */
 public class BinaryTranlation {

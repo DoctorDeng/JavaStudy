@@ -8,7 +8,7 @@ import java.util.Properties;
 /**
  * Description: 专门读取配置文件, 利用反射创建对象的工厂
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/12/7 22:09
  */
 public class BeanFactory {

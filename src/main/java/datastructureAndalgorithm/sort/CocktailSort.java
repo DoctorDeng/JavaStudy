@@ -10,7 +10,7 @@ import util.PrintUtil;
  *   它可以得到比冒泡排序稍微好一点的性能，原因是冒泡排序只从一个方向进行比对（由低到高），每次循环只移动一个项目。
  * <br/>
  *   鸡尾酒排序最糟或是平均所花费的次数都是 O(n^2)，但如果序列在一开始已经大部分排序过的话，会接近 O(n)
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @since 2018/9/2 9:43
  */
 public class CocktailSort extends BasicSort {

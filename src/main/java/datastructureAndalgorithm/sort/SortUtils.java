@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * 练习排序使用到的工具类
  *
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @since 2018/9/2 9:59
  */

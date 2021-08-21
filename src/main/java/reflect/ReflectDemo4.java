@@ -1,7 +1,7 @@
 package reflect;
 /**
  * 获取类的信息示例
- * @author Doctor邓
+ * @author doctordeng
  *
  */
 public class ReflectDemo4 {

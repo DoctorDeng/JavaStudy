@@ -3,7 +3,7 @@ package db.nosql.redis.jedis;
 import redis.clients.jedis.Jedis;
 
 /**
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @description 练习 Jedis 与 Redis 交互
  * @since 2018/3/31 16:14

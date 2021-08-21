@@ -7,7 +7,7 @@ import java.net.Socket;
 
 /**
  * 
- * @author Doctor邓
+ * @author doctordeng
  * 基于TCP协议的Socket通信，实现用户登录
  * 服务器端
  */

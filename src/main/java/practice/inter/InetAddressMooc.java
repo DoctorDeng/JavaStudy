@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 /**
  * 
- * @author Doctor邓
+ * @author doctordeng
  * 慕课网上关于InetAddress的练习
  */
 public class InetAddressMooc {
@@ -24,7 +24,7 @@ public class InetAddressMooc {
 			System.out.println(address);
 			
 			//根据机器名获取InetAddress实例
-			InetAddress address2 = InetAddress.getByName("Doctor邓");
+			InetAddress address2 = InetAddress.getByName("doctordeng");
 			System.out.println("计算机名: " + address2.getHostName());
 			System.out.println("IP地址: " + address2.getHostAddress());
 		} catch (UnknownHostException e) {

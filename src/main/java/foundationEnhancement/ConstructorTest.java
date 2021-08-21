@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * 练习 Constructor 类
- * @author Doctor邓
+ * @author doctordeng
  *
  */
 public class ConstructorTest {

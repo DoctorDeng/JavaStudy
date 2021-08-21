@@ -4,7 +4,7 @@ import java.sql.Date;
 
 /**
  * 练习 Java 反射
- * @author Doctor邓
+ * @author doctordeng
  *
  */
 public class ReflectTest {

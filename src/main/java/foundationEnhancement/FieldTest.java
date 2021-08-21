@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 
 /**
  * 练习 反射的 Field 类
- * @author Doctor邓
+ * @author doctordeng
  *
  */
 public class FieldTest {

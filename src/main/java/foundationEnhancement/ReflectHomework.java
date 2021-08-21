@@ -9,7 +9,7 @@ import java.util.Properties;
 /**
  * Description: 反射练习
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/26 15:19
  */
 public class ReflectHomework {

@@ -3,7 +3,7 @@ package foundationEnhancement.classLoaderTest;
 /**
  * Description: 练习 Java 类加载器
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/29 22:28
  */
 public class ClassLoaderTest {

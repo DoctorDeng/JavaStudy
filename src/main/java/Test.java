@@ -24,7 +24,7 @@ public class Test {
 /**
  * 在 1 小时内每 10 秒钟蜂鸣一次
  * 
- * @author Doctor邓
+ * @author doctordeng
  */
 class BeeperControl {
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.WeakHashMap;
 
 /**
- * @author <a href="http://doctordeng.vip/">Doctor邓</a>
+ * @author <a href="http://doctordeng.vip/">doctordeng</a>
  * @version 1.0
  * @description
  * @since 2018/9/20 12:45

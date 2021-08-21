@@ -10,7 +10,7 @@ import java.util.Vector;
  * Description: 泛型练习
  *     使用反射的方式获取泛型的具体类型
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/29 21:45
  */
 public class GenericReflect {

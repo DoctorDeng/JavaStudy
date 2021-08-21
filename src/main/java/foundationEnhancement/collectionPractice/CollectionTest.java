@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Description: 练习 Java 泛型
  *
- * @author Doctor邓
+ * @author doctordeng
  * @since 2016/11/27 18:17
  */
 public class CollectionTest {

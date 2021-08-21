@@ -9,7 +9,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * 练习 Java 并发集合
  *
- * @author Doctor邓
+ * @author doctordeng
  */
 public class TestConcurrentCollection {
 
