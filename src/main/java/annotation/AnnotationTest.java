@@ -28,7 +28,6 @@ public class AnnotationTest {
     // 忽略警告
     @SuppressWarnings("deprecation")
     public static void main(String[] args) {
-        System.runFinalizersOnExit(true);
         AnnotationA.sayHello();
         reflectAnnotation();
     }
