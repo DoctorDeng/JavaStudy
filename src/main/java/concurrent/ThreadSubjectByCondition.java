@@ -65,7 +65,7 @@ public class ThreadSubjectByCondition {
             }
 
             isChildRun = false;
-            condition.signal();
+            condition.signalAll();
         } finally {
             lock.unlock();
         }
