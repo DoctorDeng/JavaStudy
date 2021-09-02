@@ -15,7 +15,9 @@ public class CLHLock implements SimpleLock {
      * CLH 队列队尾节点, 初始时 tail 是一个空节点.
      */
     volatile Node tail;
-
+    /**
+     * 保存线程对应 CLH 节点.
+      */
     final ThreadLocal<Node> nodeLocal;
 
     public CLHLock() {
@@ -73,6 +75,9 @@ public class CLHLock implements SimpleLock {
         }
     }
 
+    /**
+     * 原子更新 tail, 新的节点通过调用该方法入队.
+     */
     final boolean casTail(CLHLock.Node e, CLHLock.Node v) {
         return U.compareAndSwapObject(this, TAIL, e, v);
     }
