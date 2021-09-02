@@ -59,7 +59,9 @@ public class CLHLock implements SimpleLock {
             }
             // 3. 自旋, 直到前驱节点状态为 RELEASE 时，获取到锁.
             else {
-                while (!pred.isRelease());
+                while (!pred.isRelease()) {
+                    Thread.yield();
+                }
                 return;
             }
         }
