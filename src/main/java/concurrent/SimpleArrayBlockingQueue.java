@@ -31,10 +31,7 @@ public class SimpleArrayBlockingQueue<E> {
     private final Condition notFull;
 
     public SimpleArrayBlockingQueue() {
-        this.items = new Object[DEFAULT_CAPACITY];
-        this.lock = new ReentrantLock();
-        this.notEmpty = this.lock.newCondition();
-        this.notFull  = this.lock.newCondition();
+        this(DEFAULT_CAPACITY);
     }
 
     public SimpleArrayBlockingQueue(int capacity) {
