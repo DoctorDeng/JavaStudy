@@ -12,7 +12,7 @@ import sun.misc.Unsafe;
 public class CLHLock implements SimpleLock {
 
     /**
-     * CLH 队列队尾节点, 初始时 tail 执行一个空节点.
+     * CLH 队列队尾节点, 初始时 tail 是一个空节点.
      */
     volatile Node tail;
 
