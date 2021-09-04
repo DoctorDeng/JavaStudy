@@ -80,7 +80,8 @@ public class MCSLock implements SimpleLock {
                 exclusiveOwnerThread = null;
                 num = c;
                 Node node = nodeLocal.get();
-                // 当 node 为队列唯一的节点时尝试 cas 操作将 tail 指针指向 null, 如果失败则表示有新节点入队.
+                // 当队列中没有其他线程等待获取锁时，尝试使用 cas 操作将  tail 指向 null, 如果失败则表示期间有新的线程在入队.
+                // 由于入队操作不是原子操作, 因此需要使用 while 循环来等待新线程入队操作结束, 然后再开始进行唤醒后续线程的操作.
                 while (node.next == null) {
                     if (casTail(node, null)) {
                         return;
