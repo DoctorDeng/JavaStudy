@@ -139,13 +139,11 @@ public class MCSLock implements SimpleLock {
     // Unsafe
     private static final Unsafe U = getUnsafe();
     private static final long TAIL;
-    private static final long NUM;
 
     static {
         try {
             Class<?> lock = MCSLock.class;
             TAIL = U.objectFieldOffset(lock.getDeclaredField("tail"));
-            NUM = U.objectFieldOffset(lock.getDeclaredField("num"));
         } catch (Exception e) {
             throw new Error(e);
         }
