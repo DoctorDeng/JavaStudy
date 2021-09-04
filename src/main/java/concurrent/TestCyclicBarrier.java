@@ -40,7 +40,7 @@ public class TestCyclicBarrier {
                     ThreadUtils.sleepRandomSlience();
                     Long order = RandomUtils.nextLong(0, 100000);
                     orderQueue.add(order);
-                    System.out.println("查询订单, 订单 id：" + order);
+                    log.info("查询订单, 订单 id：{}", order);
                     cyclicBarrier.await();
                 }
             } catch (InterruptedException | BrokenBarrierException e) {
@@ -53,7 +53,7 @@ public class TestCyclicBarrier {
                     ThreadUtils.sleepRandomSlience();
                     Long delivery = RandomUtils.nextLong(0, 100000);
                     deliveryQueue.add(delivery);
-                    System.out.println("查询派送单, 派送单 id：" + delivery);
+                    log.info("查询派送单, 派送单 id：{}", delivery);
                     cyclicBarrier.await();
                 }
             } catch (InterruptedException | BrokenBarrierException e) {
