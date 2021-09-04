@@ -3,7 +3,7 @@ package concurrent.locks;
 import sun.misc.Unsafe;
 
 /**
- * MCS 锁实现.
+ * MCS 锁实现, 支持重入功能.
  *
  * @author DoctorDeng
  * @version 1.0.0
