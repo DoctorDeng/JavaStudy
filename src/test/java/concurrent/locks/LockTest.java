@@ -64,14 +64,14 @@ public class LockTest {
         }
 
         public void increment() {
+            lock.lock();
             // 重复上锁, 测试锁的可重入性.
-            lock.lock();
-            lock.lock();
+            //lock.lock();
             try {
                 count++;
             } finally {
                 lock.unlock();
-                lock.unlock();
+                //lock.unlock();
             }
         }
 

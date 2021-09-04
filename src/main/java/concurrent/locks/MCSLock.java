@@ -12,14 +12,25 @@ import sun.misc.Unsafe;
 public class MCSLock implements SimpleLock {
 
     /**
-     * 队列队尾节点.
+     * 队列队尾节点, 当锁被其他线程占用时线程对应节点会被添加到队列尾部进行自旋等待.
      */
-    volatile Node tail;
+    private volatile Node tail;
 
     /**
      * 保存线程对应节点.
      */
-    final ThreadLocal<Node> nodeLocal;
+    private final ThreadLocal<Node> nodeLocal;
+
+    /**
+     * 独占锁的线程.
+     */
+    private Thread exclusiveOwnerThread;
+
+    /**
+     * 获取锁成功的次数, 占有锁的线程每次获取锁时该值会 +1.
+     * <p> 在释放锁时如果 num > 0 则只会将 num 值 -1, 当 num == 0 是才会进行真正释放锁的操作.
+     */
+    private volatile int num;
 
     public MCSLock() {
         super();
@@ -28,49 +39,63 @@ public class MCSLock implements SimpleLock {
 
     @Override
     public void lock() {
+        Thread current = Thread.currentThread();
+        // 1. 当前线程已获持有锁时将 num + 1.
+        if (current == exclusiveOwnerThread) {
+            int c = num + 1;
+            if (c < 0) {
+                throw new Error("Maximum lock count exceeded");
+            }
+            num = c;
+            return;
+        }
         Node node = nodeLocal.get();
-
-//        for (;;) {
-//            Node t = tail;
-//            Node next = (node == null ? null : node.next);
-//
-//            if (next == null && node != t) {
-//                if (casTail(t, node)) {
-//                    // 两行代码不能互换否则会导致某些情况下所有线程都获取不到锁.
-//                    node.locked();
-//                    if (t != null) {
-//                        t.setNextRelaxed(node);
-//                    }
-//                }
-//            } else {
-//                while(node.isLocked())  {
-//                    Thread.yield();
-//                }
-//                return;
-//            }
+        // 2. 将节点添加到队列尾部.
         Node pred = getAndSetTail(node);
+        // 3. 如果队列不为空(即 tail != null) 则将原 tail 指向该节点并自旋等待.
         if (pred != null) {
             // 两行代码不能互换否则会导致某些情况下所有线程都获取不到锁.
             node.locked();
             pred.setNextRelaxed(node);
             while(node.isLocked())  {
+                // 自旋期间主动释放线程可以减少高竞争情况下 CPU 使用率.
                 Thread.yield();
             }
         }
+        // 4. 获取到锁后将锁的持有者设置为当前线程并将 num 设置为 1
+        exclusiveOwnerThread = current;
+        num = 1;
     }
 
     @Override
     public void unlock() {
-        Node node = nodeLocal.get();
-        while (node.next == null) {
-            if (casTail(node, null)) {
+        Thread current = Thread.currentThread();
+        // 只有锁的持有者才能释放锁.
+        if (current == exclusiveOwnerThread) {
+            int c = num - 1;
+            boolean free = (c == 0);
+            // 当 num == 0 时才进行真正释放锁的操作.
+            if (free) {
+                // 重置锁的持有线程与 num.
+                exclusiveOwnerThread = null;
+                num = c;
+                Node node = nodeLocal.get();
+                // 当 node 为队列唯一的节点时尝试 cas 操作将 tail 指针指向 null, 如果失败则表示有新节点入队.
+                while (node.next == null) {
+                    if (casTail(node, null)) {
+                        return;
+                    } else {
+                        Thread.yield();
+                    }
+                }
+                // 当 node 有后驱节点时直接唤醒后驱节点.
+                node.next.unLocked();
+                node.next = null;
                 return;
-            } else {
-                Thread.yield();
             }
+            // num 不为 0 时将 num 值 -1.
+            num = c;
         }
-        node.next.unLocked();
-        node.next = null;
     }
 
     final boolean casTail(Node e, Node v) {
@@ -109,28 +134,18 @@ public class MCSLock implements SimpleLock {
             this.locked = false;
         }
 
-//        private static final long LOCKED;
-//        private static final long NEXT;
-//
-//        static {
-//            try {
-//                Class<?> node = MCSLock.Node.class;
-//                LOCKED = U.objectFieldOffset(node.getDeclaredField("locked"));
-//                NEXT = U.objectFieldOffset(node.getDeclaredField("next"));
-//            } catch (Exception e) {
-//                throw new Error(e);
-//            }
-//        }
     }
 
     // Unsafe
     private static final Unsafe U = getUnsafe();
     private static final long TAIL;
+    private static final long NUM;
 
     static {
         try {
             Class<?> lock = MCSLock.class;
             TAIL = U.objectFieldOffset(lock.getDeclaredField("tail"));
+            NUM = U.objectFieldOffset(lock.getDeclaredField("num"));
         } catch (Exception e) {
             throw new Error(e);
         }
