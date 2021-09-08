@@ -37,6 +37,11 @@ public class LockTest {
         lockTest(new MCSLock());
     }
 
+    @Test
+    public void aqsMutextLockTest() throws InterruptedException {
+        lockTest(new AQSMutexLock());
+    }
+
     private void lockTest(SimpleLock lock) throws InterruptedException {
         Assert.assertNotNull(lock);
         final CountDownLatch countDownLatch = new CountDownLatch(THREAD_NUM);
