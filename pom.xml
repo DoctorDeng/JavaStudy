@@ -29,6 +29,8 @@
         <poi.version>4.1.2</poi.version>
 
         <javax.cache.version>1.1.1</javax.cache.version>
+
+        <jol.version>0.16</jol.version>
     </properties>
     <dependencies>
  <!--        <dependency>
@@ -346,10 +348,9 @@
             <version>${javax.cache.version}</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>${jol.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -377,6 +378,31 @@
                         <bootclasspath>${JAVA_HOME}/jre/lib/rt.jar</bootclasspath>
                     </compilerArguments>-->
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <id>jol-samples</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>jol-samples</finalName>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <manifestEntries>
+                                        <Premain-Class>org.openjdk.jol.vm.InstrumentationSupport</Premain-Class>
+                                        <Launcher-Agent-Class>org.openjdk.jol.vm.InstrumentationSupport$Installer</Launcher-Agent-Class>
+                                    </manifestEntries>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
