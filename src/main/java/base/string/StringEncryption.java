@@ -1,4 +1,4 @@
-package string;
+package base.string;
 /*
  * Description:   将用户在键盘输入的字符串加密，然后输出密文
  */

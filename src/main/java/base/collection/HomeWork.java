@@ -1,4 +1,4 @@
-package collection;
+package base.collection;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,7 +47,7 @@ public class HomeWork {
 	//对字符串进行排序
 	public void sortString() {
 		
-		//将十条字符串添加到List<string>中
+		//将十条字符串添加到List<base.string>中
 		for (int i=0; i<10; i++) {
 			String temp = createString();
 			listString.add(temp);

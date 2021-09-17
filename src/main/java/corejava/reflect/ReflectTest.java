@@ -1,7 +1,7 @@
 package corejava.reflect;
 
-import collection.Course;
-import collection.Student;
+import base.collection.Course;
+import base.collection.Student;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package collection;
+package base.collection;
 
 /**
  * @author Administrator

@@ -1,4 +1,4 @@
-package string;
+package base.string;
 
 /**
  * @author <a href="http://doctordeng.vip/">doctordeng</a>

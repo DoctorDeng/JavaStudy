@@ -1,4 +1,4 @@
-package collection;
+package base.collection;
 /*
  * Description:   课程类
  */

@@ -1,4 +1,4 @@
-package regularExcepression;
+package base;
 /*
  * Description:  练习正则表达式的使用
  *         说明:  程序判断用户从键盘输入的字符序列是否全部由英文字母组成

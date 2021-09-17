@@ -1,4 +1,4 @@
-package string;
+package base.string;
 
 import java.text.MessageFormat;
 

@@ -48,7 +48,7 @@ public class ProxyTest {
             // 调用无返回值方法成功
             collection.clear();
             // 调用有返回值方法抛出异常
-            // System.out.println(collection.size());
+            // System.out.println(base.collection.size());
             collection.add("ddd");
             System.out.println(collection.size());
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {

@@ -27,8 +27,8 @@ public class ReflectGenericityDemo {
 			System.out.println(list1.size());
 			System.out.println(list1);
 			/**
-			 * for(String string:list1) {
-			 * 	 System.out.println(string);
+			 * for(String base.string:list1) {
+			 * 	 System.out.println(base.string);
 			 * }
 			 */ // 现在不能这样遍历
 			for (int i=0;i<list1.size();i ++) {

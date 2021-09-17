@@ -1,4 +1,4 @@
-package string;
+package base.string;
 /*
  * Description:  练习StringTokenizer类的使用
  *         说明:  StringTokenizer类将指定字符串通过指定字符进行分割
