@@ -47,7 +47,7 @@ public abstract class Runtimes {
 		}
 		// 强制退出时间, 超过该时间将调用 Runtime#halt() 方法强制退出 JVM.
 		long forcedExitTime = System.currentTimeMillis() + softExitDuration * 1000L;
-		Thread exitWatchDog = new Thread(()-> {
+		Thread exitWatchdog = new Thread(()-> {
 			while (true) {
 				long time = System.currentTimeMillis();
 				if (time < forcedExitTime) {
@@ -61,7 +61,7 @@ public abstract class Runtimes {
 				}
 			}
 		});
-		exitWatchDog.start();
+		exitWatchdog.start();
 		System.exit(status);
 	}
 
