@@ -33,6 +33,11 @@ public class LockTest {
     }
 
     @Test
+    public void simpleClhLockTest() throws InterruptedException {
+        lockTest(new SimpleCLHLock());
+    }
+
+    @Test
     public void mcsLockTest() throws InterruptedException {
         lockTest(new MCSLock());
     }
