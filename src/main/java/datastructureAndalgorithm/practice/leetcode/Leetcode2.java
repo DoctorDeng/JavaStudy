@@ -26,7 +26,7 @@ public class Leetcode2 {
 
     class Solution {
 
-        public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
             ListNode l1Cursor = l1;
             ListNode l2Cursor = l2;
             ListNode head = new ListNode();
@@ -53,32 +53,5 @@ public class Leetcode2 {
             return head.next;
         }
 
-        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-            if (l1 == null && l2 == null) {
-                return null;
-            }
-            else if (l1 != null && l2 == null) {
-                return l1;
-            }
-            else if (l1 == null) {
-                return l2;
-            }
-
-            ListNode head = new ListNode();
-            ListNode result = head;
-            ListNode l1Cursor = l1;
-            ListNode l2Cursor = l2;
-            while (l1Cursor != null && l2Cursor != null) {
-                int l1Val = l1Cursor.val;
-                int l2Val = l2Cursor.val;
-                int sum = l1Val + l2Val;
-
-                result.next = new ListNode(sum);
-                l1Cursor = l1Cursor.next;
-                l2Cursor = l2Cursor.next;
-                result = result.next;
-            }
-            return head.next;
-        }
     }
 }

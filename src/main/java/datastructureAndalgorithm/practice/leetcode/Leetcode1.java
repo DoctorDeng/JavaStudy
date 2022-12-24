@@ -51,6 +51,9 @@ public class Leetcode1 {
         return null;
     }
 
+    /**
+     * 利用空间换时间, 使用 Map 存储已遍历的元素, 不用重复计算.
+     */
     public static int[] twoSum2(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
             return null;
