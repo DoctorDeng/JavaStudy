@@ -15,10 +15,6 @@ import java.util.Map;
  * 你可以按任意顺序返回答案.
  * </pre>
  *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode.cn/problems/two-sum
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- *
  * 说明见 <a href=https://leetcode.cn/problems/two-sum>Leetcode 1: 两数之和</a>
  *
  * @author DoctorDeng
