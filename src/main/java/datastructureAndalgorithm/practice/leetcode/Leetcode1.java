@@ -14,8 +14,8 @@ import java.util.Map;
  *
  * 你可以按任意顺序返回答案.
  * </pre>
- *
- * 说明见 <a href=https://leetcode.cn/problems/two-sum>Leetcode 1: 两数之和</a>
+ * <p>
+ * 说明见 <a href="https://leetcode.cn/problems/two-sum">Leetcode 1: 两数之和</a>
  *
  * @author DoctorDeng
  * @version 1.0.0

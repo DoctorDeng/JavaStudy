@@ -8,7 +8,7 @@ package datastructureAndalgorithm.practice.leetcode;
  * 你可以假设除了数字 0 之外，这两个数都不会以 0 开头.
  * </pre>
  * <p>
- * 说明见 <a href=https://leetcode.cn/problems/add-two-numbers>Leetcode 2: 两数相加</a>
+ * 说明见 <a href="https://leetcode.cn/problems/add-two-numbers">Leetcode 2: 两数相加</a>
  *
  * @author DoctorDeng
  * @version 1.0.0
