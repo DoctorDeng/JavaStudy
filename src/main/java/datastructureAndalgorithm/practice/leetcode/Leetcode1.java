@@ -30,23 +30,19 @@ public class Leetcode1 {
         if (nums == null || nums.length == 0) {
             return null;
         }
-        int[] result = new int[2];
         int len = nums.length;
-        boolean exists = false;
         for (int i = 0, le = len - 1; i < le; i++) {
             int inum = nums[i];
             for (int j = i + 1; j < len; j++) {
                 int jnum = nums[j];
                 int count = inum + jnum;
                 if (target == count) {
+                    int[] result = new int[2];
                     result[0] = i;
                     result[1] = j;
-                    exists = true;
+                    return result;
                 }
             }
-        }
-        if (exists) {
-            return result;
         }
         return null;
     }
