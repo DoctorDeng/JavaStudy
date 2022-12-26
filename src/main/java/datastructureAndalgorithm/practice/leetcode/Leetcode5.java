@@ -42,24 +42,24 @@ public class Leetcode5 {
         return s.substring(left, right + 1);
     }
 
+    /**
+     * 从指定字符串 s 的 left 与 right 位置开始进行扩散, 求得回文串长度.
+     */
     private static int longestPalindrome(String s, int left, int right) {
         int length = s.length();
-        int loopNum = -1;
-        int base = right - left;
         while (left >= 0 && right < length){
             if (s.charAt(left) == s.charAt(right)) {
                 left--;
                 right++;
-                loopNum++;
                 continue;
             }
             break;
         }
-        return base + loopNum * 2;
+        return right - left - 2;
     }
 
     public static void main(String[] args) {
-        System.out.println(longestPalindrome("abc"));
+        System.out.println(longestPalindrome("aaaaa"));
     }
 
 }
