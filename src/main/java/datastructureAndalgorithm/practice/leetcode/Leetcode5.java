@@ -46,6 +46,7 @@ public class Leetcode5 {
 
     /**
      * 从指定字符串 s 的 left 与 right 位置开始进行扩散, 求得回文串长度.
+     * @return 回文串长度, 未有回文串返回 0 或 -1.
      */
     private static int longestPalindrome(String s, int left, int right) {
         int length = s.length();
