@@ -25,18 +25,20 @@ public class Leetcode5 {
         int left = 0;
         int right = 0;
         for (int i = 0, len = length - 1; i < len; i++) {
-            int len1 = longestPalindrome(s, i, i + 1);
+            // 步进, 为 1 或者 2. 用于测试偶数和奇数长度的回文串.
+            int step = 1;
+            int max = longestPalindrome(s, i, i + 1);
             if (i + 2 < length) {
-                int len2 = longestPalindrome(s, i, i + 2);
-                if (len2 > len1 && len2 > right - left) {
-                    left = i - (len2 - 2)/2;
-                    right = i + (len2 - 2)/2 + 2;
-                    continue;
+                // 求长度为奇数的回文串长度.
+                int oddLen = longestPalindrome(s, i, i + 2);
+                if (oddLen > max && oddLen > right - left) {
+                    max = oddLen;
+                    step = 2;
                 }
             }
-            if (len1 > right - left) {
-                left = i - (len1 - 1)/2;
-                right = i + (len1 - 1)/2 + 1;
+            if (max > right - left) {
+                left = i - (max - step)/2;
+                right = i + (max - step)/2 + step;
             }
         }
         return s.substring(left, right + 1);
