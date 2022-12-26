@@ -28,7 +28,7 @@ public class Leetcode5 {
             int len1 = longestPalindrome(s, i, i + 1);
             if (i + 2 < length) {
                 int len2 = longestPalindrome(s, i, i + 2);
-                if (len2 > len1 && len2 + 1 > right - left) {
+                if (len2 > len1 && len2 > right - left) {
                     left = i - (len2 - 2)/2;
                     right = i + (len2 - 2)/2 + 2;
                     continue;
@@ -39,11 +39,7 @@ public class Leetcode5 {
                 right = i + (len1 - 1)/2 + 1;
             }
         }
-        if (right > 0) {
-            System.out.println(left + "==" + right);
-            return s.substring(left, right + 1);
-        }
-        return s.substring(0, 1);
+        return s.substring(left, right + 1);
     }
 
     private static int longestPalindrome(String s, int left, int right) {
@@ -63,7 +59,7 @@ public class Leetcode5 {
     }
 
     public static void main(String[] args) {
-        System.out.println(longestPalindrome("aa"));
+        System.out.println(longestPalindrome("abc"));
     }
 
 }
