@@ -33,6 +33,9 @@ import java.util.Stack;
 public class Offer09 {
 }
 
+/**
+ * 思路: 两个栈, 将栈 A 的数据转移到栈 B. 栈 B 中出栈的顺序便是队列先进先出(FIFO)的顺序.
+ */
 class CQueue {
 
     Stack<Integer> stackA;

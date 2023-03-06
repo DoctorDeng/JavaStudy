@@ -23,6 +23,9 @@ package datastructureAndalgorithm.practice.offer;
 public class Offer30 {
 }
 
+/**
+ * 思路: 使用链表记录数据, 每次入栈时, 每个节点记录当前栈的最小值, 获取最小值只需去栈顶节点记录的最小值即可.
+ */
 class MinStack {
 
     /**
@@ -77,8 +80,8 @@ class MinStack {
             this.min = min;
             this.next = next;
         }
-
     }
+
 }
 
 /**
