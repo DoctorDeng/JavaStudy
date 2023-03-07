@@ -24,6 +24,9 @@ package datastructureAndalgorithm.practice.offer;
  */
 public class Offer53_1 {
 
+	/**
+	 * 思路：通过二分法查找查找数组中与 target 相等的第一个值, 然后以该值向数组前后扫描, 得到与 target 相等的元素个数.
+	 */
 	public static int search(int[] nums, int target) {
 		if (nums == null || nums.length == 0) {
 			return 0;
