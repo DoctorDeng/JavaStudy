@@ -16,11 +16,14 @@ package datastructureAndalgorithm.practice.offer;
  */
 public class Offer05 {
 
+	/**
+	 * 思路: 遍历原字符串, 通过 StringBuilder 拼接新字符串.
+	 */
 	public String replaceSpace(String s) {
 		if (s == null || s.length() == 0) {
 			return s;
 		}
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(s.length() * 3);
 		char[] chars = s.toCharArray();
 		for (char chr: chars) {
 			if (chr == ' ') {
@@ -33,6 +36,9 @@ public class Offer05 {
 		return sb.toString();
 	}
 
+	/**
+	 * 思路: 创建 char[] 数组存储新的字符串, 后续截取多余的.
+	 */
 	public String replaceSpaceWithArray(String s) {
 		if (s == null || s.length() == 0) {
 			return s;

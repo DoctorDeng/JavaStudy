@@ -22,6 +22,9 @@ package datastructureAndalgorithm.practice.offer;
  */
 public class Offer58 {
 
+	/**
+	 * 思路: 创建 char[] 数组, 然后通过遍历原字符串, 将字符按照规则转移过期.
+	 */
 	public String reverseLeftWords(String s, int n) {
 		if (s == null) {
 			return null;
@@ -44,6 +47,9 @@ public class Offer58 {
 		return new String(chars);
 	}
 
+	/**
+	 * 思路：创建 char[] 数组, 通过 System.arraycopy 拷贝原字符串数据到新数组中, 效率更高.
+	 */
 	public static String reverseLeftWordsWithArrayCopy(String s, int n) {
 		if (s == null) {
 			return null;
