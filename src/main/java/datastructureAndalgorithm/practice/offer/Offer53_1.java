@@ -17,7 +17,7 @@ package datastructureAndalgorithm.practice.offer;
  *     -109 <= target <= 109
  * </pre>
  * <p>
- * 说明见 <a href="https://leetcode.cn/problems/fu-za-lian-biao-de-fu-zhi-lcof">剑指 Offer 35. 复杂链表的复制</a>
+ * 说明见 <a href="https://leetcode.cn/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof">剑指 Offer 53 - I. 在排序数组中查找数字 I</a>
  * @author DoctorDeng
  * @version 1.0.0
  * @date 2023/3/7 20:13
