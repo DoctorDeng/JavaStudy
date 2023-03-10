@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * 简易的 ArrayList 练习
- * @author <a href="http://doctordeng.github.io/">DoctorDeng</a>
+ * @author <a href="https://doctordeng.github.io/">DoctorDeng</a>
  * @version 1.0
  * @date 2020/12/31 14:52
  */

@@ -3,7 +3,7 @@ package datastructureAndalgorithm.practice.leetcode;
 /**
  * leetcode 104 题：求二叉树的最大深度.
  *
- * @author <a href="http://doctordeng.github.io">DoctorDeng</a>
+ * @author <a href="https://doctordeng.github.io">DoctorDeng</a>
  * @date 2021/5/21 20:38
  * @since 1.0.0
  */

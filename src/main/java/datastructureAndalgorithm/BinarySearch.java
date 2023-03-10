@@ -4,7 +4,7 @@ import datastructureAndalgorithm.sort.SortUtils;
 
 /**
  * 二分查找练习.
- * @author <a href="http://doctordeng.github.io">DoctorDeng</a>
+ * @author <a href="https://doctordeng.github.io">DoctorDeng</a>
  * @date 2021/4/14 20:24
  * @since 1.0.0
  */

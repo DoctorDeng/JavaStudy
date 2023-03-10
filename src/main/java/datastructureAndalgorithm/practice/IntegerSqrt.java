@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 /**
  * 求整数的算数平方根, 结果精确 6 位小数.
  * 习题参考：<a href="https://leetcode-cn.com/problems/sqrtx/description/">Leetcode-69</a>
- * @author <a href="http://doctordeng.github.io">DoctorDeng</a>
+ * @author <a href="https://doctordeng.github.io">DoctorDeng</a>
  * @date 2021/4/14 21:53
  * @since 1.0.0
  */

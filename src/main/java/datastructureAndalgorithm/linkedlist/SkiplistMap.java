@@ -8,7 +8,7 @@ import java.util.*;
  * 或者 <a href="https://github.com/redis/redis/blob/unstable/src/t_zset.c">Redis 中的 Skiplist</a> 实现
  * 或者 <a href="https://github.com/MottoX/SkipList">SkipList</a>.
  *
- * @author <a href="http://doctordeng.github.io">DoctorDeng</a>
+ * @author <a href="https://doctordeng.github.io">DoctorDeng</a>
  * @date 2021/4/17 8:37
  * @since 1.0.0
  */

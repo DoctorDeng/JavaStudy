@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * 字符串排序练习.
- * @author <a href="http://doctordeng.github.io">DoctorDeng</a>
+ * @author <a href="https://doctordeng.github.io">DoctorDeng</a>
  * @date 2021/4/13 15:04
  * @since 1.0.0
  */
