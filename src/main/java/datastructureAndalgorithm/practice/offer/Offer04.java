@@ -43,8 +43,7 @@ public class Offer04 {
 	 *  y = 1, 从 x = 0... n 方向扫描.
 	 *  ...
 	 *  逐行扫描直至找到符合条件的数.
-	 *
-	 * 该方法效率不高.
+	 *  该方法效率不高.
 	 */
 	public boolean findNumberIn2DArrayByLoop(int[][] matrix, int target) {
 		if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
