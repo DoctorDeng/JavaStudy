@@ -74,7 +74,7 @@ public class Offer11 {
 		int start = 0;
 		int end = numbers.length - 1;
 		while (start < end) {
-			int mid = start + (end - start) >> 1;
+			int mid = start + ((end - start) >> 1);
 			int midV = numbers[mid];
 			int endV =  numbers[end];
 			if (midV > endV) {
@@ -96,8 +96,11 @@ public class Offer11 {
 	}
 
 	public static void main(String[] args) {
-		int[] array = new int[]{1,3,5};
+		int[] array = new int[]{2,2,2,0,1};
+//		System.out.println(3 + ((4 - 3) >> 1));
+//		System.out.println((3 + 4)/2);
 		System.out.println(minArray(array));
+
 	}
 
 }
